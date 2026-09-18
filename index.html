@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
+<title>出行清单</title>
+<meta name="description" content="一份足够全、分类足够好的出行清单。买不漏，装不漏，该办的事不过期。">
+<meta name="theme-color" content="#FAF9F7" media="(prefers-color-scheme:light)">
+<meta name="theme-color" content="#131211" media="(prefers-color-scheme:dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="出行清单">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top" id="top">
+  <span id="tleft"></span>
+  <h1 id="ttl">出行清单</h1>
+  <span id="tright"></span>
+</header>
+
+<main id="app"><div class="empty">加载中…</div></main>
+
+<nav class="tabbar">
+  <button data-go="home" aria-selected="true"><span class="i">◎</span>总览</button>
+  <button data-go="list"><span class="i">☑</span>清单</button>
+  <button data-go="me"><span class="i">⋯</span>我的</button>
+</nav>
+
+<div class="mask" id="mask" hidden></div>
+<div class="sheet" id="sheet" hidden></div>
+<script src="assets/app.js"></script>
+</body>
+</html>

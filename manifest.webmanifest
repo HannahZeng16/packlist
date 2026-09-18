@@ -1,0 +1,15 @@
+{
+  "name": "出行清单",
+  "short_name": "出行清单",
+  "description": "一份足够全、分类足够好的出行清单",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FAF9F7",
+  "theme_color": "#FAF9F7",
+  "lang": "zh-CN",
+  "icons": [
+    { "src": "icons/icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

@@ -1,0 +1,1338 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="赴坡NTU">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F2F1ED">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181A19">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAF0UlEQVR42u3cf0yUdRzA8c/x4zx+XEEdYCOJhJmVWDqSDEXX5lirtCBz1iAdzRpr+V/1j5v/tLX+0H79gVMbraTc2GqrkVsWNATSkeYsVtKiEqcZv4UD7oDrjyMIAwR57u7zPM/7/ddNnwN335d393yf5/t1eDLThWi6ongJCBwEDgIHgYPAQeAgcBA4CBwEDiJwEDgIHAQOAgeBg8BB4CBwEDiIwEHgIHAQOAgcBA4CB4GDwEHgIAIHgYPAQeAgcBA4CBwEDgIHgYPAQQQOAgeBg8BB4CBwEDgIHAQOAgcRONT1d8lD4KAZZWjzAQ5d7xmqfIBD3aeJHh/g0Pg9Q4kPcCj9BqrBBzj0nptE3Ac4VJ+1RtYHOLTPZ0TQBzhMMNMVKR/gMMccaER8gMMcs+MpHzaCAxlaZIADGeBABjiQAQ5bFHEZ4FD6tqFBBjiQAQ5kgAMZ4EAGOJABDmTolAEOZIADGeBABjhYwAgOLqqBAxngQIbJZIADGeBABjiQYX0cCk8RbShDIw6Fe9zYU4Y6HAr3uLGtDF04FO5xY2cZinAo3OPG5jK04FC4xw0yVOBQuMcNMlTgULjHDTJU4FC4xw0yVOBQuMcNMlTgULjHDTK04FjgS2m4D2To+ljR4wMZGr+QavCBDL2nsto+X5ChaxIsgj6svbDAItPnEfGBDNNceAuzD2SY7JJ92Hwgw5Q3+4TBBzJMfJtgSH0gw/Q3GIfIBzIssjTBcB/IsNS6FQN9IMOCi5oM8YEMy654M/X8OjgsewnD5m8bplkrG/5xQoaZFlKHc7SQYb5V9uEZM2SYdQuGUI8cMsy9P0foxg8ZVti8JRSjiAzr7Oxj7Fgiw2rbPhk1osiw5p5gCx9XZFh5w7iFjC4yrL+b4I2NMTLsstXkfEcaGfbah3Tu440MO25SO/uoB/8WGXPP4clMF6tvOAwIcBAfKwQOAgeBg0xYjEn/3Y+//kpGbo6I+LyDVc+/OtDZPdORKx59eMPLO0Xk+JsVv3zdICJ5O57K3b5lXr/ON+A9WPTCf5/bePDjM9U1szxl4sgTFUfOfnqMd44I5IyPW19ewv9ycExf1roHMvNWMZZ8rExfwUulF8+2+IeG53Lwycrqk5XV1/zhklX3bn7jNRFpazpds3c/MqzwznH1rw4Rcad61pQWMZzgmNK3730ggYCIrHyi0JN1ByMKjskut5xvOVYnIlHR0Rt373Q4HAwqOCZrPHTU290rIml3ZeVs3sSggmOy4f6BhgNVE7MLCZ5kxhUck52vbbzw/TkRccbHFZSXMq7gmFLdu5Ujwz4RWZqfy7QHOKbUd+lKc9VnMj7t8VysaxGjC47JzlTXdP3eLiLu1FvXlBaH5HcEwvQccBjc2Mho7dvvB6c97nuyMCXb+GmPUb9/vk8Z8fnBITqmPVp/+rJORBxRURt3lxk+7TExQx8VEz37kQ7H+Gs7MrdJfXCEo6bDnwSnPVKX3ZmzxeBpj4GO8XsD4pOT5DqXi13BB/0d3eAQNdMe3hMHjgQfP7hja4LnFgN/eM/Fy8EHiSnX+bE3LU4JPuj99yngUFFrbdOfzedEJDbOdX/xIwb+5M62C/7BIRFZsnpFzCLnjC9rTHTa3dkicvVKZ39HFzhE2QW58WmPWYbwRk48xsZ+rT8VZJe9IW+mw5ZvKnC5E0Wkte47TmVVT3sY2+mjX4yNjIpI/q5nkm6/7f8HpC5bmr9ru4j4B4dMeoOg9W8wnpj2MLae9kv1FR+JiMuduPWdvauffiwpfXG0M9blTkxbnrXuxWeL9u9xxscFAoFv9h3ydvUId4KpnfYo3rdHjD6h/fHz46PDvvXlJc6E+LVl29aWbbvmgKG+/tq3Dv/W0Cwsh7Rnrpvd9xQWZOSuTM5ID37DGOzt62xr/+PUDz9/Ve/zDgprZUm4tkLgIAIHgYPAQeAgcBA4CBwEDgIHgYPAwUtA4CBwEDgIHAQOAgeBg8BB4CDb9g/ssDQweV33dwAAAABJRU5ErkJggg==">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>赴坡 NTU 工作台</title>
+<style>
+:root{
+  --bg:#F2F1ED; --surface:#FBFAF7; --surface2:#F6F5F1; --sunk:#EAE8E2;
+  --ink:#3B3B37; --ink2:#57574F; --muted:#8A887F; --faint:#A9A69C;
+  --line:#E6E3DC; --line2:#D6D2C9;
+  --accent:#9E5C55; --accent-soft:#F3E8E6;            /* 低饱和酒红，只做重点 */
+  --grow:#7B8F7E; --grow-soft:#EAF0EA;                /* 莫兰迪绿 */
+  --warn:#A8895C; --warn-soft:#F6EFE3;                /* 杏 */
+  --blue:#7C8DA6; --blue-soft:#EAEEF4;
+  --pink:#B18A92; --pink-soft:#F5EBEE;
+  --purple:#8F86A6; --purple-soft:#EEEBF3;
+  --hot:#B08A4A; --hot-soft:#FAF3E2;
+  --blur:rgba(242,241,237,.86);
+  --sh:0 1px 1px rgba(60,58,52,.03), 0 6px 18px -12px rgba(60,58,52,.22);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#181A19; --surface:#20221F; --surface2:#252723; --sunk:#2C2E29;
+  --ink:#E4E2DC; --ink2:#C6C3BA; --muted:#94918A; --faint:#726F68;
+  --line:#2E312C; --line2:#3C3F38;
+  --accent:#C98980; --accent-soft:#2C211F;
+  --grow:#9DB49F; --grow-soft:#1D241E;
+  --warn:#C9A874; --warn-soft:#282218;
+  --blue:#9FB0C7; --blue-soft:#1C2128;
+  --pink:#CDA8B0; --pink-soft:#271E21;
+  --purple:#ADA4C4; --purple-soft:#211F28;
+  --hot:#CBA463; --hot-soft:#292217;
+  --blur:rgba(24,26,25,.86);
+  --sh:0 1px 1px rgba(0,0,0,.3), 0 6px 18px -12px rgba(0,0,0,.8);
+}}
+:root[data-theme="dark"]{
+  --bg:#181A19; --surface:#20221F; --surface2:#252723; --sunk:#2C2E29;
+  --ink:#E4E2DC; --ink2:#C6C3BA; --muted:#94918A; --faint:#726F68;
+  --line:#2E312C; --line2:#3C3F38;
+  --accent:#C98980; --accent-soft:#2C211F;
+  --grow:#9DB49F; --grow-soft:#1D241E;
+  --warn:#C9A874; --warn-soft:#282218;
+  --blue:#9FB0C7; --blue-soft:#1C2128;
+  --pink:#CDA8B0; --pink-soft:#271E21;
+  --purple:#ADA4C4; --purple-soft:#211F28;
+  --hot:#CBA463; --hot-soft:#292217;
+  --blur:rgba(24,26,25,.86);
+  --sh:0 1px 1px rgba(0,0,0,.3), 0 6px 18px -12px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:16px/1.5 -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  padding-bottom:calc(62px + env(safe-area-inset-bottom,0px)); overscroll-behavior-y:none}
+button{font:inherit; color:inherit; background:none; border:none; padding:0; cursor:pointer; touch-action:manipulation; text-align:left}
+input,select,textarea{font:inherit; color:inherit; font-size:16px}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+.num{font-variant-numeric:tabular-nums}
+
+.appbar{position:sticky; top:env(safe-area-inset-top,0px); z-index:40; background:var(--blur);
+  backdrop-filter:saturate(180%) blur(18px); -webkit-backdrop-filter:saturate(180%) blur(18px);
+  border-bottom:.5px solid var(--line)}
+.abar{height:50px; display:flex; align-items:center; gap:4px; padding:0 6px}
+.abtn{min-width:44px; height:44px; display:flex; align-items:center; justify-content:center; border-radius:10px; color:var(--accent); font-size:15px; padding:0 9px; white-space:nowrap}
+.abtn:active{background:var(--sunk)}
+.atitle{flex:1; text-align:center; font-size:17px; font-weight:600; letter-spacing:-.01em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.spacer{min-width:44px}
+
+.wrap{padding:16px 15px 26px}
+.card{background:var(--surface); border:.5px solid var(--line); border-radius:18px; box-shadow:var(--sh)}
+.sec{font-size:12px; letter-spacing:.08em; color:var(--faint); font-weight:600; margin:22px 2px 8px; text-transform:uppercase; display:flex; justify-content:space-between; align-items:baseline}
+.sec b{font-weight:600; color:var(--muted); letter-spacing:0; text-transform:none; font-size:12px}
+.bar{height:8px; border-radius:99px; background:var(--sunk); overflow:hidden}
+.bar>i{display:block; height:100%; background:var(--grow); border-radius:99px; transition:width .3s}
+.bar.sm{height:5px}
+.bar.acc>i{background:var(--accent)}
+
+.hero{padding:16px 16px 18px; margin-bottom:12px}
+.hero-top{display:flex; align-items:flex-end; justify-content:space-between; gap:10px}
+.hero-lab{font-size:12px; letter-spacing:.08em; color:var(--faint); text-transform:uppercase}
+.hero-d{font-size:40px; font-weight:700; line-height:1; letter-spacing:-.03em}
+.hero-d small{font-size:17px; font-weight:500; color:var(--muted); letter-spacing:0; margin-left:4px}
+.hero-date{font-size:13px; color:var(--muted); margin-top:6px}
+.hero-date b{color:var(--accent); font-weight:500}
+.hero-pct{text-align:right}
+.hero-pct .v{font-size:27px; font-weight:700; color:var(--grow); letter-spacing:-.02em; line-height:1.1}
+.hero-pct .s{font-size:12px; color:var(--muted)}
+.hero .bar{margin-top:14px}
+.stats{display:grid; grid-template-columns:repeat(3,1fr); gap:8px}
+.stat{padding:11px 10px; border-radius:14px; background:var(--surface); border:.5px solid var(--line); min-width:0}
+.stat .l{font-size:11px; color:var(--faint); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.stat .v{font-size:17px; font-weight:600; margin-top:2px; white-space:nowrap; letter-spacing:-.01em}
+.stat .v small{font-size:12px; color:var(--muted); font-weight:400}
+
+.today{padding:14px 15px; margin-bottom:12px; border-left:3px solid var(--accent)}
+.today .h{display:flex; justify-content:space-between; align-items:baseline; gap:8px}
+.today .t{font-size:15px; font-weight:600}
+.today .d{font-size:12px; color:var(--faint)}
+.today .l{font-size:13px; color:var(--muted); margin-top:7px; line-height:1.6}
+
+.strip{display:flex; gap:8px; overflow-x:auto; padding:2px 14px 4px; margin:0 -14px; scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.pchip{flex:0 0 auto; padding:9px 13px; border-radius:13px; background:var(--surface); border:.5px solid var(--line); min-width:94px}
+.pchip:active{background:var(--sunk)}
+.pchip[aria-pressed="true"]{background:var(--accent-soft); border-color:var(--accent)}
+.pchip .c{font-size:11px; font-weight:700; color:var(--accent); letter-spacing:.05em}
+.pchip .n{font-size:14px; font-weight:500; white-space:nowrap; margin-top:1px}
+.pchip .d{font-size:11px; color:var(--faint); white-space:nowrap; margin-top:2px}
+
+.grid{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+.cc{padding:15px 14px; border-radius:18px; background:var(--surface); border:.5px solid var(--line); min-height:94px; display:flex; flex-direction:column; justify-content:space-between}
+.cc:active{background:var(--surface2)}
+.cc .n{font-size:14.5px; font-weight:600; line-height:1.35; letter-spacing:-.01em; display:flex; align-items:flex-start; gap:8px}
+.cc .ci{flex:0 0 auto; display:inline-flex; margin-top:1px}
+.cc .ci svg{width:18px; height:18px; display:block}
+
+.cc .m{display:flex; align-items:center; justify-content:space-between; gap:6px; margin-top:8px}
+.cc .k{font-size:11px; color:var(--accent); font-weight:600}
+.cc .f{font-size:12px; color:var(--muted)}
+.cc .bar{margin-top:7px}
+
+/* ---- 日历 ---- */
+.calhead{display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px}
+.calhead .m{font-size:19px; font-weight:700; letter-spacing:-.01em}
+.calnav{display:flex; gap:6px}
+.calnav button{width:40px; height:40px; border-radius:11px; background:var(--surface); border:.5px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:17px; color:var(--muted)}
+.calnav button:active{background:var(--sunk)}
+.calnav .t{width:auto; padding:0 13px; font-size:14px; color:var(--accent)}
+.dow{display:grid; grid-template-columns:repeat(7,1fr); gap:4px; margin-bottom:5px}
+.dow span{text-align:center; font-size:11px; color:var(--faint); font-weight:600}
+.cal{display:grid; grid-template-columns:repeat(7,1fr); gap:4px}
+.day{aspect-ratio:1/1.18; border-radius:11px; background:var(--surface); border:.5px solid var(--line);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; padding:2px; min-width:0; position:relative}
+.day:active{background:var(--sunk)}
+.day.out{background:transparent; border-color:transparent}
+.day.out .n{color:var(--faint); opacity:.5}
+.day .n{font-size:14px; font-weight:500; line-height:1}
+.day .cnt{font-size:9.5px; font-weight:700; line-height:1; padding:1.5px 4px; border-radius:99px; background:var(--grow-soft); color:var(--grow)}
+.day .cnt.k{background:var(--accent-soft); color:var(--accent)}
+.day .cnt.z{background:transparent; color:var(--faint); font-weight:400}
+.day.today{border-color:var(--accent); border-width:1.5px}
+.day.today .n{color:var(--accent); font-weight:700}
+.day.sel{background:var(--ink)}
+.day.sel .n{color:var(--bg)}
+.day.sel .cnt{background:rgba(255,255,255,.22); color:#fff}
+.day.dep::after{content:"✈"; position:absolute; top:1px; right:3px; font-size:8px; color:var(--accent)}
+.daytitle{font-size:16px; font-weight:700; margin:20px 2px 4px; letter-spacing:-.01em}
+.daysub{font-size:12.5px; color:var(--muted); margin:0 2px 10px}
+
+/* ---- 条目行 ---- */
+.list{background:var(--surface); border-radius:18px; border:.5px solid var(--line); overflow:hidden; box-shadow:var(--sh)}
+.row{display:flex; flex-wrap:wrap; border-bottom:.5px solid var(--line); position:relative; transition:background .18s; overflow:hidden}
+.row>.tog,.row>.acts,.row>.tags{transition:transform .22s cubic-bezier(.32,.72,0,1)}
+.row.swiped>.tog,.row.swiped>.acts,.row.swiped>.tags{transform:translateX(-86px)}
+.rowdel{position:absolute; right:0; top:0; bottom:0; width:86px; background:var(--accent); color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:14.5px; font-weight:600;
+  transform:translateX(100%); transition:transform .22s cubic-bezier(.32,.72,0,1); border-radius:0}
+.row.swiped .rowdel{transform:translateX(0)}
+.row.sel{background:var(--blue-soft)}
+.bulkbar{position:sticky; top:calc(50px + env(safe-area-inset-top,0px)); z-index:30; background:var(--blur);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); margin:0 -15px 12px; padding:10px 15px;
+  border-bottom:.5px solid var(--line); display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+.bulkbar .n{font-size:13.5px; font-weight:600; flex:1; min-width:70px}
+.bulkbar button{font-size:13px; padding:8px 12px; border-radius:99px; background:var(--surface); border:.5px solid var(--line2); white-space:nowrap}
+.bulkbar button.pri{background:var(--grow); border-color:var(--grow); color:#fff; font-weight:600}
+.bulkbar button.dg{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:600}
+.bigtime{width:100%; text-align:left; padding:20px 18px; border-radius:18px; background:var(--surface);
+  border:.5px solid var(--line); box-shadow:var(--sh); margin-bottom:14px}
+.bigtime .k{font-size:11.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--faint); font-weight:700}
+.bigtime .v{font-size:23px; font-weight:700; letter-spacing:-.02em; margin-top:7px; display:flex; align-items:center; justify-content:space-between; gap:10px}
+.bigtime .v small{font-size:13px; font-weight:500; color:var(--muted)}
+.bigtime .d{font-size:12.5px; color:var(--muted); margin-top:6px}
+.grp{background:var(--surface); border:.5px solid var(--line); border-radius:18px; box-shadow:var(--sh); margin-bottom:12px; overflow:hidden}
+.grph{width:100%; display:flex; align-items:center; gap:10px; padding:18px 16px}
+.grph:active{background:var(--surface2)}
+.grph .gt{font-size:16px; font-weight:700; letter-spacing:-.01em; white-space:nowrap}
+.grph .gs{flex:1; font-size:12px; color:var(--faint); text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.grph .cv{color:var(--faint); font-size:11px; transition:transform .2s; flex:0 0 auto}
+.grp.open .grph{border-bottom:.5px solid var(--line)}
+.grp.open .grph .cv{transform:rotate(90deg)}
+.pal{display:flex; gap:9px; flex-wrap:wrap}
+.pc{width:44px; height:44px; border-radius:13px; border:1.5px solid; display:flex; align-items:center; justify-content:center}
+.pc i{width:16px; height:16px; border-radius:99px; display:block; opacity:0; transition:opacity .15s}
+.pc.on i{opacity:1}
+.row:last-child{border-bottom:none}
+.row::before{content:""; position:absolute; left:0; top:11px; bottom:11px; width:3px; border-radius:0 3px 3px 0; background:transparent}
+.row::before{background:var(--cc, var(--line2))}
+.row.key{background:var(--accent-soft)}
+.row.top{background:var(--surface2)}
+.row.key.top{background:var(--accent-soft)}
+.tog{flex:1; min-width:0; display:flex; gap:13px; align-items:flex-start; padding:17px 4px 7px 15px; -webkit-user-select:none; user-select:none}
+.tog:active{opacity:.6}
+.box{flex:0 0 auto; width:24px; height:24px; border:1.5px solid var(--line2); border-radius:8px;
+  display:flex; align-items:center; justify-content:center; color:transparent; font-size:14px; font-weight:700;
+  background:var(--surface); transition:background .15s, border-color .15s}
+.row.done .box{background:var(--grow); border-color:var(--grow); color:#fff}
+.row.skip .box{background:var(--sunk); border-color:var(--line2); color:var(--faint)}
+.rb{flex:1; min-width:0; padding-top:1px}
+.rt{font-size:15.5px; line-height:1.45; font-weight:600; letter-spacing:-.01em; word-break:break-word; color:var(--ink)}
+.row.done .rt{color:var(--muted); font-weight:500; text-decoration:line-through; text-decoration-color:var(--line2)}
+.row.skip{opacity:.45}
+.row.key .rt{color:var(--accent)}
+.rt .pinb{font-style:normal; font-size:10px; color:var(--accent); background:var(--accent-soft);
+  border:.5px solid var(--accent); border-radius:6px; padding:1px 5px; margin-right:7px; vertical-align:2px; font-weight:700}
+.acts{flex:0 0 auto; display:flex; align-items:flex-start; padding:13px 8px 0 0; gap:1px}
+.ic{width:36px; height:36px; display:flex; align-items:center; justify-content:center; color:var(--faint); border-radius:10px}
+.ic svg{width:19px; height:19px; display:block}
+.ic:active{background:var(--sunk)}
+.ic.star.on,.ic.pin.on{color:var(--accent)}
+.tags{width:100%; display:flex; gap:7px; flex-wrap:wrap; align-items:center; padding:2px 14px 15px 52px}
+.tg{font-size:11.5px; line-height:1; padding:7px 11px; border-radius:99px; white-space:nowrap; font-weight:500;
+  border:.5px solid var(--line); color:var(--faint); background:var(--surface2)}
+.tg:active{opacity:.6}
+.tg.lab{background:var(--sunk); border-color:transparent; color:var(--muted)}
+.tg.dt{background:var(--blue-soft); border-color:transparent; color:var(--blue); font-weight:600}
+.tg.bu.on{background:var(--warn-soft); border-color:transparent; color:var(--warn); font-weight:600}
+.tg.cx.on{background:var(--grow-soft); border-color:transparent; color:var(--grow); font-weight:600}
+.tg.mny,.tg.pay{border-color:transparent; background:var(--sunk); color:var(--ink2); font-weight:600}
+.tg.pay{background:var(--grow-soft); color:var(--grow)}
+.tg.hotn{background:var(--hot-soft); border-color:transparent; color:var(--hot); font-weight:600;
+  max-width:100%; overflow:hidden; text-overflow:ellipsis}
+.tg.link{background:var(--grow-soft); border-color:transparent; color:var(--grow); text-decoration:none;
+  font-weight:600; display:inline-flex; align-items:center; gap:5px}
+.tg.link svg{width:13px; height:13px}
+.tg.lab.ico{padding:6px 8px; display:inline-flex; background:var(--sunk)}
+.tg.lab.ico svg{width:14px; height:14px; display:block}
+.tg.nf{background:transparent; border-color:var(--line2); color:var(--faint); padding:6px 8px; display:inline-flex}
+.tg.nf svg{width:14px; height:14px; display:block}
+
+.ghead{font-size:12px; font-weight:700; letter-spacing:.06em; color:var(--faint); padding:20px 4px 9px;
+  text-transform:uppercase; display:flex; justify-content:space-between; gap:8px; align-items:center}
+.ghead span{color:var(--muted); font-weight:500; letter-spacing:0; text-transform:none}
+.ghead .gi{display:inline-flex; align-items:center; gap:7px}
+.ghead .gi svg{width:17px; height:17px}
+.crow{display:flex; align-items:stretch; border-bottom:.5px solid var(--line)}
+.crow:last-of-type{border-bottom:none}
+.cbox{flex:0 0 auto; width:52px; display:flex; align-items:center; justify-content:center}
+.chead{flex:1; min-width:0; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:17px 15px 17px 0}
+.chead:active{background:var(--surface2)}
+.chead .nm{display:inline-flex; align-items:center; gap:9px; font-size:15.5px; font-weight:600;
+  letter-spacing:-.01em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.chead .nm svg{width:18px; height:18px; flex:0 0 auto}
+.chead .rr{flex:0 0 auto; display:flex; align-items:center; gap:10px}
+.chead .ct{font-size:12.5px; color:var(--muted)}
+.chead .cv{color:var(--faint); font-size:11px; transition:transform .2s}
+.crow.open .cv{transform:rotate(90deg)}
+.sublist{background:var(--surface2); border-bottom:.5px solid var(--line)}
+.sublist .tog{padding-left:26px}
+.cc{background:var(--ccs, var(--surface)); border-color:color-mix(in srgb, var(--cc,#999) 25%, transparent)}
+.cc .ci{color:var(--cc, var(--muted))}
+.cc .bar{background:color-mix(in srgb, var(--cc,#999) 16%, transparent)}
+.cc .bar>i{background:var(--cc, var(--grow))}
+.cc .f,.cc .k{color:color-mix(in srgb, var(--cc,#999) 72%, var(--ink))}
+#printroot{display:none}
+@media print{
+  html,body{background:#fff!important}
+  body>*{display:none!important}
+  #printroot{display:block!important; padding:0; color:#000; font:11px/1.5 -apple-system,"PingFang SC",sans-serif}
+  .ph1{font-size:19px; font-weight:700; margin-bottom:4px}
+  .pmeta{font-size:10.5px; color:#555; margin-bottom:12px}
+  table{border-collapse:collapse; width:100%}
+  .psum{margin-bottom:18px}
+  .psum th{font-size:9.5px; color:#555; text-align:left; font-weight:600; letter-spacing:.05em; border-bottom:1px solid #000; padding:3px 6px 3px 0}
+  .psum td{font-size:13px; font-weight:700; padding:5px 6px 5px 0}
+  .pcat{break-inside:avoid; page-break-inside:avoid; margin-bottom:15px}
+  .pcat h2{font-size:13px; margin:0 0 5px; padding-bottom:3px; border-bottom:1.2px solid #000; font-weight:700}
+  .pcat h2 span{float:right; font-size:10px; font-weight:400; color:#555}
+  .pitems th{font-size:9px; color:#666; text-align:left; font-weight:600; padding:2px 5px 2px 0; border-bottom:.5px solid #bbb}
+  .pitems td{padding:3px 5px 3px 0; border-bottom:.5px solid #e2e2e2; vertical-align:top; font-size:10.5px}
+  .pbox{font-size:12px}
+  .pdone td{color:#777; text-decoration:line-through}
+  .pskip td{color:#aaa}
+  .pn{font-size:9px; color:#666; margin-top:1px}
+  .pfoot{margin-top:14px; font-size:9px; color:#666; border-top:.5px solid #ccc; padding-top:6px}
+  @page{margin:13mm 11mm}
+}
+#pop{position:fixed; z-index:70; max-width:320px; background:var(--surface); color:var(--ink2);
+  border:.5px solid var(--line2); border-radius:14px; padding:13px 15px; font-size:13px; line-height:1.65;
+  box-shadow:0 10px 34px -12px rgba(60,58,52,.4); display:none}
+#pop.on{display:block}
+#pop .ph{font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); font-weight:700; margin-bottom:5px}
+#pop .pn{background:var(--hot-soft); border-left:2.5px solid var(--hot); border-radius:0 8px 8px 0; padding:9px 11px; margin-top:10px}
+#pop a{color:var(--grow)}
+.qd{display:flex; gap:7px; flex-wrap:wrap; margin-bottom:4px}
+.qd button{font-size:13.5px; padding:9px 14px; border-radius:99px; background:var(--surface2); border:.5px solid var(--line)}
+.qd button:active{background:var(--sunk)}
+.qd button[aria-pressed="true"]{background:var(--accent-soft); border-color:var(--accent); color:var(--accent); font-weight:600}
+.chip.date{color:var(--accent); border:.5px dashed var(--line2)}
+.pickbar{position:sticky; bottom:0; background:var(--surface); padding-top:10px; margin-top:4px}
+
+.tools{display:flex; gap:8px; align-items:center; margin-bottom:12px}
+.switch{flex:1; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:11px 14px; border-radius:13px; background:var(--surface); border:.5px solid var(--line); font-size:14px}
+.sw{flex:0 0 auto; width:48px; height:29px; border-radius:99px; background:var(--sunk); position:relative; transition:background .2s}
+.sw i{position:absolute; top:2.5px; left:2.5px; width:24px; height:24px; border-radius:99px; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.25); transition:transform .2s}
+.switch[aria-pressed="true"] .sw{background:var(--grow)}
+.switch[aria-pressed="true"] .sw i{transform:translateX(19px)}
+.seg{display:flex; gap:5px; background:var(--sunk); padding:4px; border-radius:13px; margin-bottom:14px}
+.seg button{flex:1; padding:9px 4px; border-radius:10px; text-align:center; font-size:13.5px; color:var(--muted); white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--surface); color:var(--ink); font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.12)}
+
+.sbox{display:flex; align-items:center; gap:8px; background:var(--surface); border:.5px solid var(--line); border-radius:13px; padding:0 13px; margin-bottom:14px}
+.sbox input{flex:1; min-width:0; border:none; background:none; outline:none; padding:13px 0}
+.sbox .x{width:34px; height:34px; display:flex; align-items:center; justify-content:center; color:var(--faint); margin-right:-8px}
+
+.tabbar{position:fixed; left:0; right:0; bottom:0; z-index:50; display:flex; background:var(--blur);
+  backdrop-filter:saturate(180%) blur(18px); -webkit-backdrop-filter:saturate(180%) blur(18px);
+  border-top:.5px solid var(--line); padding-bottom:env(safe-area-inset-bottom,0px)}
+.tab{flex:1; height:58px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:var(--faint); font-size:10.5px}
+.tab .i{font-size:18px; line-height:1}
+.tab[aria-current="page"]{color:var(--accent)}
+.tab:active{opacity:.55}
+
+.mask{position:fixed; inset:0; z-index:60; background:rgba(10,16,13,.45); opacity:0; transition:opacity .22s}
+.mask.on{opacity:1}
+.sheet{touch-action:pan-y; position:fixed; left:0; right:0; bottom:0; z-index:61; background:var(--surface); border-radius:22px 22px 0 0;
+  padding:8px 16px calc(18px + env(safe-area-inset-bottom,0px)); max-height:88vh; overflow-y:auto;
+  -webkit-overflow-scrolling:touch; transform:translateY(100%); transition:transform .26s cubic-bezier(.32,.72,0,1);
+  box-shadow:0 -8px 40px -12px rgba(0,0,0,.4)}
+.sheet.on{transform:translateY(0)}
+.grab{width:38px; height:5px; border-radius:99px; background:var(--line2); margin:6px auto 14px}
+.sh-t{font-size:18px; font-weight:600; line-height:1.35; margin-bottom:8px; letter-spacing:-.01em}
+.sh-n{font-size:13.5px; line-height:1.6; color:var(--muted); background:var(--surface2); border-radius:12px; padding:11px 13px; margin-bottom:4px}
+.fl{font-size:12px; letter-spacing:.06em; color:var(--faint); font-weight:600; margin:16px 0 7px; text-transform:uppercase}
+.seg3{display:flex; gap:6px; background:var(--sunk); padding:4px; border-radius:13px}
+.seg3 button{flex:1; padding:10px 6px; border-radius:10px; text-align:center; font-size:14px; color:var(--muted)}
+.seg3 button[aria-pressed="true"]{background:var(--surface); color:var(--ink); font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.fld{width:100%; background:var(--surface2); border:.5px solid var(--line); border-radius:12px; padding:12px 13px; outline:none; -webkit-appearance:none; min-height:46px}
+.fld:focus{border-color:var(--accent)}
+textarea.fld{resize:none; min-height:72px; line-height:1.5}
+.two{display:flex; gap:8px}
+.two .fld{min-width:0}
+.two .fld.a{flex:2}
+.two .fld.b{flex:1}
+.btn{display:block; width:100%; text-align:center; padding:15px; border-radius:14px; background:var(--ink); color:var(--bg); font-size:16px; font-weight:600; margin-top:18px}
+.btn:active{opacity:.8}
+.btn.g{background:var(--surface2); color:var(--ink); border:.5px solid var(--line); margin-top:9px}
+.btn.d{background:none; color:var(--accent); margin-top:6px}
+.qshops{display:flex; gap:6px; flex-wrap:wrap; margin-top:8px}
+.qshops button{font-size:12.5px; padding:6px 11px; border-radius:99px; background:var(--surface2); border:.5px solid var(--line); color:var(--muted)}
+.qshops button:active{background:var(--sunk)}
+
+.toast{position:fixed; left:50%; bottom:calc(76px + env(safe-area-inset-bottom,0px)); transform:translateX(-50%);
+  background:var(--ink); color:var(--bg); padding:11px 18px; border-radius:99px; font-size:14px; z-index:80;
+  box-shadow:var(--sh); max-width:88vw; text-align:center}
+.empty{padding:40px 20px; text-align:center; color:var(--faint); font-size:14px; line-height:1.7}
+.warn{background:var(--warn-soft); border:.5px solid var(--warn); border-radius:13px; padding:11px 13px; font-size:13px; line-height:1.55; color:var(--ink2); margin-bottom:14px}
+.about{font-size:12.5px; line-height:1.75; color:var(--muted)}
+.about h4{font-size:13px; color:var(--ink2); margin:18px 0 6px; font-weight:700}
+.about ul{margin:0; padding-left:17px}
+.about li{margin-bottom:5px}
+.about a{color:var(--grow)}
+.pop{animation:pop .25s ease}
+@keyframes pop{0%{transform:scale(1)}45%{transform:scale(1.22)}100%{transform:scale(1)}}
+</style>
+
+</head>
+<body>
+<div class="appbar"><div class="abar" id="abar"></div></div>
+<main id="app"></main>
+<nav class="tabbar" id="tabbar">
+  <button class="tab" data-go="home"><span class="i">◎</span>总览</button>
+  <button class="tab" data-go="cal"><span class="i">▦</span>日历</button>
+  <button class="tab" data-go="list"><span class="i">☑</span>清单</button>
+  <button class="tab" data-go="more"><span class="i">⋯</span>更多</button>
+</nav>
+<div class="mask" id="mask" hidden></div>
+<div class="sheet" id="sheet" hidden></div>
+
+<script>
+const PHASES=[{"id":"t60","code":"T-60+","nm":"两个月前","from":-999,"to":-31,"d":"搞定录取、签证、租房定位"},{"id":"t30","code":"T-30","nm":"一个月前","from":-30,"to":-8,"d":"STP、体检、机票、看房"},{"id":"t7","code":"T-7","nm":"出发前一周","from":-7,"to":-1,"d":"收行李、国内收尾"},{"id":"go","code":"D-DAY","nm":"出发当天","from":0,"to":0,"d":"随身件、漫游、落地准备"},{"id":"d0","code":"D+0","nm":"落地 48h","from":0,"to":2,"d":"手机卡、交通卡、验房、采买"},{"id":"w1","code":"W1","nm":"第一周","from":1,"to":7,"d":"STP、Singpass、银行卡、注册"},{"id":"m1","code":"M1","nm":"第一个月","from":8,"to":30,"d":"长期号、选课、安顿"}], CATS=[{"id":"doc","n":"证件与材料","d":"护照、STP、学历材料 —— 复印几份都写清楚了"},{"id":"money","n":"钱与银行","d":"现金带多少、哪几张卡、落地办哪个户口"},{"id":"rent","n":"住 · 租房","d":"选区、看房、合同、验房"},{"id":"bed","n":"住 · 床品家居","d":"床品尺寸、晾衣、驱蚊、收纳"},{"id":"clean","n":"住 · 清洁耗材","d":"垃圾袋、洗衣、密封袋这些琐碎的"},{"id":"elec","n":"电子与充电","d":"英标插头、插排、充电宝、各种线"},{"id":"wash","n":"洗漱护肤","d":"分装、防晒、隐形、化妆"},{"id":"wear","n":"穿 · 衣物鞋包","d":"常年 25–33°C，室内空调很冷"},{"id":"med","n":"药品医疗","d":"具体到药名，带哪些、哪些有入境风险"},{"id":"food","n":"食 · 厨房调料","d":"带什么调料、餐具、锅具"},{"id":"study","n":"文具与学习","d":"文具带多少、注册选课迎新"},{"id":"move","n":"行 · 机票行李","d":"行李额、箱子、随身、落地交通"},{"id":"tech","n":"通讯与账号","d":"保号、电话卡、Singpass、App"},{"id":"land","n":"落地采购","d":"到坡再买什么、去哪家店买"},{"id":"cnwrap","n":"国内收尾","d":"退租、档案、告别、留备份"},{"id":"red","n":"红线 · 别带","d":"逐条确认行李里没有，这几样是真会罚"},{"id":"nope","n":"不建议带","d":"省行李额用 —— 留学生实测「带了后悔」的"}], ITEMS=[{"c":"doc","t":"护照 —— 有效期 ≥6 个月且覆盖整个课程","n":"过期太早会压缩 STP 时长，来不及就先换新","p":"t60","k":1,"b":"","a":0,"cu":"SGD"},{"c":"doc","t":"护照首页 + 签证页 各复印 5 份","n":"NTU 注册、办 STP 时反复用到","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"护照电子版存云盘 + 手机相册","n":"","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},{"c":"doc","t":"IPA Letter：原件 + 复印件 3 份","n":"入境时要出示，到校办 STP 必须提交。IPA 自带单次入境签证，不用另外办签证","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"录取通知书：PDF 原件 + 打印 2 份","n":"NTU 注册、租房、银行开户都可能要它证明身份","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"本科毕业证 + 学位证 原件","n":"","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"毕业证学位证 英文公证件：原件 + 复印 2 份","n":"NTU 可能抽查，部分课程注册时需验证","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"本科成绩单：中英文原件 + 复印 2 份","n":"要加盖学校公章，GPA 相关事项可能用到","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"雅思/托福成绩单：原件 + 复印 2 份","n":"NTU 部分学院注册时会核对","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"2 寸白底证件照 15 张（35×45mm）+ 电子版","n":"学生证、银行卡、各种办理都要。校内拍约 15–20 新/组，国内提前拍划算得多","p":"t30","k":1,"b":"cn","a":60,"cu":"CNY"},{"c":"doc","t":"绒面小两寸证件照（OSE 用）","n":"","p":"t30","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"1 寸证件照若干","n":"","p":"t30","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"学信网 / 学位网 英文认证报告","n":"","p":"t60","k":0,"b":"","a":0,"cu":"SGD"},{"c":"doc","t":"身份证 + 复印件","n":"","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"户口本复印件","n":"","p":"t30","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"防水文件袋 ×2","n":"证件分两袋装，一袋随身一袋托运，丢一个不至于全完","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"A4 文件夹 / 资料册","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"紧急联系人纸质卡，放钱包","n":"写清国内家人、NTU 导师/学院行政邮箱、国际学生办公室电话","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"中国驻新加坡大使馆地址和电话记下来","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"doc","t":"在 ICA SOLAR 提交 eForm 16","n":"NTU 先把你的资料注册进 SOLAR；提交不早于开课前 2 个月","p":"t60","k":1,"b":"","a":0,"cu":"SGD","u":"https://www.ntu.edu.sg/life-at-ntu/student-life/student-services/onestop/student's-pass/application-of-student's-pass","ul":"NTU 学生准证申请说明"},{"c":"doc","t":"缴 STP 申请处理费 S$45","n":"提交后 7 天内不缴，申请直接作废","p":"t60","k":1,"b":"","a":45,"cu":"SGD","u":"https://www.ntu.edu.sg/life-at-ntu/student-life/student-services/onestop/student's-pass/application-of-student's-pass","ul":"NTU 学生准证申请说明"},{"c":"doc","t":"入学体检：HIV + 胸片 TB","n":"课程超过 6 个月必做","p":"t60","k":1,"b":"","a":0,"cu":"SGD","u":"https://www.ntu.edu.sg/admissions/graduate/gfreshmenguide/incoming-graduate-student-guide/healthscreening","ul":"NTU 入学体检说明"},{"c":"doc","t":"体检报告英文版交 Fullerton Health @NTU 认证","n":"国内做便宜；NTU 健康筛查本身 S$32（不含 GST），异常需加拍胸片 S$15","p":"t60","k":1,"b":"","a":32,"cu":"SGD","u":"https://www.ntu.edu.sg/admissions/graduate/gfreshmenguide/incoming-graduate-student-guide/healthscreening","ul":"NTU 入学体检说明"},{"c":"doc","t":"把体检报告上传回 SOLAR，等 IPA","n":"","p":"t30","k":1,"b":"","a":0,"cu":"SGD","u":"https://www.ntu.edu.sg/life-at-ntu/student-life/student-services/onestop/student's-pass/application-of-student's-pass","ul":"NTU 学生准证申请说明"},{"c":"doc","t":"缴 STP 签发费 S$60（+ 多次往返 S$30）","n":"要不要多次往返看你会不会中途出境旅行","p":"t30","k":1,"b":"","a":90,"cu":"SGD","u":"https://www.ntu.edu.sg/life-at-ntu/student-life/student-services/onestop/student's-pass/application-of-student's-pass","ul":"NTU 学生准证申请说明"},{"c":"doc","t":"在 ICA 官网预约 e-Appointment","n":"只接受预约，walk-in 办不了","p":"t30","k":1,"b":"","a":0,"cu":"SGD","u":"https://www.ica.gov.sg/reside/STP/collect","ul":"ICA 办理与领取"},{"c":"doc","t":"填 SG Arrival Card 电子入境卡","n":"MyICA App，入境前 3 天内填","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},{"c":"doc","t":"落地后按预约去 ICA 完成手续、录生物识别","n":"必须在短期访问准证或 IPA 有效期内完成，取早不取晚","p":"w1","k":1,"b":"","a":0,"cu":"SGD","u":"https://www.ica.gov.sg/reside/STP/collect","ul":"ICA 办理与领取"},{"c":"doc","t":"办生物识别时手里要有能收短信的本地号","n":"没有的话要用授权代理人的号","p":"w1","k":1,"b":"","a":0,"cu":"SGD"},{"c":"doc","t":"收到 ICA 登录邮件后用 Singpass 取电子学生准证","n":"一般生物识别后 7 个工作日内","p":"w1","k":1,"b":"","a":0,"cu":"SGD","u":"https://www.ica.gov.sg/reside/STP/collect","ul":"ICA 办理与领取"},{"c":"doc","t":"疫苗接种记录英文版","n":"","p":"t30","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"驾照 + 英文公证件（可选）","n":"","p":"t30","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"打印机票行程单","n":"入境可能会问。有留学生反馈实际没用上，但打一份不占地方","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"打印住宿证明 / 租约","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"保险单：电子版 + 打印一份","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"doc","t":"所有证件扫描件存三处：手机、云盘、邮箱","n":"丢件时这一步能救命","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},{"c":"money","t":"换现金 S$1000–1500，要 50/10/5 小面额","n":"刚到付押金、买电话卡、吃饭都用现金，小面额方便找零。 带了 1000 新","p":"t7","k":1,"b":"","a":1200,"cu":"SGD"},{"c":"money","t":"国内银联卡 1 张","n":"NTU 校内 ATM 支持银联取现，手续费约 1%–2%，应急用","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"money","t":"国际信用卡 Visa/Mastercard 1 张","n":"交学费、网购用，部分宿舍押金支持信用卡","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"money","t":"国内卡开通境外消费/取现，调高单日限额","n":"出国前在手机银行里改掉","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},{"c":"money","t":"记下国内银行的境外客服电话","n":"卡被风控时能打","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"money","t":"确认学费缴纳方式和截止日","n":"正式注册后约 2 周收到 NSS-Finance 账单","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},{"c":"money","t":"比较跨境汇款渠道：中行跨境通 / Wise / 电汇","n":"手续费和汇率差距不小","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},{"c":"money","t":"中国银行新加坡卡（可选，国内可预约）","n":"搭配国内中行跨境转账免手续费","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},{"c":"money","t":"落地办 DBS/POSB 学生账户","n":"全日制学生且 29 岁以下可免 S$2/月管理费；可提前线上预申请","p":"w1","k":1,"b":"","a":0,"cu":"SGD"},{"c":"money","t":"OCBC 或 UOB 作备用（可选）","n":"","p":"m1","k":0,"b":"","a":0,"cu":"SGD"},{"c":"money","t":"绑定 PayNow / PayLah","n":"本地转账、AA 制、付房租都靠它","p":"w1","k":1,"b":"","a":0,"cu":"SGD"},{"c":"money","t":"准备押金 + 首月房租","n":"押金普遍 1–1.5 个月租金","p":"t30","k":1,"b":"","a":2500,"cu":"SGD"},{"c":"money","t":"建一个留学预算表，按月记账","n":"","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},{"c":"money","t":"确认 NTU 学生保险覆盖范围","n":"","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},{"c":"money","t":"补充医疗险 / 行李险（可选）","n":"","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},{"c":"money","t":"小钱包 + 大钱包","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"money","t":"卡套（学生证、交通卡）","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"money","t":"支付宝/微信绑好还能用的支付方式","n":"","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"先定区域：Pioneer / Boon Lay / Jurong West / Lakeside / Clementi","n":"越靠近绿线西段越省通勤","p":"t60","k":1,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"硬指标：到 NTU 校车站或 179/199 巴士站步行 ≤5 分钟","n":"这条比房子新旧重要得多","p":"t60","k":1,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"房源渠道铺开：PropertyGuru、99.co、SRX、Carousell、小红书、学长群","n":"","p":"t60","k":0,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"避坑：Westwood、Floravale 一带","n":"有住户实录：要走 700–800m 到唯一直达的 199 站，社区巴士班次少挤不上，打车回去十几新。属个人经历，自己再核","p":"t60","k":1,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"想清楚组屋 vs 公寓","n":"组屋便宜、楼下就是食阁巴刹；公寓有泳池健身房但贵，且不一定用得上","p":"t60","k":0,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"摸清价格区间","n":"Jurong West 普通房约 S$900/月、Lakeside 2B2B 次卧约 S$1900/月不含 bills。单套报价，不代表均价","p":"t60","k":0,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"线上看房要求房东实拍通勤路线","n":"不要只看地图直线距离","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"核验房东身份，确认 HDB 出租已获批准","n":"","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"合同逐条看","n":"租期、押金、agent fee、水电网谁付、能否煮饭、访客规定、提前退租罚则","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"确认「包不包 bills」","n":"水电网燃气差价一个月可能几十上百新","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"问清楚洗衣机/烘干机：有没有、洗一次多少钱","n":"","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"问清楚房间里有没有床、床垫、衣柜、书桌、空调","n":"unfurnished 的房间要自己买家具，成本差很多","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"量一下床的尺寸再买床品","n":"本地单人床多为 90cm×190cm","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"确认插座类型和数量","n":"英标三方扁头，230V/50Hz","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"找室友：性别、作息、卫生习惯、公摊怎么算 提前讲清","n":"","p":"t60","k":0,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"备选方案：先订 3–7 天短租/酒店，落地线下看房再签","n":"不确定就别在国内签死","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"入住验房：拍视频 + 照片存证，家具电器逐件测试","n":"搬走时退押金全靠这些","p":"d0","k":1,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"留存押金收据 / 转账凭证","n":"","p":"d0","k":1,"b":"","a":0,"cu":"SGD"},{"c":"rent","t":"要 WiFi 密码、电箱和水阀位置","n":"","p":"d0","k":0,"b":"","a":0,"cu":"SGD"},{"c":"bed","t":"床单 ×1–2","n":"确认床尺寸后再买，本地单人床多为 90×190cm；也可落地在 IKEA 或 Courts 买","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"bed","t":"被套 ×1–2","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"bed","t":"枕套 ×2","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"bed","t":"床垫罩 / 保护垫","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"bed","t":"夏凉被 / 空调被 ×1","n":"室内空调开得很低，但不需要厚被子","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"bed","t":"枕头","n":"这边枕头贵且不好睡，对枕头有要求的一定自己带","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"bed","t":"遮光眼罩","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"bed","t":"耳塞","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"bed","t":"毛巾 ×2 / 速干毛巾","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"bed","t":"浴巾 ×1","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"bed","t":"折叠晾衣架 ×10","n":"宿舍晾衣空间有限，折叠款方便收纳。但 认为不用带，本地 1 新约 12 个 —— 自己权衡","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"bed","t":"裤架 / 晾衣夹","n":"","p":"t7","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"bed","t":"台灯","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"bed","t":"手持小风扇","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"bed","t":"除湿盒 / 干燥剂","n":"常年高湿，衣柜容易发霉","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"bed","t":"防霉贴 / 樟脑丸","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"bed","t":"电蚊香 / 驱蚊液 / 无比滴","n":"新加坡有登革热，别省这个。 带了无比滴","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"bed","t":"衣物收纳箱 / 收纳袋","n":"","p":"t7","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"bed","t":"真空压缩袋","n":"能省不少行李空间","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"bed","t":"免钉挂钩","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"bed","t":"化妆镜 / 小镜子","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"bed","t":"门后挂架 / 置物架","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"bed","t":"折叠小桌板（可选）","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"clean","t":"密封袋 大中小各一批","n":"自称「密封袋战神」，分装液体、收纳零碎全靠它","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"clean","t":"纸巾：大包 + 随身小包纸","n":"带了一大包加很多小包","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"clean","t":"湿厕纸","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"clean","t":"垃圾袋","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"clean","t":"洗衣液 / 洗衣凝珠","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"clean","t":"柔顺剂","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"clean","t":"内衣洗衣袋","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"clean","t":"消毒湿巾","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"clean","t":"抹布 / 百洁布","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"clean","t":"洁厕剂 + 马桶刷","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"clean","t":"扫把 + 拖把 + 簸箕","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"clean","t":"洗洁精","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"clean","t":"保鲜袋 / 保鲜膜","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"clean","t":"一次性手套","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"clean","t":"空气清新剂 / 除臭","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"elec","t":"英标转换插头 ×3","n":"NTU 宿舍和本地住处都是英标三方扁头。建议 1 个多口转换头 + 2 个普通款","p":"t7","k":1,"b":"cn","a":80,"cu":"CNY"},{"c":"elec","t":"插排 ×2（小巧多孔、带 USB 口）","n":"","p":"t7","k":1,"b":"cn","a":100,"cu":"CNY"},{"c":"elec","t":"笔记本电脑 + 充电线 ×2 根","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"手机","n":"","p":"go","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"平板 + 触控笔 / 键盘","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"充电宝 ×2，单个 ≤20000mAh","n":"必须有 3C 认证，只能随身不能托运","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"全能充 / 多口充电头","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"各设备充电线：手机 L 口 / C 口、手表、相机、剃须刀、电动牙刷","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"U 盘 / 移动硬盘 128G","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"取卡针","n":"换电话卡时要用，、 都专门列了","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"耳机","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"相机 + 备用电池 + 存储卡","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"吹风机","n":"带了；也可落地买，注意 230V","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"电动牙刷 + 备用刷头","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"剃须刀 / 脱毛刀","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"卷发棒 / 直板夹（可选）","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"计算器","n":"标了「重要」；部分考试可能限定型号，自己专业的要求待核实","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"电脑支架","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"鼠标 + 鼠标垫","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"5 号 / 7 号电池若干","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"手机壳 + 钢化膜备用","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"电脑内胆包 / 便携包","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"elec","t":"电子设备保修卡收好","n":"能在国内修的出发前先修","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},{"c":"wash","t":"分装瓶一套","n":"随身液体单瓶 ≤100ml；托运的分装瓶用密封袋套一下防漏","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"洗面奶 / 洁面皂","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"洗脸巾","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"卸妆水 + 眼唇卸","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"卸妆棉 / 湿敷棉","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"水乳 / 精华（没用完的分装带走）","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"面霜、眼霜","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"面膜","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"泥膜 / 清洁面膜小样","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"防晒霜 SPF50 大管 ×1 + 小样若干","n":"新加坡紫外线强，这个是刚需","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"防晒喷雾","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"防晒口罩 / 冰袖","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"唇膏","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"痘痘贴 + 祛痘药膏","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"香水（分装）","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"身体乳 / 润肤露","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"护手霜","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"洗发水 / 护发素 小瓶装","n":"大瓶落地买，带着太沉","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"护发精油","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"沐浴露小瓶 / 香皂","n":"洗得勤的话用香皂很舒服还简单","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"牙刷 + 牙膏 + 牙线","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"梳子","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"指甲刀","n":"放托运，别放随身","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"小剪刀 + 修鼻毛器","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"螺丝刀套装","n":"列了，装家具修东西用得上","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"头绳 / 发饰","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"化妆包 + 常用彩妆 + 备货","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"化妆刷 + 刷包","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"隐形眼镜（日抛/月抛）+ 护理液 + 双联盒","n":"本地配镜贵，一次多带","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"美瞳","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wash","t":"洗漱包 / 分装收纳袋","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"短袖 T 恤 / 衬衫 10–15 件","n":"棉质或速干面料。NTU 教室、图书馆空调足，单穿短袖可能冷","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"Polo 衫 ×3（可选）","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"衬衫 ×2","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"薄长裤 / 短裤 5–8 条","n":"长裤选轻薄款，空调房必备；短裤适合户外，NTU 校园大走路多","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"裙子 ×2（可选）","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"薄外套 / 防晒衣 ×2","n":"空调房、雨天防风用，防晒衣还能挡强紫外线","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"冲锋衣","n":"列了；空调房和雨天用","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"帽子 ×2–3","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"墨镜","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"晴雨两用折叠伞 ×2","n":"新加坡多阵雨，NTU 校园大，一把常年放书包","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"运动鞋 ×2","n":"NTU 校园需要频繁走路、坡路多，选防滑轻便款","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"洞洞鞋 / 凉鞋","n":"雨天外出方便","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"拖鞋（室内 + 浴室）","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"正装 1 套（西装/衬衫 + 西裤/裙）","n":"讲座、招聘会、小组汇报要用，本地买正装较贵","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"正装鞋","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"内裤 ×6–10","n":"这边内衣裤没国内便宜也没国内好","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"袜子 ×7–10","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"文胸 / 背心","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"睡衣 ×2–3","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"泳衣","n":"公寓泳池、东海岸、学校泳池都用得上","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"双肩包（耐用款）","n":"NTU 校园大，上课要带电脑和课本，背包更省力","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"斜挎包 / 小包","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"托特包 / 环保购物袋","n":"超市不免费给袋子","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"皮带","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"wear","t":"西装防皱袋","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"总原则：带原包装 + 英文说明书，数量不超 3 个月用量","n":"超量会被怀疑商业分销。新加坡买药多数需处方，非处方的如 Panadol 校内药店可买","p":"t7","k":1,"b":"","a":0,"cu":"SGD","u":"https://www.hsa.gov.sg","ul":"HSA 药品管制"},{"c":"med","t":"处方药：带英文处方 + 医生说明","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"⚠️ 先自查：含麻黄碱 / 可待因 / 吗啡成分的药属管制","n":"部分复方感冒药和止咳糖浆中招，出发前逐盒看配料表","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},{"c":"med","t":"⚠️ 先自查：含麝香、羚羊角等濒危成分的中成药会被没收","n":"","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},{"c":"med","t":"退烧止痛：布洛芬","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"对乙酰氨基酚 / Panadol","n":"Panadol 在新加坡是非处方药，校内药店可买，不带也行","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"抗过敏：氯雷他定","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"感冒药","n":"避开含麻黄碱成分的品类；具体某盒是否含，待核实","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"止泻：蒙脱石散","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"黄连素","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"健胃消食片","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"胃药：达喜","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"口腔溃疡药","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"眼药水 / 人工泪液","n":"外用药限制较少","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"红霉素软膏","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"创可贴","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"碘伏棉签","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"止痛贴膏（氟比洛芬凝胶贴膏等）","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"云南白药气雾剂","n":"带了。⚠️ 属中成药，成分自己核一下","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"鼻塞喷鼻剂","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"发烧贴","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"抗生素（头孢等）","n":"⚠️ 处方药，务必带英文处方，别散装带","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"甲硝唑","n":"⚠️ 处方药，同上（ 列了）","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"蓝芩口服液 / 板蓝根","n":"带了。⚠️ 中成药，入境风险自己核，不确定就别带","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"连花清瘟","n":"带了。⚠️ 同上，中成药自查成分","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"晕车药","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"体温计","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"卫生巾 / 棉条 带 1–2 个月过渡量","n":"楼下商超有很便宜的，不用大量囤","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"个人长期用药按 3 个月量准备","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"出国前看牙 + 洗牙","n":"新加坡牙科很贵，补牙拔牙尽量在国内解决","p":"t60","k":1,"b":"","a":0,"cu":"SGD"},{"c":"med","t":"配备用眼镜 1–2 副","n":"NTU 附近验光 + 配镜约 100–300 新","p":"t60","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"OK 镜 / 牙套及护理套装（如有）","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"med","t":"记下 NTU Medical Centre / Fullerton Health @NTU 位置和电话","n":"","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},{"c":"med","t":"登革热防护：驱蚊 + 家里不留积水","n":"","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},{"c":"food","t":"保温杯","n":"NTU 教学楼、图书馆有直饮水，接水方便；新加坡买保温杯选择少且贵","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"food","t":"水杯 / 随行杯","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"food","t":"⚠️ 先搞清食品入境规定","n":"肉类制品限量且需许可，口香糖禁带。别带真空包装肉、腊味、肉松碰运气","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},{"c":"food","t":"素火锅底料","n":"看清配料表有没有肉类成分","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"food","t":"辣椒酱 / 老干妈","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"food","t":"花椒、八角、干辣椒等干货香料","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"food","t":"孜然、十三香等调味料包","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"food","t":"螺蛳粉 / 方便食品 少量应急","n":"⚠️ 看配料包里有没有肉；落地头两天不一定有空做饭","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"food","t":"筷子 + 勺子 + 叉子","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"food","t":"饭盒","n":"自己带饭省钱","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"food","t":"焖烧杯（可选）","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"food","t":"削皮刀","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"food","t":"菜刀 + 砧板","n":"落地买，别托运刀具","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"food","t":"锅（炒锅/汤锅）","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"food","t":"电煮锅 / 小电饭煲","n":"落地买，注意 230V","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"food","t":"保鲜盒","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"food","t":"落地第一次超市采买","n":"FairPrice / Sheng Siong / Giant / Don Don Donki","p":"d0","k":1,"b":"","a":0,"cu":"SGD"},{"c":"food","t":"摸清 NTU 食堂","n":"Canteen 1/2/9/11/13/14、North Spine、South Spine","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},{"c":"food","t":"装外卖 App：GrabFood / foodpanda / Deliveroo","n":"","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},{"c":"food","t":"逛一次附近巴刹和食阁","n":"Boon Lay Place、Pioneer Mall、Jurong Point","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},{"c":"study","t":"笔 ×4 + 笔记本 ×2","n":"带少量就够，本地也买得到","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"study","t":"活页本 ×3 + 活页纸","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"study","t":"便利贴","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"study","t":"尺子、橡皮、笔袋","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"study","t":"文件夹 / 资料册","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"study","t":"完成在线注册 Matriculation","n":"走 NTU Acceptance Form","p":"t60","k":1,"b":"","a":0,"cu":"SGD","u":"https://www.ntu.edu.sg/admissions/matriculation","ul":"NTU 注册说明"},{"c":"study","t":"领学生证 Matriculation Card","n":"","p":"w1","k":1,"b":"","a":0,"cu":"SGD"},{"c":"study","t":"选课（GSCRS），提前查开放时间","n":"热门课要抢","p":"w1","k":1,"b":"","a":0,"cu":"SGD"},{"c":"study","t":"看清培养方案和毕业学分要求","n":"","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},{"c":"study","t":"参加 O-Week / 迎新","n":"","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},{"c":"study","t":"加项目群、学长学姐群","n":"二手家具、转租、内推都在群里","p":"t60","k":0,"b":"","a":0,"cu":"SGD"},{"c":"study","t":"逛一次图书馆：Lee Wee Nam、Business Library","n":"","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},{"c":"study","t":"装学校正版软件：Office / MATLAB / SPSS 等","n":"","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},{"c":"study","t":"了解 Career Portal 和实习政策","n":"STP 能不能兼职，以 ICA 和学校说明为准","p":"m1","k":0,"b":"","a":0,"cu":"SGD"},{"c":"move","t":"订机票，重点比行李额","n":"有留学生记录东航 23kg/件、加一件约 800 元人民币、升超经约 700 元可多带一件；以你买的航司条款为准","p":"t60","k":1,"b":"","a":0,"cu":"SGD"},{"c":"move","t":"28 寸托运箱 ×1–2","n":"带了 2 个 28 寸刚好 40kg + 20 寸登机箱 + 双肩包","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},{"c":"move","t":"20 寸登机箱","n":"","p":"t30","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"move","t":"确认行李箱三边和 ≤158cm","n":"","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},{"c":"move","t":"行李秤","n":"称完再出门，机场补救很贵","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"move","t":"行李箱绑带 / 密码锁","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"move","t":"行李牌 + 箱子加个好认的贴纸","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"move","t":"随身包：证件、电脑、充电宝、一天换洗","n":"托运丢了也能撑住。 的随身电子设备近 8kg，先试装一遍","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},{"c":"move","t":"压缩袋 / 收纳袋 按品类分装","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"move","t":"托运件里所有液体套密封袋","n":"","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},{"c":"move","t":"随身液体单瓶 ≤100ml","n":"","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},{"c":"move","t":"充电宝只能随身，不可托运","n":"","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},{"c":"move","t":"颈枕 / 眼罩 / 耳塞","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},{"c":"move","t":"登机前开通国内号国际漫游","n":"约 30 元/月，落地要收银行和学校的验证码","p":"go","k":1,"b":"","a":30,"cu":"CNY"},{"c":"move","t":"落地办本地 prepaid 卡","n":"Singtel / StarHub / M1，约 S$15，樟宜各航站楼 Cheers、7-11 或柜台，凭护照实名。预付卡有效期约 30 天","p":"d0","k":1,"b":"","a":15,"cu":"SGD"},{"c":"move","t":"办 EZ-Link 交通卡","n":"工本费 S$5 不退 + 储值；机场地铁站服务台、7-11、Cheers 都能办。公交上下车都要刷","p":"d0","k":1,"b":"","a":20,"cu":"SGD"},{"c":"move","t":"装 Grab，按行李数选车型","n":"普通 4 座放 2 件大行李、6 座放 3 件；樟宜到 NTU 约 45–50 分钟","p":"go","k":1,"b":"","a":40,"cu":"SGD"},{"c":"move","t":"提前查好樟宜到住处的路线和大概车费","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"move","t":"摸清 NTU 校车路线（免费）","n":"红/蓝/棕线","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},{"c":"move","t":"记住 179 / 199 巴士到 NTU","n":"","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},{"c":"move","t":"拿到 STP + Singpass 后把预付卡转长期号","n":"可在 hi! App 上操作","p":"m1","k":0,"b":"","a":0,"cu":"SGD"},{"c":"move","t":"绑 SimplyGo 线上充值","n":"需要 Singpass","p":"m1","k":0,"b":"","a":0,"cu":"SGD"},{"c":"move","t":"存 Google Maps 离线地图","n":"","p":"go","k":0,"b":"","a":0,"cu":"SGD"},{"c":"tech","t":"国内手机号办保号套餐","n":"微信、支付宝、银行验证码全靠它，千万别停机","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},{"c":"tech","t":"新加坡长期套餐：可到 NTU 校内 Singtel / StarHub 营业厅办学生套餐","n":"15–20 新/月含大流量 + 本地通话， 说比机场买划算","p":"w1","k":0,"b":"","a":18,"cu":"SGD"},{"c":"tech","t":"注册并激活 Singpass","n":"需要 STP + 本地号，缺一不可；租房、政务、银行核验全走它","p":"w1","k":1,"b":"","a":0,"cu":"SGD"},{"c":"tech","t":"测试 NTU 邮箱、NTUlearn、GSLink 能不能登","n":"系统权限一般开课前一周开放","p":"w1","k":1,"b":"","a":0,"cu":"SGD"},{"c":"tech","t":"预装 App","n":"Grab、Singpass、hi!App、SimplyGo、Telegram、WhatsApp、Carousell、Shopee、Lazada、HealthHub、Google Maps","p":"go","k":1,"b":"","a":0,"cu":"SGD"},{"c":"tech","t":"华为手机：提前装好谷歌框架 + 需要的 App","n":"专门列了这条，落地再弄很麻烦","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"tech","t":"重要资料备份到硬盘 + 云盘","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"tech","t":"云盘扩容 / 续费","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"tech","t":"确认住处 WiFi，或自己办宽带","n":"","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},{"c":"tech","t":"跨境访问国内服务的准备","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"tech","t":"和家人约定好报平安的方式和时间","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"land","t":"IKEA —— 床品、衣架、收纳、台灯、小家具","n":"有留学生反馈价格和国内差不多","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"land","t":"Courts —— 家电、床品","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"land","t":"Daiso —— 均一价杂货、收纳、厨房小件","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"land","t":"Mustafa —— 24 小时营业，落地当晚缺什么去这","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"land","t":"Don Don Donki —— 日货、零食、生鲜","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"land","t":"FairPrice / Sheng Siong / Giant —— 日用超市","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"land","t":"Shopee / Lazada —— 网购，大件送货上门","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"land","t":"Carousell —— 二手家具、毕业生转让，学期初最多","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"land","t":"Decathlon —— 运动用品、泳衣","n":"","p":"m1","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"land","t":"大瓶洗发水 / 沐浴露 / 护发素","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"land","t":"衣架","n":"本地 1 新约 12 个","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"land","t":"扫把、拖把、垃圾桶","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"land","t":"锅具、餐具、碗盘","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"land","t":"电风扇","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"land","t":"床垫（如果房间没配）","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"land","t":"熨斗 / 挂烫机（可选）","n":"","p":"m1","k":0,"b":"sg","a":0,"cu":"SGD"},{"c":"land","t":"买东西先问有没有 student price","n":"","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},{"c":"cnwrap","t":"房子退租 / 东西打包寄存","n":"","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},{"c":"cnwrap","t":"更新快递收件地址，退订用不上的订阅","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"cnwrap","t":"档案、户口 怎么处理（问原单位或学校）","n":"","p":"t60","k":0,"b":"","a":0,"cu":"SGD"},{"c":"cnwrap","t":"梳理银行卡年费和自动扣款，关掉不用的","n":"","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},{"c":"cnwrap","t":"确认社保、公积金、驾照的处理方式","n":"","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},{"c":"cnwrap","t":"能在国内修的电子设备先修","n":"","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},{"c":"cnwrap","t":"理发","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"cnwrap","t":"和家人朋友告别，留好联系方式","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"cnwrap","t":"家里留一份证件复印件和完整行程","n":"","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},{"c":"cnwrap","t":"手机清理存储空间","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"red","t":"确认没带口香糖","n":"除医用处方口香糖外一律禁止入境","p":"t7","k":1,"b":"","a":0,"cu":"SGD","u":"https://www.customs.gov.sg","ul":"新加坡海关"},{"c":"red","t":"确认没带电子烟、加热烟、烟油","n":"无论用没用过、自用还是送人，携带即违法，罚得很重","p":"t7","k":1,"b":"","a":0,"cu":"SGD","u":"https://www.customs.gov.sg","ul":"新加坡海关"},{"c":"red","t":"确认没带含麻黄碱 / 可待因 / 吗啡成分的药","n":"部分复方感冒药和止咳糖浆属管制药物","p":"t7","k":1,"b":"","a":0,"cu":"SGD","u":"https://www.hsa.gov.sg","ul":"HSA 药品管制"},{"c":"red","t":"确认没带含濒危动植物成分的中成药","n":"麝香、羚羊角这类会被没收并开扣押通知","p":"t7","k":1,"b":"","a":0,"cu":"SGD","u":"https://www.hsa.gov.sg","ul":"HSA 药品管制"},{"c":"red","t":"确认没带肉类及肉制品","n":"需许可且限量，包括腊肠、肉松、真空熟食","p":"t7","k":1,"b":"","a":0,"cu":"SGD","u":"https://www.customs.gov.sg","ul":"新加坡海关"},{"c":"red","t":"烟酒超量要主动申报缴税","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"red","t":"打火机、超容量充电宝 不要放行李","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"red","t":"新鲜果蔬、种子、植物 有限制","n":"待核实具体品类","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"red","t":"携带大额现金入境需申报","n":"门槛金额待核实，以 ICA 官网为准","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"red","t":"绝对不帮任何人带东西","n":"新加坡毒品犯罪可判死刑","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},{"c":"nope","t":"衣架 —— 别带","n":"本地 1 新约 12 个，够用","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"nope","t":"垃圾桶和脸盆 —— 别带","n":"基本用不太到，直接上垃圾袋然后扔掉就好","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"nope","t":"大量打印材料 —— 别带","n":"IPA 和 offer 各打印两份就行，行程单打印了也没用到","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"nope","t":"大瓶洗发水沐浴露 —— 别带","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"nope","t":"大量卫生巾 —— 别囤","n":"楼下商超有很便宜的，带过渡量就行","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"nope","t":"厚衣服、毛衣、羽绒服 —— 别带","n":"全年 25–33°C，只有空调房需要薄外套","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"nope","t":"厚被子棉被 —— 别带","n":"只需要一床空调被","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"nope","t":"大量零食 —— 别囤","n":"Don Don Donki 和超市都有，还占行李额","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"nope","t":"大量纸质书 —— 别带","n":"用电子版和图书馆","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},{"c":"nope","t":"三脚架 —— 看需求","n":"说公立学校可能需要，但本人没用到；按自己专业判断，待核实","p":"t7","k":0,"b":"","a":0,"cu":"SGD"}], KEYWORDS={"doc":["护照","签证","stp","ica","准证","ipa","offer","公证","成绩单","学历","认证","身份证","户口","照片","证件","体检","报告","注册","入境卡","solar","eform","预约","疫苗","复印","文件袋"],"money":["汇款","银行","学费","押金","转账","paynow","dbs","ocbc","uob","现金","新币","预算","保险","缴费","账单","记账","信用卡","银联","钱包","取现"],"rent":["租房","房东","合同","中介","看房","验房","室友","组屋","hdb","公寓","boon lay","pioneer","jurong","lakeside","clementi","agent","退租","bills","水电"],"bed":["床单","被套","枕","毛巾","浴巾","晾衣","台灯","风扇","除湿","蚊","收纳","压缩袋","挂钩","镜子","眼罩","耳塞","空调被","床垫"],"clean":["垃圾袋","洗衣液","柔顺","湿巾","抹布","洁厕","拖把","扫把","密封袋","保鲜","手套","纸巾","清洁","洗洁精"],"elec":["插头","转换","插排","充电","电脑","笔记本","平板","硬盘","u盘","耳机","相机","吹风机","电动牙刷","剃须","计算器","鼠标","电池","数据线","取卡针","充电宝"],"wash":["洗面","卸妆","水乳","精华","面霜","面膜","防晒","唇膏","痘","香水","身体乳","护手","洗发","沐浴","牙膏","梳子","指甲","隐形眼镜","美瞳","化妆","分装","洗漱"],"wear":["衣服","裤","鞋","外套","正装","衬衫","袜","内衣","泳衣","睡衣","帽子","墨镜","拖鞋","雨伞","书包","双肩包","皮带","t恤","裙"],"med":["药","医生","牙","布洛芬","过敏","创可贴","眼药","胃","退烧","感冒","处方","诊所","医院","体温","卫生巾","眼镜","登革","消炎"],"food":["调料","火锅","辣椒","超市","fairprice","食堂","外卖","水杯","保温杯","零食","厨房","煮饭","锅","筷","饭盒","菜刀","砧板","食品"],"study":["选课","学分","学生证","matriculation","图书馆","迎新","论文","社团","文具","笔记本子","便利贴","培养方案","考试","软件","o-week"],"move":["机票","行李","箱子","托运","航空","漫游","电话卡","sim","singtel","ez-link","ezlink","交通卡","simplygo","grab","打车","校车","巴士","地铁","mrt","机场","樟宜","接机","登机"],"tech":["手机号","保号","singpass","wifi","邮箱","ntulearn","app","备份","云盘","谷歌","华为","套餐","宽带"],"land":["落地买","ikea","宜家","daiso","mustafa","donki","shopee","lazada","carousell","courts","decathlon","采购","到了再买"],"cnwrap":["寄存","档案","户口本","快递","理发","告别","社保","公积金","保修"],"red":["违禁","禁带","口香糖","电子烟","管制","没收","申报","海关","别带"],"nope":["不建议","不用带","别囤","后悔","浪费行李"]}, SRC_HTML="<h4>全局说明</h4><ul><li><b>出发日期</b>默认 2026-11-01，是我按「11 intake」<b>推断</b>的，不是官方安排。到「更多 → 改出发日期」改成你的真实日期，日历和阶段会全部重算。</li><li><b>汇率</b>默认 1 SGD = 5.40 CNY，<b>非实时，待核实</b>，自己核一下再用。</li><li><b>海关与药品风险</b>：「红线 · 别带」整栏和药品里的中成药（连花清瘟、板蓝根、云南白药等）、处方药（头孢、甲硝唑），我是从中文攻略汇总来的，<b>没有逐条核对官方管制清单</b>。这一栏后果最重，出发前请自己上 <a href=\"https://www.customs.gov.sg\" target=\"_blank\" rel=\"noopener\">新加坡海关</a> 和 <a href=\"https://www.hsa.gov.sg\" target=\"_blank\" rel=\"noopener\">HSA</a> 确认。</li><li>日历上的日期是我按阶段自动铺的<b>建议日期</b>，你改过的那条就固定下来不再被重排。</li><li>费用都是 2026-09-17 抓的公开参考价，只用于估算，以官网和你收到的账单为准。</li></ul><h4>关于这些内容</h4><p style=\"margin:0 0 8px\">物品级的条目、数量和牌子，是从公开的留学生经验帖里汇总的 —— 是<b>个人经验，不是官方规定</b>，同一件事不同人结论可能相反（比如衣架该不该带），冲突的说法我都保留在条目里了，你自己挑。办手续类的条目挂了官网直达链接，那些才是权威出处。</p><h4>数据存在哪</h4><ul><li>勾选、日期、标签、金额<b>只存在你这台设备的这个浏览器里</b>，不上传、不同步。</li><li>清缓存或换浏览器会丢。重要节点到「更多 → 导出备份」存一份 .json。</li></ul>";
+/* 一套 20×20 线性图标，颜色继承所属分类 */
+const SV='<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">';
+const ICON={
+ doc:'<rect x="4" y="3" width="12" height="14" rx="2"/><path d="M7 7h6M7 10h6M7 13h4"/>',
+ money:'<circle cx="10" cy="10" r="6.5"/><path d="M10 6.3v7.4M8.2 8.4h3.6M8.2 11.6h3.6"/>',
+ rent:'<path d="M3.5 9.5L10 4l6.5 5.5"/><path d="M5.5 9v7.5h9V9"/>',
+ bed:'<path d="M3 16.5v-9M3 11h14v5.5M17 16.5v-5a2 2 0 0 0-2-2h-4.5"/><circle cx="6.8" cy="9" r="1.6"/>',
+ clean:'<path d="M8 3h3v3.2H8z"/><path d="M7 6.2h5l1.2 4v6.3H5.8v-6.3z"/><path d="M7.5 12.5h3"/>',
+ elec:'<path d="M11.2 3L5.8 11h4l-1 6 5.4-8h-4z"/>',
+ wash:'<path d="M10 3.4s5 5.4 5 8.3a5 5 0 0 1-10 0C5 8.8 10 3.4 10 3.4z"/>',
+ wear:'<path d="M7.4 3.4L4 5.4l1.5 3 1.4-.8V16.6h6.2V7.6l1.4.8L16 5.4l-3.4-2a2.6 2.6 0 0 1-5.2 0z"/>',
+ med:'<circle cx="10" cy="10" r="6.5"/><path d="M10 7v6M7 10h6"/>',
+ food:'<path d="M5 3v6a2.5 2.5 0 0 0 5 0V3M7.5 9v8"/><path d="M14.6 3c-1.6 1.2-1.6 4.6 0 6.2V17"/>',
+ study:'<path d="M4 4.4h4.6A2 2 0 0 1 10 6v10a2 2 0 0 0-1.4-.6H4z"/><path d="M16 4.4h-4.6A2 2 0 0 0 10 6v10a2 2 0 0 1 1.4-.6H16z"/>',
+ move:'<rect x="3.5" y="6.5" width="13" height="10" rx="2"/><path d="M7.5 6.5V5a1.5 1.5 0 0 1 1.5-1.5h2A1.5 1.5 0 0 1 12.5 5v1.5M7.5 10v3M12.5 10v3"/>',
+ tech:'<rect x="6" y="3" width="8" height="14" rx="2"/><path d="M8.8 14.6h2.4"/>',
+ land:'<path d="M5 7h10l1 9.6H4z"/><path d="M7.5 7.4V5.6a2.5 2.5 0 0 1 5 0v1.8"/>',
+ cnwrap:'<rect x="3.5" y="6" width="13" height="10.2" rx="1.6"/><path d="M3.5 9.2h13M8.2 12.4h3.6"/>',
+ red:'<path d="M10 3.4L17 16.4H3z"/><path d="M10 8.4v3.4M10 14h.01"/>',
+ nope:'<circle cx="10" cy="10" r="6.5"/><path d="M7 10h6"/>'
+};
+/* 每个大类一个专属低饱和色：[主色(图标/进度条), 极淡底色(卡片填充)] */
+const CATCOL={
+ doc:['#6F88A8','#E9EEF5'], money:['#4F8F86','#E3EFEC'], rent:['#B4848E','#F6EAED'],
+ bed:['#BE9079','#F8EEE6'], clean:['#7FA2A6','#EAF1F2'], elec:['#8478A8','#EDEAF5'],
+ wash:['#B189AD','#F5EBF3'], wear:['#7C86B4','#ECEEF7'], med:['#6F9A67','#EAF2E8'],
+ food:['#A2924F','#F3F0E1'], study:['#9C8463','#F2EDE4'], move:['#96739B','#F1E9F2'],
+ tech:['#5D8299','#E8EFF3'], land:['#B08A55','#F7EFE1'], cnwrap:['#8E8478','#F0EEEA'],
+ red:['#A55F55','#F6E9E6'], nope:['#8A8880','#EFEEEA']
+};
+const PALETTE=[['#6F88A8','#E9EEF5'],['#4F8F86','#E3EFEC'],['#B4848E','#F6EAED'],['#BE9079','#F8EEE6'],
+ ['#7FA2A6','#EAF1F2'],['#8478A8','#EDEAF5'],['#B189AD','#F5EBF3'],['#7C86B4','#ECEEF7'],
+ ['#6F9A67','#EAF2E8'],['#A2924F','#F3F0E1'],['#9C8463','#F2EDE4'],['#96739B','#F1E9F2']];
+function catCol(cid){ const c=CATCOL[cid]; if(c) return c;
+  const u=(S.cats||[]).find(x=>x.id===cid); return u? [u.col,u.soft] : ['#8A8880','#EFEEEA']; }
+function catVars(cid){ const c=catCol(cid); return '--cc:'+c[0]+'; --ccs:'+c[1]; }
+const catIcon=cid=>SV+(ICON[cid]||ICON.doc)+'</svg>';
+const IC={
+ star:SV+'<path d="M10 3.2l2.1 4.4 4.8.7-3.5 3.4.8 4.8L10 14.2l-4.2 2.3.8-4.8-3.5-3.4 4.8-.7z"/></svg>',
+ starOn:'<svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 3.2l2.1 4.4 4.8.7-3.5 3.4.8 4.8L10 14.2l-4.2 2.3.8-4.8-3.5-3.4 4.8-.7z"/></svg>',
+ pin:SV+'<path d="M4.5 4h11M10 16.5V7.6M6.6 11L10 7.6l3.4 3.4"/></svg>',
+ dots:'<svg viewBox="0 0 20 20" fill="currentColor"><circle cx="4.6" cy="10" r="1.35"/><circle cx="10" cy="10" r="1.35"/><circle cx="15.4" cy="10" r="1.35"/></svg>',
+ info:SV+'<circle cx="10" cy="10" r="6.6"/><path d="M10 9.2v4M10 6.8h.01"/></svg>',
+ link:SV+'<path d="M8.6 11.4a3 3 0 0 0 4.3 0l2-2a3 3 0 0 0-4.3-4.3l-1 1"/><path d="M11.4 8.6a3 3 0 0 0-4.3 0l-2 2a3 3 0 0 0 4.3 4.3l1-1"/></svg>'
+};
+const APPVER='2026.09.18';
+const SHOPS=['淘宝','京东','拼多多','本地商场','药店','眼镜店','IKEA 宜家','Daiso','Mustafa','Don Don Donki','FairPrice','Sheng Siong','Shopee','Lazada','Carousell 二手','Courts','Decathlon'];
+ITEMS.forEach((it,i)=>{ it.id=it.c+'-'+i; });
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+/* 内置 17 类 + 你自己建的 */
+function cats(){ return CATS.concat((S.cats||[]).map(c=>({id:c.id,n:c.n,d:c.d||'自己加的分类'}))); }
+function syncCatN(){ (S.cats||[]).forEach(c=>{ CATN[c.id]=c.n; }); }
+const PH={}; PHASES.forEach(p=>PH[p.id]=p);
+
+/* ---------- 存储 ---------- */
+const LS='ntu-wb-v1', OLD='ntu-checklist-v1';
+const DEF={cats:[],showPrice:true,mark:{},note:{},cost:{},paid:{},date:{},shop:{},buy:{},key:{},ch:{},top:{},hot:{},del:{},custom:[],settings:{depart:'2026-11-01',rate:5.4}};
+let S=JSON.parse(JSON.stringify(DEF)), storageOK=true;
+function save(){ try{ localStorage.setItem(LS, JSON.stringify(S)); storageOK=true; }
+  catch(e){ storageOK=false; try{ sessionStorage.setItem(LS, JSON.stringify(S)); }catch(e2){} } }
+function load(){
+  let raw=null;
+  try{ raw=localStorage.getItem(LS)||localStorage.getItem(OLD); }catch(e){ storageOK=false; }
+  if(!raw){ try{ raw=sessionStorage.getItem(LS); }catch(e){} }
+  if(raw){ try{ S=Object.assign(JSON.parse(JSON.stringify(DEF)), JSON.parse(raw)); }catch(e){} }
+  ['mark','note','cost','paid','date','shop','buy','key','ch','top','hot','del'].forEach(k=>{ if(!S[k]) S[k]={}; });
+  if(!S.custom) S.custom=[];
+  if(!S.cats) S.cats=[];
+  if(S.showPrice===undefined) S.showPrice=true;
+  if(!S.settings) S.settings={depart:'2026-11-01',rate:5.4};
+  try{ localStorage.setItem(LS+'-p','1'); localStorage.removeItem(LS+'-p'); }catch(e){ storageOK=false; }
+}
+
+/* ---------- 工具 ---------- */
+const $=(s,r)=>(r||document).querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const allRaw=()=>ITEMS.concat(S.custom||[]);
+const all=()=>allRaw().filter(i=>!S.del[i.id]);   /* 软删：进回收站，可恢复 */
+const byId=id=>allRaw().find(x=>x.id===id);
+const mark=id=>S.mark[id]||'todo';
+const noteOf=it=>(S.note[it.id]!==undefined? S.note[it.id] : (it.n||''));
+const CITE=/(小红书 @[^（）]*?2026-09|NTU 官网，2026-09-17|ICA 官网，2026-09-17)/g;
+function preview(t){ if(!t) return '';
+  var o=t.replace(CITE,'').replace(/（\s*[，、；]*\s*）/g,'').replace(/^[（(：:，,、；;\s]+/,'')
+        .replace(/[，,、；;\s（(]+$/,'').replace(/\s{2,}/g,' ').trim();
+  return (o!==t && o.length<10) ? '' : o; }
+function costOf(it){ const o=S.cost[it.id]; return (o&&typeof o.a==='number')?{a:o.a,cu:o.cu||'SGD'}:{a:it.a||0,cu:it.cu||'SGD'}; }
+function paidOf(it){ const o=S.paid[it.id]; return (o&&typeof o.a==='number')?{a:o.a,cu:o.cu||'CNY'}:null; }
+const shopOf=it=>S.shop[it.id]||'';
+/* 在哪买：用户自己说了算，覆盖我预设的 */
+/* 只剩「落地买」一个标签：标了=到新加坡再买/再办；没标=默认国内准备 */
+const sgOf=it=>(S.buy[it.id]!==undefined ? S.buy[it.id]==='sg' : it.b==='sg');
+/* 购物页收哪些：我预设的采购项，或你自己给了落地买/线上线下/价格的 */
+const isShop=it=>(it.b==='cn'||it.b==='sg'||S.buy[it.id]==='sg'||!!S.ch[it.id]||!!(S.cost[it.id]&&S.cost[it.id].a));
+/* 关键事件：默认都不是，全部由用户自己标。it.k 只作为「建议」保留 */
+const keyOf=it=>S.key[it.id]===true;
+const chOf=it=>S.ch[it.id]||'';            /* 'off'=要跑线下；空=默认线上/网购 */
+const topOf=it=>S.top[it.id]===true;       /* 置顶 */
+const hotOf=it=>S.hot[it.id]===true;       /* 重点备注 */
+const myNote=it=>S.note[it.id]||'';
+/* 置顶的排最前，其余保持原顺序（sort 稳定） */
+const sortL=arr=>arr.slice().sort((a,b)=>(topOf(b)?1:0)-(topOf(a)?1:0));
+/* 备注里的网址变成可点链接 */
+function linkify(t){
+  return esc(t).replace(/(https?:\/\/[^\s，。；、）)]+)/g,
+    '<a href="$1" target="_blank" rel="noopener" style="color:var(--grow)">$1</a>');
+}
+const suggestKey=it=>!!it.k;
+function depart(){ const d=new Date(S.settings.depart+'T00:00:00'); return isNaN(d)?new Date('2026-11-01T00:00:00'):d; }
+const addD=(d,n)=>{ const x=new Date(d); x.setDate(x.getDate()+n); return x; };
+const ymd=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const parseD=s=>new Date(s+'T00:00:00');
+function today(){ const t=new Date(); t.setHours(0,0,0,0); return t; }
+const fmtMD=d=>(d.getMonth()+1)+'/'+d.getDate();
+const WD=['日','一','二','三','四','五','六'];
+function daysLeft(){ return Math.round((depart()-today())/864e5); }
+function stats(l){ let d=0,a=0; l.forEach(it=>{const m=mark(it.id); if(m==='skip')return; a++; if(m==='done')d++;}); return {done:d,act:a,pct:a?Math.round(d/a*100):0}; }
+function toast(m){ const t=document.createElement('div'); t.className='toast'; t.textContent=m; document.body.appendChild(t); setTimeout(()=>t.remove(),1800); }
+function cny(x){ return Math.round(x).toLocaleString(); }
+
+/* ---------- 自动排期：同一类尽量排在同一天 ---------- */
+let AUTO={};
+function buildAuto(){
+  const dep=depart(), t0=today(); AUTO={};
+  PHASES.forEach(p=>{
+    let from = p.from<=-900 ? addD(dep,-75) : addD(dep,p.from);
+    const to = addD(dep,p.to);
+    if(from < t0) from = t0;                       /* 不往过去排 */
+    let days = Math.round((to-from)/864e5)+1;
+    if(days < 1) days = 1;                          /* 窗口已过 → 全压到今天 */
+    const items = all().filter(i=>i.p===p.id);
+    if(!items.length) return;
+    const groups=[];
+    cats().forEach(c=>{ const g=items.filter(i=>i.c===c.id); if(g.length) groups.push(g); });
+    let acc=0;                                      /* 同一类一定同一天；按条目数加权铺开，避免某天挤爆 */
+    groups.forEach(g=>{
+      const off = Math.min(days-1, Math.floor(acc/items.length*days));
+      const d = ymd(addD(from, Math.max(off,0)));
+      g.forEach(it=>{ AUTO[it.id]=d; });
+      acc += g.length;
+    });
+  });
+}
+const dateOf=it=>S.date[it.id]||AUTO[it.id]||ymd(depart());
+/* 一键选日期的快捷项 */
+/* 四个预设时间节点 → 对应日期，用于「快速绑定」 */
+function TNODES(){
+  const dep=depart(), t0=today();
+  return [['t60','两个月前'],['t30','一个月前'],['t7','前一周'],['w1','落地后第一周']].map(x=>{
+    const p=PH[x[0]];
+    let d=p.from<=-900? addD(dep,-60) : addD(dep,p.from);
+    if(d<t0) d=t0;
+    return {n:x[1], v:ymd(d)};
+  });
+}
+function QD(cur){
+  const t=today(), dep=depart();
+  const sat=addD(t,(6-t.getDay()+7)%7||6);
+  let out=[['今天',ymd(t)],['明天',ymd(addD(t,1))],['本周末',ymd(sat)],
+           ['下周一',ymd(addD(t,(8-t.getDay())%7||7))],
+           ['出发前3天',ymd(addD(dep,-3))],['出发当天',ymd(dep)]];
+  const seen={}; out=out.filter(x=>seen[x[1]]?false:(seen[x[1]]=1));   /* 撞同一天就去重 */
+  return out.map(x=>({n:x[0], v:x[1], on:(x[1]===cur)}));
+}
+function onDay(d){ return all().filter(it=>dateOf(it)===d); }
+
+/* ---------- 预算 ---------- */
+/* 预估 = 买之前填的；实付 = 买完填的。已买但没填实付，就按预估算 */
+function money(list){
+  const r=Number(S.settings.rate)||5.4;
+  const toC=(v,cu)=>cu==='CNY'?v:v*r;
+  let plan=0, spent=0, left=0, nPlan=0, nSpent=0;
+  (list||all()).forEach(it=>{
+    if(mark(it.id)==='skip') return;
+    const c=costOf(it), pd=paidOf(it);
+    const cv = c.a? toC(c.a,c.cu) : 0;
+    const pv = (pd&&pd.a)? toC(pd.a,pd.cu) : 0;
+    if(cv) nPlan++;
+    if(mark(it.id)==='done'){ const v = pv||cv; spent+=v; if(pv) nSpent++; }
+    else { left += cv; }
+    plan += (mark(it.id)==='done' ? (pv||cv) : cv);
+  });
+  return {plan:plan, spent:spent, left:left, rate:r, nPlan:nPlan, nSpent:nSpent};
+}
+
+/* ---------- 路由 ---------- */
+let V={v:'home'};
+function go(st,rep){ V=st; try{ history[rep?'replaceState':'pushState'](st,''); }catch(e){} render(); window.scrollTo(0,0); }
+window.addEventListener('popstate', e=>{ V=e.state||{v:'home'}; render(); });
+
+/* ---------- 行 ---------- */
+function rowHTML(it,o){
+  o=o||{};
+  const m=mark(it.id), c=costOf(it), pd=paidOf(it), kk=keyOf(it),
+        ch=chOf(it), tp=topOf(it), mn=myNote(it), hot=hotOf(it), sg=sgOf(it);
+  const desc=preview(it.n||''), hasNote=!!(desc||mn);
+  const tag=(t,on,cls,d)=>'<button class="tg '+cls+(on?' on':'')+'" data-'+d+'>'+t+'</button>';
+  return '<div class="row'+(kk?' key':'')+(tp?' top':'')+((o.bulk&&BULK[it.id])?' sel':'')
+   +(m==='done'?' done':'')+(m==='skip'?' skip':'')+'" style="'+catVars(it.c)+'" id="r-'+it.id+'" data-row="'+it.id+'">'
+   +'<button class="tog" data-'+(o.bulk?'sel':'tog')+'="'+it.id+'"><span class="box">'
+   +(o.bulk?(BULK[it.id]?'✓':''):(m==='skip'?'—':'✓'))+'</span>'
+   +'<span class="rb"><span class="rt">'+(tp?'<i class="pinb">置顶</i>':'')+esc(it.t)+'</span></span></button>'
+   +'<div class="acts">'
+     +'<button class="ic star'+(kk?' on':'')+'" data-kt="'+it.id+'" aria-pressed="'+kk+'" aria-label="关键事件">'+(kk?IC.starOn:IC.star)+'</button>'
+     +'<button class="ic pin'+(tp?' on':'')+'" data-tp="'+it.id+'" aria-pressed="'+tp+'" aria-label="置顶">'+IC.pin+'</button>'
+     +'<button class="ic" data-more="'+it.id+'" aria-label="备注与价格">'+IC.dots+'</button>'
+   +'</div>'
+   +'<div class="tags">'
+     +(o.cat?'<span class="tg lab">'+esc(CATN[it.c]||'')+'</span>':'')
+     +(o.caticon?'<span class="tg lab ico" style="color:'+catCol(it.c)[0]+'">'+catIcon(it.c)+'</span>':'')
+     +'<button class="tg dt" data-dchip="'+it.id+'">'+fmtMD(parseD(dateOf(it)))+'</button>'
+     + tag('落地买', sg, 'bu', 'buy2="sg" data-id2="'+it.id+'"')
+     + tag('线下',  ch==='off', 'cx', 'ch2="off" data-id2="'+it.id+'"')
+     +(hot&&mn?'<span class="tg hotn">'+esc(mn)+'</span>':'')
+     +(it.u?'<a class="tg link" href="'+it.u+'" target="_blank" rel="noopener">'+IC.link+esc(it.ul||'官网')+'</a>':'')
+     +(S.showPrice&&c.a&&!(pd&&pd.a)?'<span class="tg mny">预估 '+(c.cu==='CNY'?'¥':'S$')+c.a+'</span>':'')
+     +(S.showPrice&&pd&&pd.a?'<span class="tg pay">实付 '+(pd.cu==='CNY'?'¥':'S$')+pd.a+'</span>':'')
+     +(hasNote?'<button class="tg nf" data-info="'+it.id+'" aria-label="查看备注">'+IC.info+'</button>':'')
+   +'</div><button class="rowdel" data-del="'+it.id+'">删除</button></div>';
+}
+function refreshRow(id){
+  const el=document.getElementById('r-'+id); if(!el) return;
+  const it=byId(id); if(!it) return;
+  const m=mark(id);
+  el.classList.toggle('done',m==='done'); el.classList.toggle('skip',m==='skip');
+  el.classList.toggle('key',keyOf(it));   el.classList.toggle('top',topOf(it));
+  const bx=el.querySelector('.box'); bx.textContent=m==='skip'?'—':'✓';
+  bx.classList.remove('pop'); void bx.offsetWidth; if(m==='done') bx.classList.add('pop');
+  const st=el.querySelector('.star'); if(st){ st.innerHTML=keyOf(it)?IC.starOn:IC.star; st.classList.toggle('on',keyOf(it)); }
+  const pn=el.querySelector('.pin.ic'); if(pn) pn.classList.toggle('on',topOf(it));
+  const ch=chOf(it);
+  const set=(sel,on,cls)=>{ const e=el.querySelector(sel); if(e) e.className='tg '+cls+(on?' on':''); };
+  set('[data-buy2="sg"]', sgOf(it),'bu');
+  set('[data-ch2="off"]', ch==='off','cx');
+}
+
+/* ---------- 视图：总览 ---------- */
+function vHome(){
+  const st=stats(all()), ks=stats(all().filter(keyOf)), mo=money();
+  const dl=daysLeft(), td=ymd(today());
+  const tl=onDay(td).filter(i=>mark(i.id)==='todo');
+  let h='<div class="wrap">';
+  if(!storageOK) h+='<div class="warn"><b>这台设备存不住进度。</b>勾选关掉页面就会丢。请到「更多 → 导出备份」存一份，或者把这个文件挂到一个网址上打开。</div>';
+  else if(location.protocol==='file:') h+='<div class="warn"><b>你是直接打开本地文件的。</b>勾选能存，但存在这个文件的临时位置上 —— '
+    +'重新传一次文件、或者系统清理了临时目录，进度就没了。<b>重要节点到「更多 → 导出备份」存一份 .json</b>，换文件后用「恢复备份」读回来。</div>';
+  h+='<div class="card hero"><div class="hero-top"><div><div class="hero-lab">距离出发</div>'
+   +'<div class="hero-d num">'+(dl>0?dl:(dl===0?'0':(-dl)))+'<small>'+(dl>0?'天':(dl===0?'天 · 就是今天':'天前已出发'))+'</small></div>'
+   +'<div class="hero-date">'+S.settings.depart+' · <b data-act="setdate">改日期</b></div></div>'
+   +'<div class="hero-pct"><div class="v num">'+st.pct+'%</div><div class="s num">'+st.done+' / '+st.act+'</div></div></div>'
+   +'<div class="bar"><i style="width:'+st.pct+'%"></i></div></div>';
+
+  h+='<button class="card today" style="width:100%" data-day="'+td+'"><div class="h"><span class="t">今天要办 '+tl.length+' 件</span>'
+   +'<span class="d num">'+(today().getMonth()+1)+'月'+today().getDate()+'日 周'+WD[today().getDay()]+'</span></div>'
+   +'<div class="l">'+(tl.length? esc(tl.slice(0,3).map(i=>i.t).join(' · '))+(tl.length>3?' …':'') : '今天没排任务，往下看接下来几天。')+'</div></button>';
+
+  h+='<div class="sec">接下来几天</div><div class="list">';
+  for(let i=1;i<=4;i++){
+    const d=addD(today(),i), k=ymd(d);
+    const l=onDay(k).filter(x=>mark(x.id)==='todo');
+    h+='<button class="tog" style="width:100%; padding:13px 14px" data-day="'+k+'"><span class="rb">'
+      +'<span class="rt">'+(d.getMonth()+1)+'月'+d.getDate()+'日 周'+WD[d.getDay()]
+      +' <span style="color:var(--muted); font-weight:400; font-size:14px">· '+(l.length?l.length+' 件':'空')+'</span></span>'
+      +(l.length?'<span class="rn">'+esc(l.slice(0,2).map(x=>x.t).join(' · '))+(l.length>2?' …':'')+'</span>':'')
+      +'</span></button>'+(i<4?'<div style="height:.5px; background:var(--line)"></div>':'');
+  }
+  h+='</div>';
+
+  h+='<div class="sec">钱 <b>汇率 '+mo.rate+'，可改</b></div><div class="card" style="padding:15px 16px">'
+   +'<div style="display:flex; justify-content:space-between; align-items:baseline"><span style="font-size:14px; color:var(--muted)">预计总花费</span>'
+   +'<span class="num" style="font-size:23px; font-weight:700; letter-spacing:-.02em">≈ ¥'+cny(mo.plan)+'</span></div>'
+   +'<div class="bar" style="margin-top:12px"><i style="width:'+(mo.plan?Math.min(100,Math.round(mo.spent/mo.plan*100)):0)+'%"></i></div>'
+   +'<div style="display:flex; justify-content:space-between; margin-top:10px; font-size:13.5px">'
+   +'<span style="color:var(--muted)">已经花掉 <b class="num" style="color:var(--grow)">¥'+cny(mo.spent)+'</b></span>'
+   +'<span style="color:var(--muted)">还要花 <b class="num" style="color:var(--ink)">¥'+cny(mo.left)+'</b></span></div>'
+   +'<div style="font-size:11.5px; color:var(--faint); margin-top:8px">买之前填「预估价」，买完填「实付价」。已买但没填实付的，按预估算。</div></div>';
+
+  h+='<div class="sec">关键事件</div>'
+   +'<button class="card today" style="width:100%; border-left-color:var(--accent)" data-key="1"><div class="h">'
+   +(ks.act? '<span class="t">还差 '+(ks.act-ks.done)+' 条</span><span class="d num">共标了 '+ks.act+' 条</span>'
+           : '<span class="t">还没标任何关键事件</span><span class="d">去标记 ›</span>')
+   +'</div><div class="l">'+(ks.act? '点开只看你标记的关键事件。'
+      : '点任意条目的 ⋯ 打开「关键事件」开关。也可以到「更多」里一键采用我推荐的 '+ITEMS.filter(suggestKey).length+' 条。')+'</div></button>';
+  return h+'</div>';
+}
+
+/* ---------- 视图：日历 ---------- */
+function vCal(){
+  const sel=V.day||ymd(today());
+  const base=parseD(sel);
+  const y=V.y!==undefined?V.y:base.getFullYear(), mo=V.mo!==undefined?V.mo:base.getMonth();
+  const first=new Date(y,mo,1), start=new Date(y,mo,1-first.getDay());
+  const tdy=ymd(today()), dep=S.settings.depart;
+  let h='<div class="wrap"><div class="calhead"><div class="m num">'+y+' 年 '+(mo+1)+' 月</div>'
+   +'<div class="calnav"><button data-mv="-1">‹</button><button class="t" data-mv="0">今天</button><button data-mv="1">›</button></div></div>'
+   +'<div class="dow">'+WD.map(d=>'<span>'+d+'</span>').join('')+'</div><div class="cal">';
+  for(let i=0;i<42;i++){
+    const d=addD(start,i), k=ymd(d), out=d.getMonth()!==mo;
+    const list=onDay(k), todo=list.filter(x=>mark(x.id)==='todo');
+    const key=todo.some(x=>x.k);
+    h+='<button class="day'+(out?' out':'')+(k===tdy?' today':'')+(k===sel?' sel':'')+(k===dep?' dep':'')+'" data-day="'+k+'">'
+      +'<span class="n num">'+d.getDate()+'</span>'
+      +(todo.length?'<span class="cnt'+(key?' k':'')+' num">'+todo.length+'</span>'
+        :(list.length?'<span class="cnt z num">✓</span>':'<span class="cnt z">·</span>'))+'</button>';
+  }
+  h+='</div>';
+  const sd=parseD(sel), list=onDay(sel), tdy2=ymd(today());
+  h+='<div class="daytitle">'+(sd.getMonth()+1)+' 月 '+sd.getDate()+' 日 · 周'+WD[sd.getDay()]
+    +(sel===dep?' ✈️ 出发':'')+(sel===tdy2?'（今天）':'')+'</div>';
+  const doneN=list.filter(x=>mark(x.id)==='done').length;
+  h+='<div class="daysub">'+(list.length? '这天 '+list.length+' 件，已完成 '+doneN+' 件。点大类可以整类勾完，也可以展开挑单项。'
+      : '这天还没排事情。')+'</div>';
+  h+='<div class="qd" style="margin-bottom:12px"><button data-act="pick">＋ 从清单里挑事项放到这天</button></div>';
+  if(list.length){
+    V.ex=V.ex||{};
+    h+='<div class="list">';
+    cats().forEach(c=>{
+      const g=list.filter(i=>i.c===c.id); if(!g.length) return;
+      const gs=stats(g), allDone=gs.act>0&&gs.done===gs.act, op=!!V.ex[c.id];
+      h+='<div class="crow'+(op?' open':'')+'">'
+        +'<button class="cbox" data-catall="'+c.id+'" aria-label="整类勾选"><span class="box'+(allDone?' on':'')+'" style="'+(allDone?'background:var(--grow);border-color:var(--grow);color:#fff':'')+'">✓</span></button>'
+        +'<button class="chead" data-catx="'+c.id+'"><span class="nm"><span style="color:'+catCol(c.id)[0]+'; display:inline-flex">'+catIcon(c.id)+'</span>'+esc(c.n)+'</span>'
+        +'<span class="rr"><span class="ct num">'+gs.done+' / '+gs.act+'</span><span class="cv">▶</span></span></button></div>';
+      if(op) h+='<div class="sublist">'+sortL(g).map(it=>rowHTML(it,{nophase:true})).join('')+'</div>';
+    });
+    h+='</div>';
+  } else h+='<div class="empty">空的一天。</div>';
+  return h+'</div>';
+}
+
+/* ---------- 视图：清单 ---------- */
+function vList(){
+  const m=V.m||'cat';
+  let h='<div class="wrap"><div class="seg">'
+   +'<button data-m="cat" aria-pressed="'+(m==='cat')+'">分类</button>'
+   +'<button data-m="time" aria-pressed="'+(m==='time')+'">时间</button>'
+   +'<button data-m="find" aria-pressed="'+(m==='find')+'">搜索</button></div>';
+  if(m==='cat'){
+    h+='<div class="grid">';
+    cats().forEach(c=>{ const l=all().filter(i=>i.c===c.id), s=stats(l);
+      const kl=l.filter(i=>keyOf(i)&&mark(i.id)==='todo').length;
+      h+='<button class="cc" style="'+catVars(c.id)+'" data-cat="'+c.id+'"><div class="n"><span class="ci">'+catIcon(c.id)+'</span>'+esc(c.n)+'</div><div>'
+        +'<div class="m"><span class="f num">'+s.done+' / '+s.act+'</span>'
+        +(kl?'<span class="k">关键 '+kl+'</span>':'<span class="f num">'+s.pct+'%</span>')+'</div>'
+        +'<div class="bar sm"><i style="width:'+s.pct+'%"></i></div></div></button>'; });
+    h+='</div>';
+  } else if(m==='time'){
+    const dep=depart(), pid=V.tp||'t60', pp=PH[pid]||PHASES[0];
+    const f=pp.from<=-900?null:addD(dep,pp.from), t=addD(dep,pp.to);
+    const l=all().filter(i=>i.p===pid);
+    const st=stats(l), todo=l.filter(i=>mark(i.id)==='todo');
+    h+='<button class="bigtime" data-act="picktime">'
+      +'<div class="k">时间节点 · 点这里换</div>'
+      +'<div class="v">'+pp.nm+' <small>'+(f?fmtMD(f)+'–'+fmtMD(t):'越早越好 · '+fmtMD(t)+' 前')+'</small></div>'
+      +'<div class="d">这一段共 '+st.act+' 件，还剩 '+todo.length+' 件没做</div>'
+      +'<div class="bar" style="margin-top:12px"><i style="width:'+st.pct+'%"></i></div></button>';
+    h+='<div class="tools"><button class="switch" data-act="onlykey" aria-pressed="'+(V.key?'true':'false')+'"><span>只看关键事件 ★</span><span class="sw"><i></i></span></button></div>';
+    const show=sortL(l.filter(i=>mark(i.id)==='todo' && (!V.key||keyOf(i))));
+    h+= show.length? '<div class="ghead">还没做 <span>'+show.length+' 件</span></div><div class="list">'
+        +show.map(it=>rowHTML(it,{cat:true,nophase:true,date:true})).join('')+'</div>'
+      : '<div class="empty">这个时间节点已经清完了 🎉</div>';
+  } else {
+    const q=V.q||'';
+    h+='<div class="sbox"><span style="color:var(--faint)">⌕</span>'
+      +'<input type="search" id="q" placeholder="搜事项、备注、牌子…" value="'+esc(q)+'" '
+      +'autocomplete="off" autocorrect="off" autocapitalize="off" enterkeyhint="search">'
+      +'<button class="x" id="qx"'+(q?'':' hidden')+'>✕</button></div>'
+      +'<div id="sres">'+searchResults(q)+'</div>';
+  }
+  return h+'</div>';
+}
+
+let BULK={};
+/* 只重画结果区，输入框不动 —— 中文输入法不会被打断 */
+function searchResults(q){
+  q=(q||'').trim();
+  if(!q) return '<div class="empty">搜事项、说明、我的备注都行。<br>中英文都可以，边打边出结果。</div>';
+  const k=q.toLowerCase();
+  const r=all().filter(it=>(it.t+' '+(it.n||'')+' '+myNote(it)+' '+(CATN[it.c]||'')).toLowerCase().includes(k));
+  return r.length
+    ? '<div class="ghead">'+r.length+' 条结果</div><div class="list">'+sortL(r).map(it=>rowHTML(it,{cat:true,date:true})).join('')+'</div>'
+    : '<div class="empty">没找到「'+esc(q)+'」<br>换个词，或者点右上角 ＋ 把它加进来。</div>';
+}
+
+function vCat(){
+  const c=cats().find(x=>x.id===V.c)||{n:'',d:''};
+  let l=all().filter(i=>i.c===V.c); const s=stats(l);
+  if(V.todo) l=l.filter(i=>mark(i.id)==='todo');
+  if(V.key) l=l.filter(keyOf);
+  const bulk=!!V.bulk, nsel=Object.keys(BULK).filter(k=>BULK[k]).length;
+  let h='<div class="wrap"><div class="card hero" style="padding:15px 16px 16px; margin-bottom:14px">'
+   +'<div style="display:flex; align-items:center; gap:9px; margin-bottom:10px; color:'+catCol(V.c)[0]+'">'
+   +'<span style="display:inline-flex">'+catIcon(V.c)+'</span>'
+   +'<span style="font-size:16.5px; font-weight:700; letter-spacing:-.01em; color:var(--ink)">'+esc(c.n)+'</span></div>'
+   +'<div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px">'
+   +'<div style="font-size:13px; color:var(--muted); line-height:1.5; flex:1">'+esc(c.d||'')+'</div>'
+   +'<div class="num" style="font-size:22px; font-weight:700; color:var(--grow); letter-spacing:-.02em">'+s.pct+'%</div></div>'
+   +'<div class="bar" style="margin-top:12px"><i style="background:'+catCol(V.c)[0]+'; width:'+s.pct+'%"></i></div>'
+   +'<div class="num" style="font-size:12px; color:var(--faint); margin-top:7px">'+s.done+' / '+s.act+' 已完成</div></div>'
+   ;
+  if(bulk){
+    h+='<div class="bulkbar"><span class="n">已选 '+nsel+' 条</span>'
+      +'<button data-act="selall">'+(nsel===l.length&&l.length?'取消全选':'全选')+'</button>'
+      +'<button class="pri" data-act="bulkdone">标记完成</button>'
+      +'<button class="dg" data-act="bulkdel">删除</button>'
+      +'<button data-act="bulkoff">退出</button></div>';
+  } else {
+    h+='<div class="tools"><button class="switch" data-act="onlytodo" aria-pressed="'+(V.todo?'true':'false')+'"><span>只看没做的</span><span class="sw"><i></i></span></button></div>'
+     +'<div class="tools" style="margin-top:-4px"><button class="switch" data-act="onlykey2" aria-pressed="'+(V.key?'true':'false')+'"><span>只看关键事件 ★</span><span class="sw"><i></i></span></button></div>'
+     +'<div class="qd" style="margin-bottom:12px"><button data-act="bulkon">批量选择</button></div>';
+  }
+  h+= l.length? '<div class="list">'+sortL(l).map(it=>rowHTML(it,{date:!bulk, bulk:bulk})).join('')+'</div>'
+     : '<div class="empty">这一类全清完了 🎉<br>关掉「只看没做的」可以复查。</div>';
+  return h+'</div>';
+}
+
+function vMore(){
+  const b=money();
+  S.moreOpen=S.moreOpen||{};
+  const row=(act,t,n)=>'<button class="tog" style="width:100%; padding:16px" data-act="'+act+'"><span class="rb">'
+    +'<span class="rt">'+t+'</span><span class="rn" style="display:block; -webkit-line-clamp:unset">'+n+'</span></span></button>'
+    +'<div style="height:.5px; background:var(--line)"></div>';
+  const grp=(key,title,sub,body)=>{
+    const op=!!S.moreOpen[key];
+    return '<div class="grp'+(op?' open':'')+'">'
+      +'<button class="grph" data-grp="'+key+'"><span class="gt">'+title+'</span>'
+      +'<span class="gs">'+sub+'</span><span class="cv">▶</span></button>'
+      +(op?'<div>'+body+'</div>':'')+'</div>';
+  };
+  let h='<div class="wrap">';
+  h+=grp('set','设置','出发日 · 汇率 · 关键事件 · 回收站',
+      row('add','＋ 加一条（自动猜分类）','输入一句话，自动归到最像的大类')
+    + row('setdate','修改出发日期','现在 '+S.settings.depart+'，日历和阶段会重算')
+    + row('setrate','修改汇率','现在 1 SGD = '+b.rate+' CNY（非实时，待核实）')
+    + row('usesuggest','一键套用推荐关键事件','我标了 '+ITEMS.filter(suggestKey).length+' 条「漏了会卡流程」的')
+    + row('clearkey','清空关键标记','全部恢复成普通事项')
+    + row('togprice','价格字段：'+(S.showPrice?'显示中':'已隐藏'),'控制条目上的预估 / 实付胶囊')
+    + row('restoreall','回收站','里面有 '+Object.keys(S.del).length+' 条被删掉的，点这里全部恢复')
+    + row('reseed','重排日历','清掉手动改过的日期，全部按阶段重铺'));
+  h+=grp('bak','备份与换设备','JSON · CSV · PDF',
+      row('backup','导出 JSON 备份','换手机、换浏览器时带走全部进度')
+    + row('restore','恢复备份','会覆盖当前进度')
+    + row('csv','导出 CSV','给 Excel / Numbers 看')
+    + row('pdf','导出 PDF（打印版）','预算汇总 + 所有大类条目与完成状态'));
+  h+=grp('abt','关于','版本 · 数据 · 说明',
+      '<div style="padding:15px 16px"><div class="about">'
+      +'<p style="margin:0 0 10px"><b>赴坡 NTU 工作台</b> · 版本 '+APPVER+'</p>'+SRC_HTML+'</div></div>');
+  h+='<input type="file" id="rf" accept=".json,application/json" hidden><div style="height:12px"></div></div>';
+  return h;
+}
+
+/* ---------- 渲染 ---------- */
+/* 只重画当前视图，保持滚动位置 */
+function reRender(){
+  const y=window.scrollY, app=$('#app');
+  if(V.v==='cal'){ app.innerHTML=vCal(); setTimeout(bindCal,0); }
+  else if(V.v==='cat') app.innerHTML=vCat();
+  else if(V.v==='list'){ app.innerHTML=vList(); bindSearch(); }
+  else render();
+  window.scrollTo(0,y);
+}
+function render(){
+  syncCatN(); buildAuto();
+  const app=$('#app'), ab=$('#abar');
+  let title='', left='', right='<button class="abtn" data-act="add">＋</button>';
+  if(V.v==='home'){ title='赴坡 · NTU'; app.innerHTML=vHome(); }
+  else if(V.v==='cal'){ title='日历'; app.innerHTML=vCal(); setTimeout(bindCal,0); }
+  else if(V.v==='list'){ title='清单';
+    right = (V.m||'cat')==='cat' ? '<button class="abtn" data-act="addcat">＋ 大类</button>'
+                                 : '<button class="abtn" data-act="add">＋</button>';
+    app.innerHTML=vList(); }
+  else if(V.v==='cat'){ title=CATN[V.c]||''; left='<button class="abtn" data-act="back">‹ 返回</button>'; app.innerHTML=vCat(); }
+  else { title='更多'; right=''; app.innerHTML=vMore(); }
+  ab.innerHTML=(left||'<span class="spacer"></span>')+'<div class="atitle">'+esc(title)+'</div>'+(right||'<span class="spacer"></span>');
+  document.querySelectorAll('.tab').forEach(t=>{
+    const on=(t.dataset.go===V.v)||(V.v==='cat'&&t.dataset.go==='list');
+    on? t.setAttribute('aria-current','page') : t.removeAttribute('aria-current'); });
+  bindSearch();
+}
+function bindSearch(){
+  const q=$('#q'), res=$('#sres'), x=$('#qx'); if(!q||!res) return;
+  let composing=false;
+  const run=()=>{ V.q=q.value; res.innerHTML=searchResults(V.q); if(x) x.hidden=!q.value; };
+  q.addEventListener('compositionstart',()=>{ composing=true; });
+  q.addEventListener('compositionend',()=>{ composing=false; run(); });   /* 拼音选完字才筛 */
+  q.addEventListener('input',()=>{ if(!composing) run(); });
+  if(x) x.addEventListener('click',()=>{ V.q=''; V.m='cat'; render(); });   /* 清空回到分类页 */
+}
+
+/* ---------- 弹层 ---------- */
+let open=false;
+function openSheet(h){ const s=$('#sheet'), m=$('#mask'); s.innerHTML='<div class="grab"></div>'+h;
+  m.hidden=false; s.hidden=false; open=true; s.scrollTop=0;
+  const turnOn=()=>{ m.classList.add('on'); s.classList.add('on'); };
+  requestAnimationFrame(turnOn); setTimeout(turnOn, 30);        /* rAF 被节流时的兜底 */ }
+function closeSheet(){ const s=$('#sheet'), m=$('#mask'); s.style.transform=''; s.style.transition=''; m.style.opacity=''; s.classList.remove('on'); m.classList.remove('on'); open=false;
+  setTimeout(()=>{ if(!open){ s.hidden=true; m.hidden=true; s.innerHTML=''; } },260); }
+$('#mask').addEventListener('click', closeSheet);
+
+/* 只改日期的轻量弹层：从行里的日期标签一点就开 */
+function dateSheet(id){
+  const it=byId(id); if(!it) return;
+  openSheet('<div class="sh-t">'+esc(it.t)+'</div>'
+   +'<div class="fl">安排在哪天</div>'
+   +'<div class="qd">'+QD(dateOf(it)).map(q=>'<button data-qd="'+q.v+'" aria-pressed="'+q.on+'">'+q.n+'</button>').join('')+'</div>'
+   +'<div class="fl">或按时间节点</div>'
+   +'<div class="qd">'+TNODES().map(q=>'<button data-tbind="'+q.v+'">'+q.n+'</button>').join('')+'</div>'
+   +'<input class="fld" id="d-d" type="date" value="'+dateOf(it)+'">'
+   +'<button class="btn" data-act="dateok" data-id="'+id+'">保存日期</button>'
+   +'<button class="btn g" data-act="dateauto" data-id="'+id+'">恢复自动排期</button>'
+   +'<button class="btn g" data-act="close">取消</button>');
+}
+
+function detailSheet(id){
+  const it=byId(id); if(!it) return;
+  const c=costOf(it), pd=paidOf(it), hot=hotOf(it);
+  openSheet('<div class="sh-t">'+esc(it.t)+'</div>'
+   +(it.n?'<div class="sh-n">'+linkify(it.n)+'</div>':'')
+   +(it.u?'<a class="btn g" style="margin-top:10px; display:block" href="'+it.u+'" target="_blank" rel="noopener">打开'+esc(it.ul||'官网')+' ↗</a>':'')
+   +'<div class="fl">我的备注 <span style="text-transform:none; letter-spacing:0; color:var(--faint); font-weight:400">· 贴网址会自动变成可点链接</span></div>'
+   +'<textarea class="fld" id="d-n" placeholder="写点自己的情况，也可以贴网址">'+esc(myNote(it))+'</textarea>'
+   +'<button class="switch" style="width:100%; margin-top:9px" data-hot="'+id+'" aria-pressed="'+hot+'">'
+     +'<span>设为重点备注（直接显示在条目上）</span><span class="sw"><i></i></span></button>'
+   +'<div class="fl">预估价 <span style="text-transform:none; letter-spacing:0; color:var(--faint); font-weight:400">· 买之前填，用来算总预算</span></div>'
+   +'<div class="two"><input class="fld a" id="d-a" type="number" inputmode="decimal" min="0" step="1" placeholder="还没买，先估一个" value="'+(c.a||'')+'">'
+     +'<select class="fld b" id="d-u"><option value="CNY"'+(c.cu==='CNY'?' selected':'')+'>CNY</option><option value="SGD"'+(c.cu==='SGD'?' selected':'')+'>SGD</option></select></div>'
+   +'<div class="fl">实付价 <span style="text-transform:none; letter-spacing:0; color:var(--faint); font-weight:400">· 买完再填，不填就按预估算</span></div>'
+   +'<div class="two"><input class="fld a" id="d-pa" type="number" inputmode="decimal" min="0" step="1" placeholder="买完填这里" value="'+(pd&&pd.a?pd.a:'')+'">'
+     +'<select class="fld b" id="d-pu"><option value="CNY"'+(!pd||pd.cu==='CNY'?' selected':'')+'>CNY</option><option value="SGD"'+(pd&&pd.cu==='SGD'?' selected':'')+'>SGD</option></select></div>'
+   +'<div class="qd" style="margin-top:9px"><button data-samep="1">实付 = 预估</button><button data-buynow="1">标记已买到</button></div>'
+   +'<button class="btn" data-act="dsave" data-id="'+id+'">保存</button>'
+   +(it.own?'<button class="btn d" data-act="ddel" data-id="'+id+'">删掉这条</button>':'')
+   +'<button class="btn g" data-act="close">关闭</button>'
+   +'<div style="font-size:11.5px; color:var(--faint); text-align:center; margin-top:12px; line-height:1.6">'
+   +'关键事件 ★、置顶 ⇧、国内买/落地买、线上/线下、日期<br>都在条目上直接点，不用进这里</div>');
+}
+
+/* 把清单里的事项批量挪到某一天：第一层只给大类，点开才是明细 */
+let PICK={}, PICKEX={}, PICKDAY='';
+function pickSheet(day){
+  PICK={}; PICKEX={}; PICKDAY=day;
+  renderPick();
+}
+function renderPick(){
+  const d=parseD(PICKDAY);
+  const pool=all().filter(i=>dateOf(i)!==PICKDAY && mark(i.id)!=='skip');
+  let n=0; for(const k in PICK){ if(PICK[k]) n++; }
+  let h='<div class="sh-t">安排到 '+(d.getMonth()+1)+' 月 '+d.getDate()+' 日</div>'
+   +'<div class="sh-n" style="margin-bottom:12px">先点大类，整类一次选完；想挑单项就展开。选好按底下的按钮。</div>'
+   +'<div class="list">';
+  cats().forEach(c=>{
+    const g=pool.filter(i=>i.c===c.id); if(!g.length) return;
+    const sel=g.filter(i=>PICK[i.id]).length, allSel=sel===g.length, op=!!PICKEX[c.id];
+    h+='<div class="crow'+(op?' open':'')+'">'
+      +'<button class="cbox" data-pall="'+c.id+'"><span class="box" style="'+(allSel?'background:var(--grow);border-color:var(--grow);color:#fff':(sel?'background:var(--grow-soft);border-color:var(--grow);color:var(--grow)':''))+'">'+(allSel?'✓':(sel?'–':'✓'))+'</span></button>'
+      +'<button class="chead" data-pcat="'+c.id+'"><span class="nm"><span style="color:'+catCol(c.id)[0]+'; display:inline-flex">'+catIcon(c.id)+'</span>'+esc(c.n)+'</span>'
+      +'<span class="rr"><span class="ct num">'+(sel?sel+' / ':'')+g.length+'</span><span class="cv">▶</span></span></button></div>';
+    if(op){
+      h+='<div class="sublist">';
+      g.forEach(it=>{ const on=!!PICK[it.id];
+        h+='<div class="row"><button class="tog" data-pitem="'+it.id+'" style="padding-left:24px">'
+          +'<span class="box" style="'+(on?'background:var(--grow);border-color:var(--grow);color:#fff':'')+'">✓</span>'
+          +'<span class="rb"><span class="rt">'+esc(it.t)+'</span>'
+          +'<span class="chips"><span class="chip date">现在 '+fmtMD(parseD(dateOf(it)))+'</span></span></span></button></div>';
+      });
+      h+='</div>';
+    }
+  });
+  h+='</div><div class="pickbar"><button class="btn" data-act="pickok">'
+    +(n? '把选中的 '+n+' 件挪到这天' : '还没选任何事项')+'</button>'
+    +'<button class="btn g" data-act="close">取消</button></div>';
+  const sh=document.getElementById('sheet');
+  if(sh.hidden) openSheet(h); else { sh.innerHTML='<div class="grab"></div>'+h; }
+}
+
+/* 时间节点选择：预设四个 + 其余阶段 */
+function timeSheet(){
+  const dep=depart(), cur=V.tp||'t60';
+  const PRE=[['t60','两个月前'],['t30','一个月前'],['t7','前一周'],['w1','落地后第一周']];
+  const rest=PHASES.filter(p=>!PRE.some(x=>x[0]===p.id));
+  const line=(id,label)=>{ const p=PH[id]; if(!p) return '';
+    const f=p.from<=-900?null:addD(dep,p.from), t=addD(dep,p.to);
+    const l=all().filter(i=>i.p===id), todo=l.filter(i=>mark(i.id)==='todo').length;
+    return '<button class="tog" style="width:100%; padding:16px 14px" data-tnode="'+id+'"><span class="rb">'
+      +'<span class="rt">'+(id===cur?'● ':'')+label+'</span>'
+      +'<span class="rn" style="display:block; -webkit-line-clamp:unset">'
+      +(f?fmtMD(f)+'–'+fmtMD(t):'越早越好，'+fmtMD(t)+' 前')+' · 共 '+l.length+' 件，'+todo+' 件没做</span></span></button>'
+      +'<div style="height:.5px; background:var(--line)"></div>'; };
+  openSheet('<div class="sh-t">选时间节点</div>'
+   +'<div class="sh-n" style="margin-bottom:12px">点一个节点，下面只显示这一段还没做的事。</div>'
+   +'<div class="list">'+PRE.map(x=>line(x[0],x[1])).join('')+'</div>'
+   +'<div class="fl">其他阶段</div><div class="list">'+rest.map(p=>line(p.id,p.nm)).join('')+'</div>'
+   +'<button class="btn g" data-act="close">关闭</button>');
+}
+
+/* 新建大类 */
+function catSheet(){
+  openSheet('<div class="sh-t">新建大类</div>'
+   +'<div class="sh-n" style="margin-bottom:12px">建好后会出现在清单首页，可以往里加条目。</div>'
+   +'<div class="fl">名称</div><input class="fld" id="nc-n" type="text" placeholder="例如：论文资料 / 给家人带的" autocomplete="off">'
+   +'<div class="fl">一句话说明（可留空）</div><input class="fld" id="nc-d" type="text" placeholder="这一类是干嘛的">'
+   +'<div class="fl">颜色</div><div class="pal" id="nc-p">'
+   + PALETTE.map((c,i)=>'<button class="pc'+(i===0?' on':'')+'" data-pc="'+i+'" style="background:'+c[1]+'; border-color:'+c[0]+'"><i style="background:'+c[0]+'"></i></button>').join('')
+   +'</div>'
+   +'<button class="btn" data-act="catsave">建好</button>'
+   +'<button class="btn g" data-act="close">取消</button>');
+}
+
+function addSheet(){
+  const d=(V.v==='cal'&&V.day)?V.day:ymd(today());
+  const inherit=(V.v==='cat'&&V.c)?V.c:'';      /* 在某个大类里点 ＋，默认就加到这个大类 */
+  openSheet('<div class="sh-t">加一条'+(inherit?'到「'+esc(CATN[inherit])+'」':'')+'</div>'
+   +'<input class="fld" id="a-t" type="text" placeholder="例如：买个转换插头 / 去 IKEA 买床单" autocomplete="off">'
+   +'<div id="a-g" style="font-size:12.5px; color:var(--muted); margin-top:8px; min-height:18px"></div>'
+   +'<div class="fl">分类'+(inherit?' <span style="text-transform:none; letter-spacing:0; color:var(--faint); font-weight:400">· 已自动填好，可改</span>':'')+'</div>'
+   +'<select class="fld" id="a-c">'+cats().map(c=>'<option value="'+c.id+'"'+(c.id===inherit?' selected':'')+'>'+esc(c.n)+'</option>').join('')+'</select>'
+   +'<div class="fl">安排在哪天</div><input class="fld" id="a-d" type="date" value="'+d+'">'
+   +'<div class="fl">要到新加坡才买吗</div><div class="seg3" id="a-buy">'
+   +'<button data-abuy="no" aria-pressed="true">国内准备</button><button data-abuy="sg">落地买</button></div>'
+   +'<div class="fl">需要跑线下门店吗</div><div class="seg3" id="a-ch">'
+   +'<button data-ach="" aria-pressed="true">线上就行</button><button data-ach="off">要跑线下</button></div>'
+   +'<div class="fl">预估价（可留空）</div><div class="two"><input class="fld a" id="a-a" type="number" inputmode="decimal" min="0" placeholder="0">'
+   +'<select class="fld b" id="a-u"><option value="CNY">CNY</option><option value="SGD">SGD</option></select></div>'
+   +'<button class="btn" data-act="asave">加入</button><button class="btn g" data-act="close">取消</button>');
+  const t=$('#a-t'), cs=$('#a-c'), g=$('#a-g'); let picked=!!inherit;
+  if(inherit) g.innerHTML='分类已自动设为 <b style="color:var(--grow)">'+esc(CATN[inherit])+'</b>，要换在下面改';
+  cs.addEventListener('change',()=>picked=true);
+  t.addEventListener('input',()=>{ const v=t.value.trim(); if(!v){ g.textContent=''; return; }
+    if(picked){ g.textContent='分类你自己选了，我不改'; return; }
+    const s=v.toLowerCase(); let b=null,sc=0;
+    for(const k in KEYWORDS){ let n=0; KEYWORDS[k].forEach(w=>{ if(s.includes(w)) n+= w.length>3?2:1; }); if(n>sc){sc=n;b=k;} }
+    if(b){ cs.value=b; g.innerHTML='猜它属于 <b style="color:var(--grow)">'+esc(CATN[b])+'</b>，不对就在下面改'; }
+    else g.textContent='没猜出来，下面手动选一个'; });
+  setTimeout(()=>t.focus(),300);
+}
+
+/* ---------- 导出 ---------- */
+async function saveFile(name, data, mime){
+  try{ const dl = await (window.claude&&window.claude.use? window.claude.use('downloads') : null);
+    if(dl){ await dl.save({filename:name, data:data}); toast('已保存'); return; } }catch(e){ if(e&&e.code==='declined') return; }
+  try{ const b=new Blob([data],{type:mime}), u=URL.createObjectURL(b);
+    const a=document.createElement('a'); a.href=u; a.download=name; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(u),2000); toast('已导出'); }
+  catch(e){ openSheet('<div class="sh-t">手动复制备份</div><div class="sh-n">这个环境不能直接下载文件。长按下面的文字全选复制，存到备忘录里。</div>'
+    +'<textarea class="fld" style="min-height:220px; font-size:11px" readonly>'+esc(data)+'</textarea><button class="btn g" data-act="close">关闭</button>'); }
+}
+/* 打印版：走系统打印对话框，iOS 里选「存储到文件」就是 PDF */
+function buildPrint(){
+  const mo=money(), dep=S.settings.depart, now=new Date();
+  const st=stats(all());
+  let h='<div class="ph1">赴坡 NTU 行前工作台</div>'
+   +'<div class="pmeta">出发日 '+dep+' · 导出于 '+ymd(now)+' · 共 '+st.act+' 项，已完成 '+st.done+' 项（'+st.pct+'%）</div>';
+  h+='<table class="psum"><tr><th>预计总花费</th><th>已经花掉</th><th>还要花</th><th>汇率</th></tr>'
+   +'<tr><td>¥'+cny(mo.plan)+'</td><td>¥'+cny(mo.spent)+'</td><td>¥'+cny(mo.left)+'</td><td>1 SGD = '+mo.rate+' CNY</td></tr></table>';
+  cats().forEach(c=>{
+    const l=sortL(all().filter(i=>i.c===c.id)); if(!l.length) return;
+    const cs=stats(l), cm=money(l);
+    h+='<div class="pcat"><h2>'+esc(c.n)+' <span>'+cs.done+' / '+cs.act
+      +(cm.plan?' · 预算 ≈¥'+cny(cm.plan):'')+'</span></h2>'
+      +'<table class="pitems"><colgroup><col style="width:26px"><col><col style="width:52px"><col style="width:74px"><col style="width:74px"></colgroup>'
+      +'<tr><th></th><th>事项</th><th>日期</th><th>标记</th><th>金额</th></tr>';
+    l.forEach(it=>{
+      const m=mark(it.id), c2=costOf(it), pd=paidOf(it);
+      const tagz=[keyOf(it)?'关键':'', sgOf(it)?'落地买':'', chOf(it)==='off'?'线下':''].filter(Boolean).join(' ');
+      const mny= pd&&pd.a? '实付'+(pd.cu==='CNY'?'¥':'S$')+pd.a : (c2.a? (c2.cu==='CNY'?'¥':'S$')+c2.a : '');
+      h+='<tr class="'+(m==='done'?'pdone':(m==='skip'?'pskip':''))+'">'
+        +'<td class="pbox">'+(m==='done'?'☑':(m==='skip'?'⊘':'☐'))+'</td>'
+        +'<td>'+esc(it.t)+(myNote(it)?'<div class="pn">'+esc(myNote(it))+'</div>':'')+'</td>'
+        +'<td>'+fmtMD(parseD(dateOf(it)))+'</td><td>'+tagz+'</td><td>'+mny+'</td></tr>';
+    });
+    h+='</table></div>';
+  });
+  h+='<div class="pfoot">费用为参考估算，以官网与实际账单为准。</div>';
+  return h;
+}
+function exportPDF(){
+  let el=document.getElementById('printroot');
+  if(!el){ el=document.createElement('div'); el.id='printroot'; document.body.appendChild(el); }
+  el.innerHTML=buildPrint();
+  toast('正在打开打印界面，选「存储到文件」就是 PDF');
+  setTimeout(()=>{ window.print(); }, 350);
+}
+function csvText(){
+  const rows=[['分类','阶段','日期','采购','线上线下','事项','状态','关键','预估价','预估币种','实付价','实付币种','说明','我的备注']];
+  all().forEach(it=>{ const c=costOf(it), p=paidOf(it), m=mark(it.id);
+    rows.push([CATN[it.c]||'', (PH[it.p]||{}).code||'', dateOf(it), sgOf(it)?'落地买':'国内准备', chOf(it)==='off'?'线下':'线上', it.t,
+      m==='done'?'已完成':(m==='skip'?'不需要':'未完成'), keyOf(it)?'是':'',
+      c.a||'', c.a?c.cu:'', p&&p.a?p.a:'', p&&p.a?p.cu:'', it.n||'', S.note[it.id]||'']); });
+  return '﻿'+rows.map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(',')).join('\n');
+}
+
+/* ---------- 备注浮窗：桌面悬浮 / 手机点 ⓘ ---------- */
+const POP=document.createElement('div'); POP.id='pop'; document.body.appendChild(POP);
+const HOVER = !!(window.matchMedia && window.matchMedia('(hover:hover)').matches);
+function popFor(id, anchor){
+  const it=byId(id); if(!it || !anchor) return;
+  const desc=preview(it.n||''), mn=myNote(it);
+  if(!desc && !mn){ popHide(); return; }
+  POP.innerHTML=(desc?'<div class="ph">说明</div>'+linkify(desc):'')
+    +(mn?'<div class="'+(hotOf(it)?'pn':'')+'"'+(hotOf(it)?'':' style="margin-top:'+(desc?'10px':'0')+'"')+'>'
+        +'<div class="ph">我的备注</div>'+linkify(mn)+'</div>':'');
+  POP.classList.add('on');
+  const r=anchor.getBoundingClientRect();
+  const pw=POP.offsetWidth, ph=POP.offsetHeight;
+  let x=Math.min(Math.max(10, r.left), Math.max(10, window.innerWidth-pw-10));
+  let y=r.bottom+8; if(y+ph>window.innerHeight-10) y=Math.max(10, r.top-ph-8);
+  POP.style.left=x+'px'; POP.style.top=y+'px';
+}
+function popHide(){ POP.classList.remove('on'); }
+if(HOVER){
+  document.addEventListener('mouseover', e=>{
+    const r=e.target.closest('[data-row]');
+    if(!r){ if(!e.target.closest('#pop')) popHide(); return; }
+    popFor(r.dataset.row, r);
+  });
+}
+window.addEventListener('scroll', popHide, true);
+
+/* ---------- 手势 ---------- */
+let SW=null;                                   /* 当前被左滑打开的行 */
+function unswipe(){ if(SW){ SW.classList.remove('swiped'); SW=null; } }
+(function(){
+  let x0=0,y0=0,row=null,lock='';
+  document.addEventListener('touchstart', e=>{
+    const t=e.touches[0]; x0=t.clientX; y0=t.clientY; lock='';
+    row=e.target.closest('[data-row]');
+    if(SW && SW!==row) unswipe();
+  }, {passive:true});
+  document.addEventListener('touchmove', e=>{
+    if(!row) return;
+    const t=e.touches[0], dx=t.clientX-x0, dy=t.clientY-y0;
+    if(!lock){ if(Math.abs(dx)>14 && Math.abs(dx)>Math.abs(dy)*1.6) lock='x'; else if(Math.abs(dy)>10) lock='y'; }
+    if(lock!=='x') return;
+    if(dx<-40){ if(SW&&SW!==row) unswipe(); row.classList.add('swiped'); SW=row; }
+    else if(dx>40){ row.classList.remove('swiped'); if(SW===row) SW=null; }
+  }, {passive:true});
+  document.addEventListener('touchend', ()=>{ row=null; lock=''; }, {passive:true});
+})();
+/* 日历横滑翻月 */
+function calSwipe(el){
+  let x0=0,y0=0,on=false;
+  el.addEventListener('touchstart', e=>{ const t=e.touches[0]; x0=t.clientX; y0=t.clientY; on=true; }, {passive:true});
+  el.addEventListener('touchend', e=>{
+    if(!on) return; on=false;
+    const t=e.changedTouches[0], dx=t.clientX-x0, dy=t.clientY-y0;
+    if(Math.abs(dx)>55 && Math.abs(dx)>Math.abs(dy)*1.4) shiftMonth(dx<0?1:-1);
+  }, {passive:true});
+}
+function shiftMonth(n){
+  const sel=parseD(V.day||ymd(today()));
+  let y=V.y!==undefined?V.y:sel.getFullYear(), mo=V.mo!==undefined?V.mo:sel.getMonth();
+  mo+=n; if(mo<0){mo=11;y--;} if(mo>11){mo=0;y++;}
+  V.y=y; V.mo=mo; const p=window.scrollY; $('#app').innerHTML=vCal(); bindCal(); window.scrollTo(0,p);
+}
+function bindCal(){ const g=$('#app .cal'); if(g) calSwipe(g); }
+/* 弹层下拉关闭 */
+(function(){
+  const sh=$('#sheet'); let y0=0, dragging=false, dy=0;
+  sh.addEventListener('touchstart', e=>{
+    const onGrab = e.target.closest('.grab, .sh-t');     /* 抓手和标题：随时可拖 */
+    if(sh.scrollTop>0 && !onGrab){ dragging=false; return; }
+    y0=e.touches[0].clientY; dragging=true; dy=0; sh.style.transition='none';
+  }, {passive:true});
+  sh.addEventListener('touchmove', e=>{
+    if(!dragging) return;
+    dy=e.touches[0].clientY-y0;
+    if(dy<0){ dy=0; return; }
+    sh.style.transform='translateY('+dy+'px)';
+    $('#mask').style.opacity=String(Math.max(0, 1-dy/420));
+  }, {passive:true});
+  sh.addEventListener('touchend', ()=>{
+    if(!dragging) return; dragging=false;
+    sh.style.transition=''; $('#mask').style.opacity='';
+    if(dy>90){ sh.style.transform=''; closeSheet(); } else { sh.style.transform='translateY(0)'; }
+  }, {passive:true});
+})();
+
+/* ---------- 事件 ---------- */
+document.addEventListener('click', e=>{
+  const t=e.target.closest('[data-tog],[data-more],[data-cat],[data-ph],[data-go],[data-act],[data-st],[data-day],[data-mv],[data-f],[data-m],[data-shop],[data-shop2],[data-buy],[data-abuy],[data-samep],[data-buynow],[data-key],[data-kt],[data-catx],[data-catall],[data-dchip],[data-qd],[data-pcat],[data-pitem],[data-pall],[data-tp],[data-buy2],[data-ch2],[data-hot],[data-ach],[data-id2],[data-info],[data-del],[data-sel],[data-tnode],[data-tbind],[data-pc],[data-grp]');
+  if(!t) return; const d=t.dataset;
+  if(d.tog){ const id=d.tog; S.mark[id]= mark(id)==='done'?'todo':'done'; save(); refreshRow(id);
+    if(V.v==='cat'&&V.todo) setTimeout(render,260);
+    if(V.v==='cal') setTimeout(()=>{ const p=window.scrollY; $('#app').innerHTML=vCal(); window.scrollTo(0,p); },300);
+    return; }
+  if(d.more){ detailSheet(d.more); return; }
+  if(d.cat){ go({v:'cat', c:d.cat, todo:false}); return; }
+  if(d.ph){ go({v:'list', m:'todo'}); return; }
+  if(d.day){ if(V.v!=='cal'){ go({v:'cal', day:d.day}); } else { V.day=d.day; const p=window.scrollY; $('#app').innerHTML=vCal(); window.scrollTo(0,p); } return; }
+  if(d.mv!==undefined){ const sel=parseD(V.day||ymd(today()));
+    let y=V.y!==undefined?V.y:sel.getFullYear(), mo=V.mo!==undefined?V.mo:sel.getMonth();
+    if(d.mv==='0'){ V.day=ymd(today()); y=today().getFullYear(); mo=today().getMonth(); }
+    else { mo+=Number(d.mv); if(mo<0){mo=11;y--;} if(mo>11){mo=0;y++;} }
+    V.y=y; V.mo=mo; $('#app').innerHTML=vCal(); window.scrollTo(0,0); return; }
+  if(d.m){ V.m=d.m; V.q=''; V.key=false; render(); window.scrollTo(0,0); if(d.m==='find') setTimeout(()=>{const e=$('#q'); if(e) e.focus();},80); return; }
+  if(d.go){ go({v:d.go}); return; }
+  if(d.st){ const id=$('#sheet').querySelector('[data-act="dsave"]').dataset.id; S.mark[id]=d.st; save();
+    $('#sheet').querySelectorAll('[data-st]').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.st===d.st)));
+    refreshRow(id); return; }
+  /* 日历：整类勾选 / 展开大类 */
+  if(d.catall){ const day=V.day||ymd(today());
+    const g=onDay(day).filter(i=>i.c===d.catall);
+    const allDone=g.length&&g.every(i=>mark(i.id)==='done');
+    g.forEach(i=>{ S.mark[i.id]= allDone?'todo':'done'; });
+    save(); const p=window.scrollY; $('#app').innerHTML=vCal(); window.scrollTo(0,p);
+    toast(allDone? '整类取消了':'整类勾完了 '+g.length+' 件'); return; }
+  if(d.catx){ V.ex=V.ex||{}; V.ex[d.catx]=!V.ex[d.catx];
+    const p=window.scrollY; $('#app').innerHTML=vCal(); window.scrollTo(0,p); return; }
+  /* 挑选面板 */
+  if(d.pall){ const day=PICKDAY;
+    const g=all().filter(i=>i.c===d.pall && dateOf(i)!==day && mark(i.id)!=='skip');
+    const allSel=g.length&&g.every(i=>PICK[i.id]);
+    g.forEach(i=>{ if(allSel) delete PICK[i.id]; else PICK[i.id]=true; });
+    PICKEX[d.pall]=true; renderPick(); return; }
+  if(d.pcat){ PICKEX[d.pcat]=!PICKEX[d.pcat]; renderPick(); return; }
+  if(d.pitem){ if(PICK[d.pitem]) delete PICK[d.pitem]; else PICK[d.pitem]=true; renderPick(); return; }
+  /* 行内快捷：星标 / 置顶 / 采购标签 / 线上线下 */
+  if(d.kt){ const id=d.kt; if(S.key[id]) delete S.key[id]; else S.key[id]=true; save();
+    t.setAttribute('aria-pressed', String(!!S.key[id])); refreshRow(id);
+    if(V.key) setTimeout(reRender,250); return; }
+  if(d.tp){ const id=d.tp; if(S.top[id]) delete S.top[id]; else S.top[id]=true; save();
+    toast(S.top[id]?'已置顶':'已取消置顶'); setTimeout(reRender,120); return; }
+  if(d.buy2){ const id=d.id2; S.buy[id]= sgOf(byId(id))?'no':'sg'; save(); refreshRow(id);
+    return; }
+  if(d.ch2){ const id=d.id2; if(S.ch[id]==='off') delete S.ch[id]; else S.ch[id]='off'; save(); refreshRow(id); return; }
+  if(d.del){ const id=d.del, it=byId(id); unswipe();
+    S.del[id]=true; save(); reRender(); toast('已删除「'+(it?it.t.slice(0,12):'')+'」· 更多里可恢复'); return; }
+  if(d.sel){ const id=d.sel; if(BULK[id]) delete BULK[id]; else BULK[id]=true;
+    const p=window.scrollY; $('#app').innerHTML=vCat(); window.scrollTo(0,p); return; }
+  if(d.tnode){ V.tp=d.tnode; closeSheet(); const p=window.scrollY; $('#app').innerHTML=vList(); window.scrollTo(0,0); return; }
+  if(d.tbind){ const f=$('#d-d'); if(f){ f.value=d.tbind;
+      $('#sheet').querySelectorAll('[data-qd],[data-tbind]').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.tbind===d.tbind))); }
+    return; }
+  if(d.grp){ S.moreOpen=S.moreOpen||{}; S.moreOpen[d.grp]=!S.moreOpen[d.grp]; save();
+    const p=window.scrollY; $('#app').innerHTML=vMore(); window.scrollTo(0,p); return; }
+  if(d.pc!==undefined){ $('#nc-p').querySelectorAll('.pc').forEach(b=>b.classList.toggle('on', b.dataset.pc===d.pc)); return; }
+  if(d.info){ if(POP.classList.contains('on')) popHide(); else popFor(d.info, t.closest('[data-row]')); return; }
+  if(d.hot){ const id=d.hot; if(S.hot[id]) delete S.hot[id]; else S.hot[id]=true; save();
+    t.setAttribute('aria-pressed', String(!!S.hot[id])); return; }
+  /* 一键选日期 */
+  if(d.qd){ const f=$('#d-d'); if(f){ f.value=d.qd;
+      $('#sheet').querySelectorAll('[data-qd]').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.qd===d.qd))); }
+    return; }
+  /* 行里的日期小标签 → 直接改日期 */
+  if(d.dchip){ dateSheet(d.dchip); return; }
+  if(d.buy){ const id=$('#sheet').querySelector('[data-act="dsave"]').dataset.id;
+    S.buy[id]=d.buy; save();
+    $('#sheet').querySelectorAll('[data-buy]').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.buy===d.buy)));
+    refreshRow(id); return; }
+  if(d.abuy){ $('#a-buy').querySelectorAll('[data-abuy]').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.abuy===d.abuy))); return; }
+  if(d.ach!==undefined){ $('#a-ch').querySelectorAll('[data-ach]').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.ach===d.ach))); return; }
+  if(d.samep){ const a=$('#d-a'); if(!a.value){ toast('先填预估价'); return; }
+    $('#d-pa').value=a.value; $('#d-pu').value=$('#d-u').value; toast('实付已填成预估'); return; }
+  if(d.buynow){ const id=$('#sheet').querySelector('[data-act="dsave"]').dataset.id;
+    const a=$('#d-a'); if(a.value && !$('#d-pa').value){ $('#d-pa').value=a.value; $('#d-pu').value=$('#d-u').value; }
+    $('#sheet').querySelectorAll('[data-st]').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.st==='done')));
+    S.mark[id]='done'; save(); refreshRow(id); toast('已标记买到，记得点保存'); return; }
+  if(d.key){ go({v:'list', m:'todo', key:true}); return; }
+  if(d.shop){ $('#d-s').value=d.shop; return; }
+  if(d.shop2){ $('#a-s').value=d.shop2; return; }
+  switch(d.act){
+    case 'back': history.back(); break;
+    case 'bulkon': V.bulk=true; BULK={}; reRender(); break;
+    case 'bulkoff': V.bulk=false; BULK={}; reRender(); break;
+    case 'selall': { let l=all().filter(i=>i.c===V.c);
+      if(V.todo) l=l.filter(i=>mark(i.id)==='todo'); if(V.key) l=l.filter(keyOf);
+      const n=Object.keys(BULK).filter(k=>BULK[k]).length;
+      BULK={}; if(n!==l.length) l.forEach(i=>BULK[i.id]=true);
+      reRender(); break; }
+    case 'bulkdone': { const ids=Object.keys(BULK).filter(k=>BULK[k]); if(!ids.length){ toast('还没选'); break; }
+      ids.forEach(id=>S.mark[id]='done'); save(); BULK={}; V.bulk=false; reRender(); toast('已标记 '+ids.length+' 条完成'); break; }
+    case 'bulkdel': { const ids=Object.keys(BULK).filter(k=>BULK[k]); if(!ids.length){ toast('还没选'); break; }
+      if(!confirm('删除选中的 '+ids.length+' 条？\n（可以到「更多 → 回收站」恢复）')) break;
+      ids.forEach(id=>S.del[id]=true); save(); BULK={}; V.bulk=false; reRender(); toast('已删除 '+ids.length+' 条'); break; }
+    case 'restoreall': { const n=Object.keys(S.del).length; if(!n){ toast('回收站是空的'); break; }
+      if(!confirm('恢复回收站里的 '+n+' 条？')) break; S.del={}; save(); render(); toast('已全部恢复'); break; }
+    case 'picktime': timeSheet(); break;
+    case 'pick': pickSheet(V.day||ymd(today())); break;
+    case 'pickok': { const ids=Object.keys(PICK).filter(k=>PICK[k]); if(!ids.length){ toast('还没选'); break; }
+      ids.forEach(id=>{ S.date[id]=PICKDAY; }); save(); closeSheet(); render(); toast('已挪 '+ids.length+' 件到这天'); break; }
+    case 'usesuggest': { const n=ITEMS.filter(suggestKey).length;
+      if(!confirm('把我推荐的 '+n+' 条标为关键事件？\n（你之后随时可以逐条取消）')) break;
+      ITEMS.forEach(i=>{ if(suggestKey(i)) S.key[i.id]=true; }); save(); render(); toast('已标记 '+n+' 条'); break; }
+    case 'clearkey': { const n=Object.keys(S.key).length; if(!n){ toast('本来就没有'); break; }
+      if(!confirm('清空全部 '+n+' 个关键标记？')) break; S.key={}; save(); render(); toast('已清空'); break; }
+    case 'close': closeSheet(); break;
+    case 'add': addSheet(); break;
+    case 'addcat': catSheet(); break;
+    case 'togprice': S.showPrice=!S.showPrice; save(); reRender(); break;
+    case 'onlytodo': V.todo=!V.todo; $('#app').innerHTML=vCat(); window.scrollTo(0,0); break;
+    case 'onlykey': V.key=!V.key; $('#app').innerHTML=vList(); window.scrollTo(0,0); break;
+    case 'onlykey2': V.key=!V.key; $('#app').innerHTML=vCat(); window.scrollTo(0,0); break;
+    case 'setdate': { const v=prompt('出发日期（YYYY-MM-DD）\n日历和所有阶段都会重算', S.settings.depart);
+      if(v&&/^\d{4}-\d{2}-\d{2}$/.test(v.trim())){ S.settings.depart=v.trim(); save(); render(); toast('已更新'); }
+      else if(v) toast('格式要像 2026-11-01'); break; }
+    case 'setrate': { const v=prompt('1 新加坡元 = 多少人民币？\n非实时汇率，自己核一下', String(S.settings.rate));
+      const n=Number(v); if(n>0){ S.settings.rate=n; save(); render(); toast('已更新'); } break; }
+    case 'reseed': { const n=Object.keys(S.date).length;
+      if(!confirm('清掉你手动改过的 '+n+' 个日期，全部按阶段重新铺一遍？')) break;
+      S.date={}; save(); render(); toast('已重排'); break; }
+    case 'dsave': { const id=d.id;
+      const a=Number($('#d-a').value)||0, u=$('#d-u').value;
+      const pa=Number($('#d-pa').value)||0, pu=$('#d-pu').value;
+      const nv=$('#d-n').value.trim();
+      if(nv) S.note[id]=nv; else { delete S.note[id]; delete S.hot[id]; }
+      if(a) S.cost[id]={a:a,cu:u}; else delete S.cost[id];
+      if(pa) S.paid[id]={a:pa,cu:pu}; else delete S.paid[id];
+      save(); closeSheet(); render(); toast('已保存'); break; }
+    case 'ddel': { const id=d.id; if(!confirm('删掉这一条？')) break;
+      S.custom=(S.custom||[]).filter(x=>x.id!==id);
+      ['mark','note','cost','paid','date','shop','buy','key','ch','top','hot','del'].forEach(k=>delete S[k][id]);
+      save(); closeSheet(); render(); toast('已删除'); break; }
+    case 'catsave': {
+      const n=$('#nc-n').value.trim(); if(!n){ $('#nc-n').focus(); toast('先起个名'); break; }
+      const pi=Number(($('#nc-p').querySelector('.pc.on')||{}).dataset?.pc||0);
+      const col=PALETTE[pi]||PALETTE[0];
+      const id='c'+Date.now().toString(36);
+      S.cats.push({id:id, n:n, d:$('#nc-d').value.trim(), col:col[0], soft:col[1]});
+      save(); syncCatN(); closeSheet(); go({v:'cat', c:id, todo:false}); toast('大类「'+n+'」建好了'); break; }
+    case 'asave': { const v=$('#a-t').value.trim(); if(!v){ $('#a-t').focus(); break; }
+      const id='u'+Date.now().toString(36);
+      const it={id:id, c:$('#a-c').value, t:v, n:'', p:'t30', k:0, b:'', a:0, cu:'SGD', own:1};
+      const a=Number($('#a-a').value)||0, dd=$('#a-d').value;
+      S.custom.push(it);
+      if(dd) S.date[id]=dd;
+      const ab=$('#a-buy').querySelector('[data-abuy][aria-pressed="true"]');
+      S.buy[id]= ab? ab.dataset.abuy : 'no';
+      const ac=$('#a-ch').querySelector('[data-ach][aria-pressed="true"]');
+      if(ac && ac.dataset.ach) S.ch[id]=ac.dataset.ach;
+      if(a) S.cost[id]={a:a, cu:$('#a-u').value};
+      save(); closeSheet(); render(); toast('已加到「'+CATN[it.c]+'」'); break; }
+    case 'backup': saveFile('NTU-backup-'+ymd(new Date())+'.json', JSON.stringify(S,null,1), 'application/json'); break;
+    case 'pdf': exportPDF(); break;
+    case 'csv': saveFile('NTU-'+ymd(new Date())+'.csv', csvText(), 'text/csv;charset=utf-8'); break;
+    case 'dateok': { const v=$('#d-d').value; if(v) S.date[d.id]=v; save(); closeSheet(); render(); toast('日期已改'); break; }
+    case 'dateauto': { delete S.date[d.id]; save(); closeSheet(); render(); toast('已恢复自动排期'); break; }
+    case 'restore': $('#rf').click(); break;
+  }
+});
+document.addEventListener('change', e=>{
+  if(e.target.id!=='rf') return;
+  const f=e.target.files&&e.target.files[0]; if(!f) return;
+  const fr=new FileReader();
+  fr.onload=()=>{ try{ const d=JSON.parse(fr.result); if(!d||typeof d!=='object') throw 0;
+      if(!confirm('会用备份覆盖当前进度，确定？')) return;
+      S=Object.assign(JSON.parse(JSON.stringify(DEF)), d);
+      ['mark','note','cost','paid','date','shop','buy','key','ch','top','hot','del'].forEach(k=>{ if(!S[k]) S[k]={}; });
+      if(!S.custom) S.custom=[];
+      if(!S.settings) S.settings={depart:'2026-11-01',rate:5.4};
+      save(); render(); toast('已恢复'); }
+    catch(err){ toast('读不出来，要选之前导出的 .json'); } };
+  fr.readAsText(f); e.target.value='';
+});
+
+load(); go({v:'home'}, true);
+</script>
+</body>
+</html>

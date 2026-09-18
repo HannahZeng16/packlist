@@ -1,0 +1,1017 @@
+<title>赴新加坡 NTU 行前面板</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#EFF2EE; --surface:#FFFFFF; --surface2:#F6F9F5; --sunk:#E6EBE4;
+  --ink:#18211C; --ink2:#37453D; --muted:#5C6A62; --faint:#8B978F;
+  --line:#D6DED5; --line2:#C3CDC2;
+  --accent:#C0432A; --accent-soft:#FBEDE9;
+  --grow:#0E6E58; --grow-soft:#E3F1EC;
+  --warn:#9A6B06; --warn-soft:#F7EED9;
+  --shadow:0 1px 2px rgba(24,33,28,.06), 0 8px 24px -16px rgba(24,33,28,.28);
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1412; --surface:#171E1A; --surface2:#1C2521; --sunk:#131A16;
+    --ink:#E7EDE8; --ink2:#C6D1C9; --muted:#93A199; --faint:#6E7C74;
+    --line:#293430; --line2:#36433D;
+    --accent:#FF7D55; --accent-soft:#2A1A14;
+    --grow:#4CC5A1; --grow-soft:#11251F;
+    --warn:#D9A441; --warn-soft:#241C0D;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1412; --surface:#171E1A; --surface2:#1C2521; --sunk:#131A16;
+  --ink:#E7EDE8; --ink2:#C6D1C9; --muted:#93A199; --faint:#6E7C74;
+  --line:#293430; --line2:#36433D;
+  --accent:#FF7D55; --accent-soft:#2A1A14;
+  --grow:#4CC5A1; --grow-soft:#11251F;
+  --warn:#D9A441; --warn-soft:#241C0D;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Noto Sans SC", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size:14px; line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace; font-variant-numeric:tabular-nums}
+.wrap{max-width:940px; margin:0 auto; padding-inline:16px; padding-block:0 64px}
+h1,h2,h3{margin:0; text-wrap:balance; letter-spacing:-.01em}
+button{font:inherit; color:inherit; cursor:pointer; border:none; background:none}
+input,textarea,select{font:inherit; color:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:4px}
+@media (prefers-reduced-motion: reduce){*{animation:none!important; transition:none!important}}
+
+/* ---------- header ---------- */
+.top{
+  position:sticky; top:env(safe-area-inset-top, 0px); z-index:30;
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(12px); border-bottom:1px solid var(--line);
+}
+.top-in{max-width:940px; margin:0 auto; padding-inline:16px; padding-block:12px}
+.brandrow{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
+.brand{font-size:19px; font-weight:700}
+.brand em{font-style:normal; color:var(--accent)}
+.sub{font-size:11.5px; color:var(--faint); letter-spacing:.06em; text-transform:uppercase}
+.gauges{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:10px}
+.gauge{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:9px 11px; min-width:0}
+.gauge .lab{font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--faint); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.gauge .val{font-size:21px; font-weight:600; line-height:1.25; letter-spacing:-.02em}
+.gauge .val small{font-size:11px; font-weight:400; color:var(--muted); letter-spacing:0}
+.gauge .hint{font-size:11px; color:var(--muted)}
+.gauge.clickable{cursor:pointer; text-align:left; width:100%}
+.gauge.clickable:hover{border-color:var(--line2)}
+.bar{height:5px; border-radius:99px; background:var(--sunk); overflow:hidden; margin-top:7px}
+.bar > i{display:block; height:100%; background:var(--grow); border-radius:99px; transition:width .35s ease}
+.bar.acc > i{background:var(--accent)}
+
+/* ---------- phase rail ---------- */
+.rail{display:flex; gap:6px; overflow-x:auto; padding-block:12px 4px; scrollbar-width:thin}
+.ph{
+  flex:0 0 auto; background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+  padding:7px 10px 8px; min-width:104px; text-align:left; position:relative;
+}
+.ph:hover{border-color:var(--line2)}
+.ph[aria-pressed="true"]{border-color:var(--accent); background:var(--accent-soft)}
+.ph .code{font-size:11px; font-weight:600; letter-spacing:.06em; color:var(--accent)}
+.ph .nm{font-size:12.5px; font-weight:500; white-space:nowrap}
+.ph .dt{font-size:10.5px; color:var(--faint); white-space:nowrap}
+.ph .mini{height:3px; border-radius:99px; background:var(--sunk); margin-top:6px; overflow:hidden}
+.ph .mini > i{display:block; height:100%; background:var(--grow)}
+.ph.past .nm{color:var(--muted)}
+
+/* ---------- toolbar ---------- */
+.tools{display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin:16px 0 12px}
+.search{
+  flex:1 1 200px; display:flex; align-items:center; gap:7px; background:var(--surface);
+  border:1px solid var(--line); border-radius:var(--r); padding:0 10px; min-width:0;
+}
+.search input{flex:1; border:none; background:none; padding:9px 0; outline:none; min-width:0}
+.seg{display:flex; background:var(--surface); border:1px solid var(--line); border-radius:var(--r); overflow:hidden}
+.seg button{padding:8px 11px; font-size:12.5px; color:var(--muted); white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--ink); color:var(--bg); font-weight:500}
+
+/* ---------- quick add ---------- */
+.add{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:12px; margin-bottom:18px; box-shadow:var(--shadow)}
+.add-head{display:flex; align-items:center; gap:8px; margin-bottom:8px}
+.add-head h3{font-size:13px; font-weight:600}
+.add-head .tag{font-size:10.5px; color:var(--faint); letter-spacing:.05em}
+.add-row{display:flex; gap:8px; flex-wrap:wrap}
+.add-row input[type=text]{flex:1 1 220px; min-width:0; background:var(--surface2); border:1px solid var(--line); border-radius:8px; padding:9px 11px; outline:none}
+.add-row input[type=text]:focus{border-color:var(--accent)}
+.btn{background:var(--ink); color:var(--bg); border-radius:8px; padding:9px 16px; font-size:13px; font-weight:500}
+.btn:hover{opacity:.88}
+.btn.ghost{background:none; color:var(--muted); border:1px solid var(--line)}
+.btn.ghost:hover{color:var(--ink); border-color:var(--line2); opacity:1}
+.guess{font-size:11.5px; color:var(--muted); margin-top:7px; min-height:17px}
+.guess b{color:var(--grow); font-weight:600}
+
+/* ---------- category ---------- */
+.cat{background:var(--surface); border:1px solid var(--line); border-radius:12px; margin-bottom:12px; overflow:hidden}
+.cat-head{display:flex; align-items:center; gap:11px; padding:13px 14px; width:100%; text-align:left}
+.cat-head:hover{background:var(--surface2)}
+.ring{flex:0 0 auto; width:34px; height:34px; position:relative}
+.ring svg{display:block; transform:rotate(-90deg)}
+.ring span{position:absolute; inset:0; display:grid; place-items:center; font-size:9.5px; font-weight:600; color:var(--muted)}
+.cat-t{flex:1; min-width:0}
+.cat-t .n{font-size:15px; font-weight:700}
+.cat-t .d{font-size:11.5px; color:var(--faint); overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.cat-c{font-size:11.5px; color:var(--muted); white-space:nowrap}
+.chev{color:var(--faint); font-size:11px; transition:transform .2s}
+.cat[data-open="1"] .chev{transform:rotate(90deg)}
+.items{border-top:1px solid var(--line)}
+
+/* ---------- item ---------- */
+.it{display:flex; gap:10px; padding:9px 14px 9px 11px; border-bottom:1px solid var(--line); position:relative; align-items:flex-start}
+.it:last-child{border-bottom:none}
+.it::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:transparent}
+.it.key::before{background:var(--accent)}
+.it.done{background:var(--surface2)}
+.it.skip{opacity:.45}
+.cb{flex:0 0 auto; width:19px; height:19px; margin-top:2px; border:1.5px solid var(--line2); border-radius:5px; display:grid; place-items:center; color:transparent; font-size:12px; background:var(--surface)}
+.cb:hover{border-color:var(--grow)}
+.it.done .cb{background:var(--grow); border-color:var(--grow); color:#fff}
+.it.skip .cb{background:var(--sunk); border-color:var(--line2); color:var(--faint)}
+.body{flex:1; min-width:0}
+.ttl{font-size:13.5px; line-height:1.5}
+.it.done .ttl{color:var(--muted); text-decoration:line-through; text-decoration-color:var(--line2)}
+.note{font-size:11.5px; color:var(--muted); line-height:1.55; margin-top:2px}
+.chips{display:flex; gap:5px; flex-wrap:wrap; margin-top:5px; align-items:center}
+.chip{font-size:10px; padding:1.5px 6px; border-radius:5px; letter-spacing:.04em; white-space:nowrap; border:1px solid transparent}
+.chip.p{background:var(--sunk); color:var(--muted)}
+.chip.cn{background:var(--warn-soft); color:var(--warn)}
+.chip.sg{background:var(--grow-soft); color:var(--grow)}
+.chip.key{background:var(--accent-soft); color:var(--accent)}
+.chip.mine{border-color:var(--line2); color:var(--faint)}
+.chip.money{background:var(--sunk); color:var(--ink2); font-weight:600}
+.acts{flex:0 0 auto; display:flex; gap:2px; align-items:center}
+.ic{width:26px; height:26px; border-radius:6px; display:grid; place-items:center; color:var(--faint); font-size:13px}
+.ic:hover{background:var(--sunk); color:var(--ink)}
+.ic[aria-pressed="true"]{color:var(--accent)}
+.editor{padding:0 14px 12px 42px; display:flex; gap:8px; flex-wrap:wrap; align-items:center; background:var(--surface2); border-bottom:1px solid var(--line)}
+.editor label{font-size:11px; color:var(--faint); letter-spacing:.05em}
+.editor input, .editor select{background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:6px 9px; outline:none; font-size:12.5px}
+.editor input:focus, .editor select:focus{border-color:var(--accent)}
+.editor input.n{flex:1 1 220px; min-width:0}
+.editor input.c{width:84px}
+
+/* ---------- misc ---------- */
+.empty{padding:26px 14px; text-align:center; color:var(--faint); font-size:12.5px}
+.foot{margin-top:28px; border-top:1px solid var(--line); padding-top:18px; font-size:12px; color:var(--muted); line-height:1.75}
+.foot h3{font-size:12.5px; font-weight:700; color:var(--ink2); margin-bottom:6px; letter-spacing:.04em}
+.foot a{color:var(--grow)}
+.foot ul{margin:0 0 14px; padding-left:18px}
+.warnbox{background:var(--warn-soft); border:1px solid color-mix(in srgb, var(--warn) 30%, transparent); border-radius:var(--r); padding:10px 12px; font-size:12px; color:var(--ink2); margin-bottom:14px}
+.toast{position:fixed; left:50%; transform:translateX(-50%); bottom:calc(18px + env(safe-area-inset-bottom,0px)); background:var(--ink); color:var(--bg); padding:9px 16px; border-radius:99px; font-size:12.5px; z-index:80; box-shadow:var(--shadow)}
+.sync{font-size:10.5px; color:var(--faint); letter-spacing:.05em}
+.sync i{display:inline-block; width:6px; height:6px; border-radius:99px; background:var(--faint); margin-right:5px; vertical-align:1px}
+.sync.on i{background:var(--grow)}
+@media (max-width:520px){
+  .gauges{grid-template-columns:1fr 1fr}
+  .gauge:first-child{grid-column:1 / -1}
+  .cat-t .d{display:none}
+}
+</style>
+
+<div class="top">
+  <div class="top-in">
+    <div class="brandrow">
+      <div class="brand">赴坡 · <em>NTU</em> 行前面板</div>
+      <div class="sub mono" id="syncLine"><span class="sync"><i></i>本地保存</span></div>
+    </div>
+    <div class="gauges">
+      <button class="gauge clickable" id="gCount" type="button">
+        <div class="lab">出发倒计时</div>
+        <div class="val mono" id="cdVal">—</div>
+        <div class="hint" id="cdHint">点一下改出发日期</div>
+      </button>
+      <div class="gauge">
+        <div class="lab">总进度</div>
+        <div class="val mono" id="pgVal">0%</div>
+        <div class="bar"><i id="pgBar" style="width:0%"></i></div>
+      </div>
+      <div class="gauge">
+        <div class="lab">关键项</div>
+        <div class="val mono" id="keyVal">0<small> / 0</small></div>
+        <div class="bar acc"><i id="keyBar" style="width:0%"></i></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="rail" id="rail"></div>
+
+  <div class="tools">
+    <div class="search">
+      <span aria-hidden="true" style="color:var(--faint)">⌕</span>
+      <input type="text" id="q" placeholder="搜清单…（护照 / 押金 / 插头 / 体检）" autocomplete="off">
+    </div>
+    <div class="seg" role="group" aria-label="筛选">
+      <button type="button" id="f-all" data-f="all" aria-pressed="true">全部</button>
+      <button type="button" id="f-todo" data-f="todo" aria-pressed="false">未完成</button>
+      <button type="button" id="f-key" data-f="key" aria-pressed="false">关键</button>
+      <button type="button" id="f-money" data-f="money" aria-pressed="false">花钱</button>
+    </div>
+    <button class="btn ghost" type="button" id="expandAll">展开全部</button>
+    <button class="btn ghost" type="button" id="exportBtn">导出备份</button>
+  </div>
+
+  <div class="add">
+    <div class="add-head">
+      <h3>随手加一条</h3>
+      <span class="tag mono">输入后自动归类，可再改</span>
+    </div>
+    <div class="add-row">
+      <input type="text" id="newItem" placeholder="例如：买个转换插头 / 约 ICA 预约 / 问房东能不能煮饭" autocomplete="off">
+      <select id="newCat" aria-label="分类"></select>
+      <select id="newPhase" aria-label="阶段"></select>
+      <button class="btn" type="button" id="addBtn">加入</button>
+    </div>
+    <div class="guess" id="guess"></div>
+  </div>
+
+  <div id="list"></div>
+
+  <div class="foot">
+    <div class="warnbox">
+      <b>费用和政策会变。</b>面板里的金额是 2026-09-17 抓到的公开参考价，只用来做预算估算，不是报价；出发前请以 NTU / ICA 官网和你自己的邮件通知为准。标「待核实」的条目我没能找到权威出处。
+    </div>
+    <h3>清单条目的具名来源</h3><p style="margin:0 0 10px">物品级的条目和牌子，绝大部分来自下面这几篇留学生实录。它们是<b>个人经验，不是官方规定</b>，同一件事不同人结论可能相反（比如衣架该不该带），我把冲突的说法都保留了，你自己挑。</p><ul><li>小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09</li><li>小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09</li><li>小红书 @frjinnfaerei「26fall行李进度50%」459赞，2026-09</li><li>小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09</li><li>小红书 @松鼠滚果果「新加坡留学落地攻略」812赞，2026-09</li><li>小红书 @StayGold「落地樟宜T3买Singtel卡」694赞，2026-09</li><li>小红书 @Swallow’s eyes「首落樟宜从从容容三件事」970赞，2026-09</li><li>小红书 @夏芽儿「别租Westwood」241赞，2026-09</li></ul><h3>主要来源（抓取日期 2026-09-17）</h3>
+    <ul>
+      <li>学生准证流程、S$45 处理费、S$60 签发费 + S$30 多次往返、ICA 须预约办理 —— <a href="https://www.ntu.edu.sg/life-at-ntu/student-life/student-services/onestop/student's-pass/application-of-student's-pass" target="_blank" rel="noopener">NTU OneStop · Application of Student's Pass</a></li>
+      <li>入学体检 S$32（不含 GST）、胸片加收 S$15、可在国内做后由 Fullerton Health @NTU 认证 —— <a href="https://www.ntu.edu.sg/admissions/graduate/gfreshmenguide/incoming-graduate-student-guide/healthscreening" target="_blank" rel="noopener">NTU · Graduate Freshmen Health Screening</a></li>
+      <li>完成手续与领取学生准证 —— <a href="https://www.ica.gov.sg/reside/STP/collect" target="_blank" rel="noopener">ICA · Completion of Formalities and Issuance of Student's Pass</a></li>
+      <li>落地办卡顺序、Singtel 预付卡约 S$15、EZ-Link 工本费 S$5、樟宜到 NTU 约 45–50 分钟、Grab 车型与行李数 —— 小红书留学生实录（「新加坡留学🇸🇬落地攻略」812 赞、「落地樟宜T3：购买Singtel prepaid card」694 赞、「从从容容三件事」970 赞，均 2026-09 可见）</li>
+      <li>Westwood / Floravale 通勤劝退、Jurong West 普通房约 S$900/月、Lakeside 2B2B 次卧约 S$1900/月、押金 1.5 个月 —— 小红书租房帖与挂牌信息（2026-09），属个人经历与单套报价，不代表市场均价</li>
+      <li>入境禁带：口香糖、电子烟、含麻黄碱/可待因成分药品、含濒危动植物成分中成药、肉类限制 —— 新加坡海关与 HSA 规定的中文攻略汇总（2026-09）；具体以 <a href="https://www.customs.gov.sg" target="_blank" rel="noopener">Singapore Customs</a> 和 <a href="https://www.hsa.gov.sg" target="_blank" rel="noopener">HSA</a> 官网为准</li>
+    </ul>
+    <h3>我做了哪些推断</h3>
+    <ul>
+      <li>你说的「11 intake」我按 <b>2026 年 11 月入学</b>处理，默认出发日设成 2026-11-01 —— 点倒计时那格可以改成你的真实出发日，所有阶段日期会跟着重算。</li>
+      <li>汇率默认 1 SGD = 5.40 CNY，<b>非实时，待核实</b>，可在预算行里改。</li>
+      <li>「国内带 / 落地买」是根据攻略帖的普遍说法标的，属个人经验汇总，不是硬规则。</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+/* ============ 数据 ============ */
+const PHASES = [
+  {id:'t60', code:'T-60+', nm:'两个月前', from:-999, to:-31, d:'搞定录取、签证、租房定位'},
+  {id:'t30', code:'T-30', nm:'一个月前', from:-30, to:-8, d:'STP、体检、机票、看房'},
+  {id:'t7', code:'T-7', nm:'出发前一周', from:-7, to:-1, d:'收行李、国内收尾'},
+  {id:'go', code:'D-DAY', nm:'出发当天', from:0, to:0, d:'随身件、漫游、落地准备'},
+  {id:'d0', code:'D+0', nm:'落地 48h', from:0, to:2, d:'手机卡、交通卡、验房、采买'},
+  {id:'w1', code:'W1', nm:'第一周', from:1, to:7, d:'STP、Singpass、银行卡、注册'},
+  {id:'m1', code:'M1', nm:'第一个月', from:8, to:30, d:'长期号、选课、安顿'}
+];
+const CATS = [
+  {id:'doc', n:'证件与材料', d:'护照、STP、学历材料 —— 复印几份都写清楚了'},
+  {id:'money', n:'钱与银行', d:'现金带多少、哪几张卡、落地办哪个户口'},
+  {id:'rent', n:'住 · 租房', d:'选区、看房、合同、验房'},
+  {id:'bed', n:'住 · 床品家居', d:'床品尺寸、晾衣、驱蚊、收纳'},
+  {id:'clean', n:'住 · 清洁耗材', d:'垃圾袋、洗衣、密封袋这些琐碎的'},
+  {id:'elec', n:'电子与充电', d:'英标插头、插排、充电宝、各种线'},
+  {id:'wash', n:'洗漱护肤', d:'分装、防晒、隐形、化妆'},
+  {id:'wear', n:'穿 · 衣物鞋包', d:'常年 25–33°C，室内空调很冷'},
+  {id:'med', n:'药品医疗', d:'具体到药名，带哪些、哪些有入境风险'},
+  {id:'food', n:'食 · 厨房调料', d:'带什么调料、餐具、锅具'},
+  {id:'study', n:'文具与学习', d:'文具带多少、注册选课迎新'},
+  {id:'move', n:'行 · 机票行李', d:'行李额、箱子、随身、落地交通'},
+  {id:'tech', n:'通讯与账号', d:'保号、电话卡、Singpass、App'},
+  {id:'land', n:'落地采购', d:'到坡再买什么、去哪家店买'},
+  {id:'cnwrap', n:'国内收尾', d:'退租、档案、告别、留备份'},
+  {id:'red', n:'红线 · 别带', d:'逐条确认行李里没有，这几样是真会罚'},
+  {id:'nope', n:'不建议带', d:'省行李额用 —— 留学生实测「带了后悔」的'}
+];
+const ITEMS = [
+{"c":"doc","t":"护照 —— 有效期 ≥6 个月且覆盖整个课程","n":"过期太早会压缩 STP 时长，来不及就先换新","p":"t60","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"doc","t":"护照首页 + 签证页 各复印 5 份","n":"NTU 注册、办 STP 时反复用到（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"护照电子版存云盘 + 手机相册","n":"","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"doc","t":"IPA Letter：原件 + 复印件 3 份","n":"入境时要出示，到校办 STP 必须提交。IPA 自带单次入境签证，不用另外办签证（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"录取通知书：PDF 原件 + 打印 2 份","n":"NTU 注册、租房、银行开户都可能要它证明身份","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"本科毕业证 + 学位证 原件","n":"","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"毕业证学位证 英文公证件：原件 + 复印 2 份","n":"NTU 可能抽查，部分课程注册时需验证（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"本科成绩单：中英文原件 + 复印 2 份","n":"要加盖学校公章，GPA 相关事项可能用到","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"雅思/托福成绩单：原件 + 复印 2 份","n":"NTU 部分学院注册时会核对","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"2 寸白底证件照 15 张（35×45mm）+ 电子版","n":"学生证、银行卡、各种办理都要。校内拍约 15–20 新/组，国内提前拍划算得多（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t30","k":1,"b":"cn","a":60,"cu":"CNY"},
+{"c":"doc","t":"绒面小两寸证件照（OSE 用）","n":"小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 专门提到这个规格","p":"t30","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"1 寸证件照若干","n":"","p":"t30","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"学信网 / 学位网 英文认证报告","n":"","p":"t60","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"doc","t":"身份证 + 复印件","n":"","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"户口本复印件","n":"","p":"t30","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"防水文件袋 ×2","n":"证件分两袋装，一袋随身一袋托运，丢一个不至于全完（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"A4 文件夹 / 资料册","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"紧急联系人纸质卡，放钱包","n":"写清国内家人、NTU 导师/学院行政邮箱、国际学生办公室电话（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"中国驻新加坡大使馆地址和电话记下来","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"doc","t":"在 ICA SOLAR 提交 eForm 16","n":"NTU 先把你的资料注册进 SOLAR；提交不早于开课前 2 个月（NTU 官网，2026-09-17）","p":"t60","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"doc","t":"缴 STP 申请处理费 S$45","n":"提交后 7 天内不缴，申请直接作废（NTU 官网，2026-09-17）","p":"t60","k":1,"b":"","a":45,"cu":"SGD"},
+{"c":"doc","t":"入学体检：HIV + 胸片 TB","n":"课程超过 6 个月必做（NTU 官网，2026-09-17）","p":"t60","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"doc","t":"体检报告英文版交 Fullerton Health @NTU 认证","n":"国内做便宜；NTU 健康筛查本身 S$32（不含 GST），异常需加拍胸片 S$15（NTU 官网，2026-09-17）","p":"t60","k":1,"b":"","a":32,"cu":"SGD"},
+{"c":"doc","t":"把体检报告上传回 SOLAR，等 IPA","n":"","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"doc","t":"缴 STP 签发费 S$60（+ 多次往返 S$30）","n":"要不要多次往返看你会不会中途出境旅行（NTU 官网，2026-09-17）","p":"t30","k":1,"b":"","a":90,"cu":"SGD"},
+{"c":"doc","t":"在 ICA 官网预约 e-Appointment","n":"只接受预约，walk-in 办不了（ICA 官网，2026-09-17）","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"doc","t":"填 SG Arrival Card 电子入境卡","n":"MyICA App，入境前 3 天内填","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"doc","t":"落地后按预约去 ICA 完成手续、录生物识别","n":"必须在短期访问准证或 IPA 有效期内完成，取早不取晚","p":"w1","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"doc","t":"办生物识别时手里要有能收短信的本地号","n":"没有的话要用授权代理人的号（NTU 官网，2026-09-17）","p":"w1","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"doc","t":"收到 ICA 登录邮件后用 Singpass 取电子学生准证","n":"一般生物识别后 7 个工作日内","p":"w1","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"doc","t":"疫苗接种记录英文版","n":"","p":"t30","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"驾照 + 英文公证件（可选）","n":"","p":"t30","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"打印机票行程单","n":"入境可能会问。@明天会下雨吗 说实际没用上，但打一份不占地方","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"打印住宿证明 / 租约","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"保险单：电子版 + 打印一份","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"doc","t":"所有证件扫描件存三处：手机、云盘、邮箱","n":"丢件时这一步能救命","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"money","t":"换现金 S$1000–1500，要 50/10/5 小面额","n":"刚到付押金、买电话卡、吃饭都用现金，小面额方便找零（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）。小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 带了 1000 新","p":"t7","k":1,"b":"","a":1200,"cu":"SGD"},
+{"c":"money","t":"国内银联卡 1 张","n":"NTU 校内 ATM 支持银联取现，手续费约 1%–2%，应急用（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"money","t":"国际信用卡 Visa/Mastercard 1 张","n":"交学费、网购用，部分宿舍押金支持信用卡","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"money","t":"国内卡开通境外消费/取现，调高单日限额","n":"出国前在手机银行里改掉","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"money","t":"记下国内银行的境外客服电话","n":"卡被风控时能打","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"money","t":"确认学费缴纳方式和截止日","n":"正式注册后约 2 周收到 NSS-Finance 账单（NTU 官网，2026-09-17）","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"money","t":"比较跨境汇款渠道：中行跨境通 / Wise / 电汇","n":"手续费和汇率差距不小","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"money","t":"中国银行新加坡卡（可选，国内可预约）","n":"搭配国内中行跨境转账免手续费","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"money","t":"落地办 DBS/POSB 学生账户","n":"全日制学生且 29 岁以下可免 S$2/月管理费；可提前线上预申请","p":"w1","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"money","t":"OCBC 或 UOB 作备用（可选）","n":"","p":"m1","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"money","t":"绑定 PayNow / PayLah","n":"本地转账、AA 制、付房租都靠它","p":"w1","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"money","t":"准备押金 + 首月房租","n":"押金普遍 1–1.5 个月租金","p":"t30","k":1,"b":"","a":2500,"cu":"SGD"},
+{"c":"money","t":"建一个留学预算表，按月记账","n":"","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"money","t":"确认 NTU 学生保险覆盖范围","n":"","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"money","t":"补充医疗险 / 行李险（可选）","n":"","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"money","t":"小钱包 + 大钱包","n":"小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 两个都带了","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"money","t":"卡套（学生证、交通卡）","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"money","t":"支付宝/微信绑好还能用的支付方式","n":"","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"先定区域：Pioneer / Boon Lay / Jurong West / Lakeside / Clementi","n":"越靠近绿线西段越省通勤","p":"t60","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"硬指标：到 NTU 校车站或 179/199 巴士站步行 ≤5 分钟","n":"这条比房子新旧重要得多","p":"t60","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"房源渠道铺开：PropertyGuru、99.co、SRX、Carousell、小红书、学长群","n":"","p":"t60","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"避坑：Westwood、Floravale 一带","n":"有住户实录：要走 700–800m 到唯一直达的 199 站，社区巴士班次少挤不上，打车回去十几新（小红书 @夏芽儿「别租Westwood」241赞，2026-09）。属个人经历，自己再核","p":"t60","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"想清楚组屋 vs 公寓","n":"组屋便宜、楼下就是食阁巴刹；公寓有泳池健身房但贵，且不一定用得上","p":"t60","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"摸清价格区间","n":"小红书 2026-09 挂牌：Jurong West 普通房约 S$900/月、Lakeside 2B2B 次卧约 S$1900/月不含 bills。单套报价，不代表均价","p":"t60","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"线上看房要求房东实拍通勤路线","n":"不要只看地图直线距离","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"核验房东身份，确认 HDB 出租已获批准","n":"","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"合同逐条看","n":"租期、押金、agent fee、水电网谁付、能否煮饭、访客规定、提前退租罚则","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"确认「包不包 bills」","n":"水电网燃气差价一个月可能几十上百新","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"问清楚洗衣机/烘干机：有没有、洗一次多少钱","n":"","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"问清楚房间里有没有床、床垫、衣柜、书桌、空调","n":"unfurnished 的房间要自己买家具，成本差很多","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"量一下床的尺寸再买床品","n":"本地单人床多为 90cm×190cm（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"确认插座类型和数量","n":"英标三方扁头，230V/50Hz","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"找室友：性别、作息、卫生习惯、公摊怎么算 提前讲清","n":"","p":"t60","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"备选方案：先订 3–7 天短租/酒店，落地线下看房再签","n":"不确定就别在国内签死","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"入住验房：拍视频 + 照片存证，家具电器逐件测试","n":"搬走时退押金全靠这些","p":"d0","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"留存押金收据 / 转账凭证","n":"","p":"d0","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"rent","t":"要 WiFi 密码、电箱和水阀位置","n":"","p":"d0","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"bed","t":"床单 ×1–2","n":"确认床尺寸后再买，本地单人床多为 90×190cm；也可落地在 IKEA 或 Courts 买（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"bed","t":"被套 ×1–2","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"bed","t":"枕套 ×2","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"bed","t":"床垫罩 / 保护垫","n":"小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 列了","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"bed","t":"夏凉被 / 空调被 ×1","n":"室内空调开得很低，但不需要厚被子","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"bed","t":"枕头","n":"小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09：这边枕头贵且不好睡，对枕头有要求的一定自己带","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"bed","t":"遮光眼罩","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"bed","t":"耳塞","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"bed","t":"毛巾 ×2 / 速干毛巾","n":"小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09 推荐速干款","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"bed","t":"浴巾 ×1","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"bed","t":"折叠晾衣架 ×10","n":"小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09：宿舍晾衣空间有限，折叠款方便收纳。但 小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09 认为不用带，本地 1 新约 12 个 —— 自己权衡","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"bed","t":"裤架 / 晾衣夹","n":"","p":"t7","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"bed","t":"台灯","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"bed","t":"手持小风扇","n":"小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09：好用！有用！","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"bed","t":"除湿盒 / 干燥剂","n":"常年高湿，衣柜容易发霉","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"bed","t":"防霉贴 / 樟脑丸","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"bed","t":"电蚊香 / 驱蚊液 / 无比滴","n":"新加坡有登革热，别省这个。小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 带了无比滴","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"bed","t":"衣物收纳箱 / 收纳袋","n":"","p":"t7","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"bed","t":"真空压缩袋","n":"能省不少行李空间","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"bed","t":"免钉挂钩","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"bed","t":"化妆镜 / 小镜子","n":"小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09 推荐带一个","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"bed","t":"门后挂架 / 置物架","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"bed","t":"折叠小桌板（可选）","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"clean","t":"密封袋 大中小各一批","n":"小红书 @frjinnfaerei「26fall行李进度50%」459赞，2026-09 自称「密封袋战神」，分装液体、收纳零碎全靠它","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"clean","t":"纸巾：大包 + 随身小包纸","n":"小红书 @frjinnfaerei「26fall行李进度50%」459赞，2026-09 带了一大包加很多小包","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"clean","t":"湿厕纸","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"clean","t":"垃圾袋","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"clean","t":"洗衣液 / 洗衣凝珠","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"clean","t":"柔顺剂","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"clean","t":"内衣洗衣袋","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"clean","t":"消毒湿巾","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"clean","t":"抹布 / 百洁布","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"clean","t":"洁厕剂 + 马桶刷","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"clean","t":"扫把 + 拖把 + 簸箕","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"clean","t":"洗洁精","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"clean","t":"保鲜袋 / 保鲜膜","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"clean","t":"一次性手套","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"clean","t":"空气清新剂 / 除臭","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"elec","t":"英标转换插头 ×3","n":"NTU 宿舍和本地住处都是英标三方扁头。建议 1 个多口转换头 + 2 个普通款（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t7","k":1,"b":"cn","a":80,"cu":"CNY"},
+{"c":"elec","t":"插排 ×2（小巧多孔、带 USB 口）","n":"小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09 和 小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 都列了 2 个","p":"t7","k":1,"b":"cn","a":100,"cu":"CNY"},
+{"c":"elec","t":"笔记本电脑 + 充电线 ×2 根","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"手机","n":"","p":"go","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"平板 + 触控笔 / 键盘","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"充电宝 ×2，单个 ≤20000mAh","n":"必须有 3C 认证，只能随身不能托运（小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09）","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"全能充 / 多口充电头","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"各设备充电线：手机 L 口 / C 口、手表、相机、剃须刀、电动牙刷","n":"小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 逐个列了，容易漏","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"U 盘 / 移动硬盘 128G","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"取卡针","n":"换电话卡时要用，小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09、小红书 @StayGold「落地樟宜T3买Singtel卡」694赞，2026-09 都专门列了","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"耳机","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"相机 + 备用电池 + 存储卡","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"吹风机","n":"小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 带了；也可落地买，注意 230V","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"电动牙刷 + 备用刷头","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"剃须刀 / 脱毛刀","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"卷发棒 / 直板夹（可选）","n":"小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09 列了","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"计算器","n":"小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 标了「重要」；部分考试可能限定型号，自己专业的要求待核实","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"电脑支架","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"鼠标 + 鼠标垫","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"5 号 / 7 号电池若干","n":"小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09：带点吧万一呢","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"手机壳 + 钢化膜备用","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"电脑内胆包 / 便携包","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"elec","t":"电子设备保修卡收好","n":"能在国内修的出发前先修","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"wash","t":"分装瓶一套","n":"随身液体单瓶 ≤100ml；托运的分装瓶用密封袋套一下防漏","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"洗面奶 / 洁面皂","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"洗脸巾","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"卸妆水 + 眼唇卸","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"卸妆棉 / 湿敷棉","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"水乳 / 精华（没用完的分装带走）","n":"小红书 @frjinnfaerei「26fall行李进度50%」459赞，2026-09 的做法","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"面霜、眼霜","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"面膜","n":"小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 带了 20 片","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"泥膜 / 清洁面膜小样","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"防晒霜 SPF50 大管 ×1 + 小样若干","n":"新加坡紫外线强，这个是刚需","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"防晒喷雾","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"防晒口罩 / 冰袖","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"唇膏","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"痘痘贴 + 祛痘药膏","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"香水（分装）","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"身体乳 / 润肤露","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"护手霜","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"洗发水 / 护发素 小瓶装","n":"大瓶落地买，带着太沉（小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09）","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"护发精油","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"沐浴露小瓶 / 香皂","n":"小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09：洗得勤的话用香皂很舒服还简单","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"牙刷 + 牙膏 + 牙线","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"梳子","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"指甲刀","n":"放托运，别放随身","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"小剪刀 + 修鼻毛器","n":"小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 列了","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"螺丝刀套装","n":"小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 列了，装家具修东西用得上","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"头绳 / 发饰","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"化妆包 + 常用彩妆 + 备货","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"化妆刷 + 刷包","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"隐形眼镜（日抛/月抛）+ 护理液 + 双联盒","n":"本地配镜贵，一次多带","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"美瞳","n":"小红书 @frjinnfaerei「26fall行李进度50%」459赞，2026-09 带了日抛和月抛两种","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wash","t":"洗漱包 / 分装收纳袋","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"短袖 T 恤 / 衬衫 10–15 件","n":"棉质或速干面料。NTU 教室、图书馆空调足，单穿短袖可能冷（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"Polo 衫 ×3（可选）","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"衬衫 ×2","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"薄长裤 / 短裤 5–8 条","n":"长裤选轻薄款，空调房必备；短裤适合户外，NTU 校园大走路多（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"裙子 ×2（可选）","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"薄外套 / 防晒衣 ×2","n":"空调房、雨天防风用，防晒衣还能挡强紫外线（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"冲锋衣","n":"小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09 列了；空调房和雨天用","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"帽子 ×2–3","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"墨镜","n":"小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 带的是 GM","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"晴雨两用折叠伞 ×2","n":"新加坡多阵雨，NTU 校园大，一把常年放书包（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"运动鞋 ×2","n":"NTU 校园需要频繁走路、坡路多，选防滑轻便款（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"洞洞鞋 / 凉鞋","n":"雨天外出方便","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"拖鞋（室内 + 浴室）","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"正装 1 套（西装/衬衫 + 西裤/裙）","n":"讲座、招聘会、小组汇报要用，本地买正装较贵（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"正装鞋","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"内裤 ×6–10","n":"小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09：这边内衣裤没国内便宜也没国内好","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"袜子 ×7–10","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"文胸 / 背心","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"睡衣 ×2–3","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"泳衣","n":"公寓泳池、东海岸、学校泳池都用得上","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"双肩包（耐用款）","n":"NTU 校园大，上课要带电脑和课本，背包更省力（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"斜挎包 / 小包","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"托特包 / 环保购物袋","n":"超市不免费给袋子","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"皮带","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"wear","t":"西装防皱袋","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"总原则：带原包装 + 英文说明书，数量不超 3 个月用量","n":"超量会被怀疑商业分销。新加坡买药多数需处方，非处方的如 Panadol 校内药店可买（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"med","t":"处方药：带英文处方 + 医生说明","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"⚠️ 先自查：含麻黄碱 / 可待因 / 吗啡成分的药属管制","n":"部分复方感冒药和止咳糖浆中招，出发前逐盒看配料表","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"med","t":"⚠️ 先自查：含麝香、羚羊角等濒危成分的中成药会被没收","n":"","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"med","t":"退烧止痛：布洛芬","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"对乙酰氨基酚 / Panadol","n":"Panadol 在新加坡是非处方药，校内药店可买，不带也行（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"抗过敏：氯雷他定","n":"小红书 @frjinnfaerei「26fall行李进度50%」459赞，2026-09 清单第 1 位","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"感冒药","n":"避开含麻黄碱成分的品类；具体某盒是否含，待核实","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"止泻：蒙脱石散","n":"小红书 @frjinnfaerei「26fall行李进度50%」459赞，2026-09、小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 都带了","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"黄连素","n":"小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 列了","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"健胃消食片","n":"小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 列了","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"胃药：达喜","n":"小红书 @frjinnfaerei「26fall行李进度50%」459赞，2026-09 列了","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"口腔溃疡药","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"眼药水 / 人工泪液","n":"外用药限制较少","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"红霉素软膏","n":"小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 列了","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"创可贴","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"碘伏棉签","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"止痛贴膏（氟比洛芬凝胶贴膏等）","n":"小红书 @frjinnfaerei「26fall行李进度50%」459赞，2026-09 带了","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"云南白药气雾剂","n":"小红书 @frjinnfaerei「26fall行李进度50%」459赞，2026-09 带了。⚠️ 属中成药，成分自己核一下","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"鼻塞喷鼻剂","n":"小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 列了","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"发烧贴","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"抗生素（头孢等）","n":"⚠️ 处方药，务必带英文处方，别散装带","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"甲硝唑","n":"⚠️ 处方药，同上（小红书 @frjinnfaerei「26fall行李进度50%」459赞，2026-09 列了）","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"蓝芩口服液 / 板蓝根","n":"小红书 @frjinnfaerei「26fall行李进度50%」459赞，2026-09 带了。⚠️ 中成药，入境风险自己核，不确定就别带","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"连花清瘟","n":"小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 带了。⚠️ 同上，中成药自查成分","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"晕车药","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"体温计","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"卫生巾 / 棉条 带 1–2 个月过渡量","n":"小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09：楼下商超有很便宜的，不用大量囤","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"个人长期用药按 3 个月量准备","n":"","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"出国前看牙 + 洗牙","n":"新加坡牙科很贵，补牙拔牙尽量在国内解决","p":"t60","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"med","t":"配备用眼镜 1–2 副","n":"NTU 附近验光 + 配镜约 100–300 新（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t60","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"OK 镜 / 牙套及护理套装（如有）","n":"小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 列了","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"med","t":"记下 NTU Medical Centre / Fullerton Health @NTU 位置和电话","n":"","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"med","t":"登革热防护：驱蚊 + 家里不留积水","n":"","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"food","t":"保温杯","n":"NTU 教学楼、图书馆有直饮水，接水方便；新加坡买保温杯选择少且贵（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"t7","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"food","t":"水杯 / 随行杯","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"food","t":"⚠️ 先搞清食品入境规定","n":"肉类制品限量且需许可，口香糖禁带。别带真空包装肉、腊味、肉松碰运气","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"food","t":"素火锅底料","n":"看清配料表有没有肉类成分","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"food","t":"辣椒酱 / 老干妈","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"food","t":"花椒、八角、干辣椒等干货香料","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"food","t":"孜然、十三香等调味料包","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"food","t":"螺蛳粉 / 方便食品 少量应急","n":"⚠️ 看配料包里有没有肉；落地头两天不一定有空做饭","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"food","t":"筷子 + 勺子 + 叉子","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"food","t":"饭盒","n":"自己带饭省钱","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"food","t":"焖烧杯（可选）","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"food","t":"削皮刀","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"food","t":"菜刀 + 砧板","n":"落地买，别托运刀具","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"food","t":"锅（炒锅/汤锅）","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"food","t":"电煮锅 / 小电饭煲","n":"落地买，注意 230V","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"food","t":"保鲜盒","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"food","t":"落地第一次超市采买","n":"FairPrice / Sheng Siong / Giant / Don Don Donki","p":"d0","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"food","t":"摸清 NTU 食堂","n":"Canteen 1/2/9/11/13/14、North Spine、South Spine","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"food","t":"装外卖 App：GrabFood / foodpanda / Deliveroo","n":"","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"food","t":"逛一次附近巴刹和食阁","n":"Boon Lay Place、Pioneer Mall、Jurong Point","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"study","t":"笔 ×4 + 笔记本 ×2","n":"小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09：带少量就够，本地也买得到","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"study","t":"活页本 ×3 + 活页纸","n":"小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 列了","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"study","t":"便利贴","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"study","t":"尺子、橡皮、笔袋","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"study","t":"文件夹 / 资料册","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"study","t":"完成在线注册 Matriculation","n":"走 NTU Acceptance Form","p":"t60","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"study","t":"领学生证 Matriculation Card","n":"","p":"w1","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"study","t":"选课（GSCRS），提前查开放时间","n":"热门课要抢","p":"w1","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"study","t":"看清培养方案和毕业学分要求","n":"","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"study","t":"参加 O-Week / 迎新","n":"","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"study","t":"加项目群、学长学姐群","n":"二手家具、转租、内推都在群里","p":"t60","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"study","t":"逛一次图书馆：Lee Wee Nam、Business Library","n":"","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"study","t":"装学校正版软件：Office / MATLAB / SPSS 等","n":"","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"study","t":"了解 Career Portal 和实习政策","n":"STP 能不能兼职，以 ICA 和学校说明为准","p":"m1","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"move","t":"订机票，重点比行李额","n":"有留学生记录东航 23kg/件、加一件约 800 元人民币、升超经约 700 元可多带一件（小红书 @松鼠滚果果「新加坡留学落地攻略」812赞，2026-09）；以你买的航司条款为准","p":"t60","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"move","t":"28 寸托运箱 ×1–2","n":"小红书 @krsttt「NUS j人留子 行前准备」733赞，2026-09 带了 2 个 28 寸刚好 40kg + 20 寸登机箱 + 双肩包","p":"t30","k":1,"b":"cn","a":0,"cu":"SGD"},
+{"c":"move","t":"20 寸登机箱","n":"","p":"t30","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"move","t":"确认行李箱三边和 ≤158cm","n":"超尺寸要另外加钱（小红书 @frjinnfaerei「26fall行李进度50%」459赞，2026-09）","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"move","t":"行李秤","n":"称完再出门，机场补救很贵","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"move","t":"行李箱绑带 / 密码锁","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"move","t":"行李牌 + 箱子加个好认的贴纸","n":"小红书 @frjinnfaerei「26fall行李进度50%」459赞，2026-09 贴了小狗贴画","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"move","t":"随身包：证件、电脑、充电宝、一天换洗","n":"托运丢了也能撑住。小红书 @frjinnfaerei「26fall行李进度50%」459赞，2026-09 的随身电子设备近 8kg，先试装一遍","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"move","t":"压缩袋 / 收纳袋 按品类分装","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"move","t":"托运件里所有液体套密封袋","n":"","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"move","t":"随身液体单瓶 ≤100ml","n":"","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"move","t":"充电宝只能随身，不可托运","n":"","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"move","t":"颈枕 / 眼罩 / 耳塞","n":"","p":"t7","k":0,"b":"cn","a":0,"cu":"SGD"},
+{"c":"move","t":"登机前开通国内号国际漫游","n":"约 30 元/月，落地要收银行和学校的验证码（小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"go","k":1,"b":"","a":30,"cu":"CNY"},
+{"c":"move","t":"落地办本地 prepaid 卡","n":"Singtel / StarHub / M1，约 S$15，樟宜各航站楼 Cheers、7-11 或柜台，凭护照实名。预付卡有效期约 30 天（小红书 @松鼠滚果果「新加坡留学落地攻略」812赞，2026-09、小红书 @StayGold「落地樟宜T3买Singtel卡」694赞，2026-09）","p":"d0","k":1,"b":"","a":15,"cu":"SGD"},
+{"c":"move","t":"办 EZ-Link 交通卡","n":"工本费 S$5 不退 + 储值；机场地铁站服务台、7-11、Cheers 都能办。公交上下车都要刷（小红书 @Swallow’s eyes「首落樟宜从从容容三件事」970赞，2026-09、小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09）","p":"d0","k":1,"b":"","a":20,"cu":"SGD"},
+{"c":"move","t":"装 Grab，按行李数选车型","n":"普通 4 座放 2 件大行李、6 座放 3 件；樟宜到 NTU 约 45–50 分钟（小红书 @松鼠滚果果「新加坡留学落地攻略」812赞，2026-09、小红书 @StayGold「落地樟宜T3买Singtel卡」694赞，2026-09）","p":"go","k":1,"b":"","a":40,"cu":"SGD"},
+{"c":"move","t":"提前查好樟宜到住处的路线和大概车费","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"move","t":"摸清 NTU 校车路线（免费）","n":"红/蓝/棕线","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"move","t":"记住 179 / 199 巴士到 NTU","n":"","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"move","t":"拿到 STP + Singpass 后把预付卡转长期号","n":"可在 hi! App 上操作（小红书 @StayGold「落地樟宜T3买Singtel卡」694赞，2026-09）","p":"m1","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"move","t":"绑 SimplyGo 线上充值","n":"需要 Singpass","p":"m1","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"move","t":"存 Google Maps 离线地图","n":"","p":"go","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"tech","t":"国内手机号办保号套餐","n":"微信、支付宝、银行验证码全靠它，千万别停机","p":"t30","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"tech","t":"新加坡长期套餐：可到 NTU 校内 Singtel / StarHub 营业厅办学生套餐","n":"15–20 新/月含大流量 + 本地通话，小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09 说比机场买划算","p":"w1","k":0,"b":"","a":18,"cu":"SGD"},
+{"c":"tech","t":"注册并激活 Singpass","n":"需要 STP + 本地号，缺一不可；租房、政务、银行核验全走它","p":"w1","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"tech","t":"测试 NTU 邮箱、NTUlearn、GSLink 能不能登","n":"系统权限一般开课前一周开放","p":"w1","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"tech","t":"预装 App","n":"Grab、Singpass、hi!App、SimplyGo、Telegram、WhatsApp、Carousell、Shopee、Lazada、HealthHub、Google Maps","p":"go","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"tech","t":"华为手机：提前装好谷歌框架 + 需要的 App","n":"小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09 专门列了这条，落地再弄很麻烦","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"tech","t":"重要资料备份到硬盘 + 云盘","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"tech","t":"云盘扩容 / 续费","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"tech","t":"确认住处 WiFi，或自己办宽带","n":"","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"tech","t":"跨境访问国内服务的准备","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"tech","t":"和家人约定好报平安的方式和时间","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"land","t":"IKEA —— 床品、衣架、收纳、台灯、小家具","n":"有留学生反馈价格和国内差不多（小红书 @松鼠滚果果「新加坡留学落地攻略」812赞，2026-09）","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"land","t":"Courts —— 家电、床品","n":"小红书 @杂菜饭主理人「25fall新硕留子の开学清单」868赞，NTU 专属，2026-09 列为床品备选","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"land","t":"Daiso —— 均一价杂货、收纳、厨房小件","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"land","t":"Mustafa —— 24 小时营业，落地当晚缺什么去这","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"land","t":"Don Don Donki —— 日货、零食、生鲜","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"land","t":"FairPrice / Sheng Siong / Giant —— 日用超市","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"land","t":"Shopee / Lazada —— 网购，大件送货上门","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"land","t":"Carousell —— 二手家具、毕业生转让，学期初最多","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"land","t":"Decathlon —— 运动用品、泳衣","n":"","p":"m1","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"land","t":"大瓶洗发水 / 沐浴露 / 护发素","n":"带着沉，本地不贵（小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09）","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"land","t":"衣架","n":"本地 1 新约 12 个（小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09）","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"land","t":"扫把、拖把、垃圾桶","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"land","t":"锅具、餐具、碗盘","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"land","t":"电风扇","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"land","t":"床垫（如果房间没配）","n":"","p":"d0","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"land","t":"熨斗 / 挂烫机（可选）","n":"","p":"m1","k":0,"b":"sg","a":0,"cu":"SGD"},
+{"c":"land","t":"买东西先问有没有 student price","n":"","p":"w1","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"cnwrap","t":"房子退租 / 东西打包寄存","n":"","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"cnwrap","t":"更新快递收件地址，退订用不上的订阅","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"cnwrap","t":"档案、户口 怎么处理（问原单位或学校）","n":"","p":"t60","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"cnwrap","t":"梳理银行卡年费和自动扣款，关掉不用的","n":"","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"cnwrap","t":"确认社保、公积金、驾照的处理方式","n":"","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"cnwrap","t":"能在国内修的电子设备先修","n":"","p":"t30","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"cnwrap","t":"理发","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"cnwrap","t":"和家人朋友告别，留好联系方式","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"cnwrap","t":"家里留一份证件复印件和完整行程","n":"","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"cnwrap","t":"手机清理存储空间","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"red","t":"确认没带口香糖","n":"除医用处方口香糖外一律禁止入境","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"red","t":"确认没带电子烟、加热烟、烟油","n":"无论用没用过、自用还是送人，携带即违法，罚得很重","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"red","t":"确认没带含麻黄碱 / 可待因 / 吗啡成分的药","n":"部分复方感冒药和止咳糖浆属管制药物","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"red","t":"确认没带含濒危动植物成分的中成药","n":"麝香、羚羊角这类会被没收并开扣押通知","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"red","t":"确认没带肉类及肉制品","n":"需许可且限量，包括腊肠、肉松、真空熟食","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"red","t":"烟酒超量要主动申报缴税","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"red","t":"打火机、超容量充电宝 不要放行李","n":"","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"red","t":"新鲜果蔬、种子、植物 有限制","n":"待核实具体品类","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"red","t":"携带大额现金入境需申报","n":"门槛金额待核实，以 ICA 官网为准","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"red","t":"绝对不帮任何人带东西","n":"新加坡毒品犯罪可判死刑","p":"t7","k":1,"b":"","a":0,"cu":"SGD"},
+{"c":"nope","t":"衣架 —— 别带","n":"本地 1 新约 12 个，够用（小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09）","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"nope","t":"垃圾桶和脸盆 —— 别带","n":"小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09：基本用不太到，直接上垃圾袋然后扔掉就好","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"nope","t":"大量打印材料 —— 别带","n":"小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09：IPA 和 offer 各打印两份就行，行程单打印了也没用到","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"nope","t":"大瓶洗发水沐浴露 —— 别带","n":"沉，本地也不贵（小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09）","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"nope","t":"大量卫生巾 —— 别囤","n":"楼下商超有很便宜的，带过渡量就行（小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09）","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"nope","t":"厚衣服、毛衣、羽绒服 —— 别带","n":"全年 25–33°C，只有空调房需要薄外套","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"nope","t":"厚被子棉被 —— 别带","n":"只需要一床空调被","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"nope","t":"大量零食 —— 别囤","n":"Don Don Donki 和超市都有，还占行李额","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"nope","t":"大量纸质书 —— 别带","n":"用电子版和图书馆","p":"t7","k":0,"b":"","a":0,"cu":"SGD"},
+{"c":"nope","t":"三脚架 —— 看需求","n":"小红书 @明天会下雨吗？「新加坡留学之什么真的该带」576赞，2026-09 说公立学校可能需要，但本人没用到；按自己专业判断，待核实","p":"t7","k":0,"b":"","a":0,"cu":"SGD"}
+];
+ITEMS.forEach((it,i)=>{ it.id = it.c+'-'+i; });
+
+const KEYWORDS = {
+  doc:["护照","签证","stp","ica","准证","ipa","offer","公证","成绩单","学历","认证","身份证","户口","照片","证件","体检","报告","注册","入境卡","solar","eform","预约","疫苗","复印","文件袋"],
+  money:["汇款","银行","学费","押金","转账","paynow","dbs","ocbc","uob","现金","新币","预算","保险","缴费","账单","记账","信用卡","银联","钱包","取现"],
+  rent:["租房","房东","合同","中介","看房","验房","室友","组屋","hdb","公寓","boon lay","pioneer","jurong","lakeside","clementi","agent","退租","bills","水电"],
+  bed:["床单","被套","枕","毛巾","浴巾","晾衣","台灯","风扇","除湿","蚊","收纳","压缩袋","挂钩","镜子","眼罩","耳塞","空调被","床垫"],
+  clean:["垃圾袋","洗衣液","柔顺","湿巾","抹布","洁厕","拖把","扫把","密封袋","保鲜","手套","纸巾","清洁","洗洁精"],
+  elec:["插头","转换","插排","充电","电脑","笔记本","平板","硬盘","u盘","耳机","相机","吹风机","电动牙刷","剃须","计算器","鼠标","电池","数据线","取卡针","充电宝"],
+  wash:["洗面","卸妆","水乳","精华","面霜","面膜","防晒","唇膏","痘","香水","身体乳","护手","洗发","沐浴","牙膏","梳子","指甲","隐形眼镜","美瞳","化妆","分装","洗漱"],
+  wear:["衣服","裤","鞋","外套","正装","衬衫","袜","内衣","泳衣","睡衣","帽子","墨镜","拖鞋","雨伞","书包","双肩包","皮带","t恤","裙"],
+  med:["药","医生","牙","布洛芬","过敏","创可贴","眼药","胃","退烧","感冒","处方","诊所","医院","体温","卫生巾","眼镜","登革","消炎"],
+  food:["调料","火锅","辣椒","超市","fairprice","食堂","外卖","水杯","保温杯","零食","厨房","煮饭","锅","筷","饭盒","菜刀","砧板","食品"],
+  study:["选课","学分","学生证","matriculation","图书馆","迎新","论文","社团","文具","笔记本子","便利贴","培养方案","考试","软件","o-week"],
+  move:["机票","行李","箱子","托运","航空","漫游","电话卡","sim","singtel","ez-link","ezlink","交通卡","simplygo","grab","打车","校车","巴士","地铁","mrt","机场","樟宜","接机","登机"],
+  tech:["手机号","保号","singpass","wifi","邮箱","ntulearn","app","备份","云盘","谷歌","华为","套餐","宽带"],
+  land:["落地买","ikea","宜家","daiso","mustafa","donki","shopee","lazada","carousell","courts","decathlon","采购","到了再买"],
+  cnwrap:["寄存","档案","户口本","快递","理发","告别","社保","公积金","保修"],
+  red:["违禁","禁带","口香糖","电子烟","管制","没收","申报","海关","别带"],
+  nope:["不建议","不用带","别囤","后悔","浪费行李"]
+};
+
+/* ============ 状态 ============ */
+const LS='ntu-checklist-v1';
+const DEFAULTS={ mark:{}, note:{}, cost:{}, custom:[], open:{}, settings:{depart:'2026-11-01', rate:5.4} };
+let S = JSON.parse(JSON.stringify(DEFAULTS));
+let docRef=null, dbOn=false, writeTimer=null, applying=false;
+let view={filter:'all', phase:null, q:''};
+let editing=null;
+
+function loadLocal(){
+  try{ const raw=localStorage.getItem(LS); if(raw) S=Object.assign(JSON.parse(JSON.stringify(DEFAULTS)), JSON.parse(raw)); }catch(e){}
+  if(!S.settings) S.settings={depart:'2026-11-01', rate:5.4};
+}
+function saveLocal(){ try{ localStorage.setItem(LS, JSON.stringify(S)); }catch(e){} }
+function persist(){
+  saveLocal();
+  if(!docRef) return;
+  clearTimeout(writeTimer);
+  writeTimer=setTimeout(async ()=>{
+    try{ await docRef.set(JSON.parse(JSON.stringify(S))); }
+    catch(e){ if(e && e.code==='invalid_argument'){ dbOn=false; syncLine(); } }
+  }, 500);
+}
+function syncLine(){
+  const el=document.getElementById('syncLine');
+  el.innerHTML = dbOn
+    ? '<span class="sync on"><i></i>已同步 · 换设备也在</span>'
+    : '<span class="sync"><i></i>存在这台设备</span>';
+}
+(async()=>{
+  try{
+    const db = await (window.claude && window.claude.use ? window.claude.use('db') : null);
+    if(!db) return;
+    docRef = db.doc('checklist/main');
+    const snap = await docRef.get();
+    if(snap.exists){
+      const d=snap.data();
+      S=Object.assign(JSON.parse(JSON.stringify(DEFAULTS)), d);
+      if(!S.settings) S.settings={depart:'2026-11-01', rate:5.4};
+      applying=true; render(); applying=false;
+    } else { await docRef.set(JSON.parse(JSON.stringify(S))); }
+    dbOn=true; syncLine();
+    docRef.onSnapshot(sn=>{
+      if(!sn.exists || sn.metadata.hasPendingWrites) return;
+      const d=sn.data(); if(!d) return;
+      if(JSON.stringify(d)===JSON.stringify(S)) return;
+      S=Object.assign(JSON.parse(JSON.stringify(DEFAULTS)), d);
+      saveLocal(); applying=true; render(); applying=false;
+    }, ()=>{ dbOn=false; syncLine(); });
+  }catch(e){}
+})();
+
+/* ============ 工具 ============ */
+function allItems(){ return ITEMS.concat(S.custom||[]); }
+function mark(id){ return S.mark[id]||'todo'; }
+function costOf(it){
+  const o=S.cost[it.id];
+  if(o && typeof o.a==='number') return {a:o.a, cu:o.cu||'SGD'};
+  return {a:it.a||0, cu:it.cu||'SGD'};
+}
+function noteOf(it){ return (S.note[it.id]!==undefined) ? S.note[it.id] : (it.n||''); }
+function departDate(){ const d=new Date(S.settings.depart+'T00:00:00'); return isNaN(d)? new Date('2026-11-01T00:00:00') : d; }
+function addDays(d,n){ const x=new Date(d); x.setDate(x.getDate()+n); return x; }
+function fmt(d){ return (d.getMonth()+1)+'/'+d.getDate(); }
+function daysLeft(){ const t=new Date(); t.setHours(0,0,0,0); return Math.round((departDate()-t)/86400000); }
+function phaseRange(p){
+  const dep=departDate();
+  const from = p.from<=-900 ? null : addDays(dep,p.from);
+  return {from, to: addDays(dep,p.to)};
+}
+function esc(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+/* ============ 统计 ============ */
+function stats(list){
+  let done=0, active=0;
+  list.forEach(it=>{ const m=mark(it.id); if(m==='skip') return; active++; if(m==='done') done++; });
+  return {done, active, pct: active? Math.round(done/active*100):0};
+}
+function budget(){
+  let sgd=0, cny=0, sgdDone=0, cnyDone=0;
+  allItems().forEach(it=>{
+    if(mark(it.id)==='skip') return;
+    const c=costOf(it); if(!c.a) return;
+    if(c.cu==='CNY'){ cny+=c.a; if(mark(it.id)==='done') cnyDone+=c.a; }
+    else { sgd+=c.a; if(mark(it.id)==='done') sgdDone+=c.a; }
+  });
+  const rate=Number(S.settings.rate)||5.4;
+  return {sgd, cny, rate, totalCny: sgd*rate+cny, doneCny: sgdDone*rate+cnyDone};
+}
+
+/* ============ 筛选 ============ */
+function visible(it){
+  const m=mark(it.id);
+  if(view.filter==='todo' && m!=='todo') return false;
+  if(view.filter==='key' && !it.k) return false;
+  if(view.filter==='money' && !costOf(it).a) return false;
+  if(view.phase && it.p!==view.phase) return false;
+  if(view.q){
+    const hay=(it.t+' '+noteOf(it)+' '+(CATS.find(c=>c.id===it.c)||{}).n).toLowerCase();
+    if(!hay.includes(view.q.toLowerCase())) return false;
+  }
+  return true;
+}
+
+/* ============ 渲染 ============ */
+function render(){
+  const dl=daysLeft();
+  document.getElementById('cdVal').textContent = dl>0 ? dl+' 天' : (dl===0 ? '就是今天' : '已出发 '+(-dl)+' 天');
+  const dep=departDate();
+  document.getElementById('cdHint').textContent = '出发 '+dep.getFullYear()+'-'+String(dep.getMonth()+1).padStart(2,'0')+'-'+String(dep.getDate()).padStart(2,'0')+' · 点击修改';
+
+  const st=stats(allItems());
+  document.getElementById('pgVal').textContent = st.pct+'%';
+  document.getElementById('pgBar').style.width = st.pct+'%';
+  document.getElementById('pgVal').innerHTML = st.pct+'%<small> · '+st.done+'/'+st.active+'</small>';
+  const keys=allItems().filter(i=>i.k);
+  const ks=stats(keys);
+  document.getElementById('keyVal').innerHTML = ks.done+'<small> / '+ks.active+'</small>';
+  document.getElementById('keyBar').style.width = ks.pct+'%';
+
+  /* rail */
+  const rail=document.getElementById('rail');
+  rail.innerHTML = PHASES.map(p=>{
+    const r=phaseRange(p);
+    const list=allItems().filter(i=>i.p===p.id);
+    const s=stats(list);
+    const label = r.from ? fmt(r.from)+'–'+fmt(r.to) : '~'+fmt(r.to);
+    const past = r.to < new Date();
+    return '<button type="button" class="ph'+(past?' past':'')+'" data-ph="'+p.id+'" aria-pressed="'+(view.phase===p.id)+'">'
+      +'<div class="code mono">'+p.code+'</div>'
+      +'<div class="nm">'+p.nm+'</div>'
+      +'<div class="dt mono">'+label+' · '+s.done+'/'+s.active+'</div>'
+      +'<div class="mini"><i style="width:'+s.pct+'%"></i></div></button>';
+  }).join('');
+
+  /* list */
+  const host=document.getElementById('list');
+  let html='';
+  let shown=0;
+  CATS.forEach(cat=>{
+    const all=allItems().filter(i=>i.c===cat.id);
+    const vis=all.filter(visible);
+    if(!vis.length && (view.q||view.phase||view.filter!=='all')) return;
+    shown+=vis.length;
+    const s=stats(all);
+    const open = S.open[cat.id]!==undefined ? S.open[cat.id] : (cat.id==='doc');
+    const C=2*Math.PI*14;
+    html+='<section class="cat" data-open="'+(open?1:0)+'">'
+      +'<button type="button" class="cat-head" data-cat="'+cat.id+'">'
+        +'<span class="ring"><svg width="34" height="34" viewBox="0 0 34 34">'
+          +'<circle cx="17" cy="17" r="14" fill="none" stroke="var(--sunk)" stroke-width="3"></circle>'
+          +'<circle cx="17" cy="17" r="14" fill="none" stroke="var(--grow)" stroke-width="3" stroke-linecap="round" stroke-dasharray="'+C+'" stroke-dashoffset="'+(C*(1-s.pct/100))+'"></circle>'
+        +'</svg><span class="mono">'+s.pct+'</span></span>'
+        +'<span class="cat-t"><span class="n">'+cat.n+'</span><span class="d">'+cat.d+'</span></span>'
+        +'<span class="cat-c mono">'+s.done+'/'+s.active+'</span>'
+        +'<span class="chev">▶</span>'
+      +'</button>';
+    if(open){
+      html+='<div class="items">';
+      if(!vis.length) html+='<div class="empty">这一类当前筛选下没有条目</div>';
+      vis.forEach(it=>{
+        const m=mark(it.id);
+        const ph=PHASES.find(p=>p.id===it.p);
+        const c=costOf(it);
+        const nt=noteOf(it);
+        html+='<div class="it'+(it.k?' key':'')+(m==='done'?' done':'')+(m==='skip'?' skip':'')+'">'
+          +'<button type="button" class="cb" data-tog="'+it.id+'" aria-label="切换完成">'+(m==='skip'?'—':'✓')+'</button>'
+          +'<div class="body">'
+            +'<div class="ttl">'+esc(it.t)+'</div>'
+            +(nt?'<div class="note">'+esc(nt)+'</div>':'')
+            +'<div class="chips">'
+              +(ph?'<span class="chip p mono">'+ph.code+'</span>':'')
+              +(it.k?'<span class="chip key">关键</span>':'')
+              +(it.b==='cn'?'<span class="chip cn">国内带</span>':'')
+              +(it.b==='sg'?'<span class="chip sg">落地买</span>':'')
+              +(it.own?'<span class="chip mine">我加的</span>':'')
+              +(c.a?'<span class="chip money mono">'+(c.cu==='CNY'?'¥':'S$')+c.a+'</span>':'')
+            +'</div>'
+          +'</div>'
+          +'<div class="acts">'
+            +'<button type="button" class="ic" data-edit="'+it.id+'" aria-pressed="'+(editing===it.id)+'" title="备注与金额">✎</button>'
+            +'<button type="button" class="ic" data-skip="'+it.id+'" title="标为不需要">⊘</button>'
+            +(it.own?'<button type="button" class="ic" data-del="'+it.id+'" title="删除">×</button>':'')
+          +'</div>'
+        +'</div>';
+        if(editing===it.id){
+          html+='<div class="editor">'
+            +'<label for="ed-n-'+it.id+'">备注</label>'
+            +'<input class="n" type="text" id="ed-n-'+it.id+'" value="'+esc(nt)+'" placeholder="写点自己的情况">'
+            +'<label for="ed-c-'+it.id+'">预算</label>'
+            +'<input class="c mono" type="number" id="ed-c-'+it.id+'" value="'+(c.a||'')+'" min="0" step="1" placeholder="0">'
+            +'<select id="ed-u-'+it.id+'"><option value="SGD"'+(c.cu==='SGD'?' selected':'')+'>SGD</option><option value="CNY"'+(c.cu==='CNY'?' selected':'')+'>CNY</option></select>'
+            +'<button type="button" class="btn" data-save="'+it.id+'">保存</button>'
+          +'</div>';
+        }
+      });
+      html+='</div>';
+    }
+    html+='</section>';
+  });
+  if(!shown && (view.q||view.phase||view.filter!=='all')) html='<div class="cat"><div class="empty">没有符合条件的条目。换个筛选，或者把它「随手加一条」进来。</div></div>';
+
+  /* budget block */
+  const b=budget();
+  html+='<section class="cat" id="budgetCard"><div style="padding:14px">'
+    +'<div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap">'
+      +'<div><div class="cat-t"><span class="n">预算合计</span></div>'
+      +'<div style="font-size:11.5px; color:var(--faint)">只统计填了金额、且没标「不需要」的条目</div></div>'
+      +'<div style="text-align:right"><div class="mono" style="font-size:22px; font-weight:600; letter-spacing:-.02em">≈ ¥'+Math.round(b.totalCny).toLocaleString()+'</div>'
+      +'<div class="mono" style="font-size:11.5px; color:var(--muted)">S$'+Math.round(b.sgd).toLocaleString()+' + ¥'+Math.round(b.cny).toLocaleString()+'</div></div>'
+    +'</div>'
+    +'<div class="bar" style="margin-top:12px"><i style="width:'+(b.totalCny? Math.round(b.doneCny/b.totalCny*100):0)+'%"></i></div>'
+    +'<div style="display:flex; justify-content:space-between; margin-top:6px; font-size:11.5px; color:var(--muted)">'
+      +'<span>已花掉 ≈ ¥'+Math.round(b.doneCny).toLocaleString()+'</span>'
+      +'<span style="display:flex; gap:6px; align-items:center">汇率 1 SGD = <input class="mono" id="rateIn" type="number" step="0.01" min="0.01" value="'+b.rate+'" style="width:64px; background:var(--surface2); border:1px solid var(--line); border-radius:6px; padding:3px 6px; font-size:12px"> CNY <span style="color:var(--faint)">（待核实）</span></span>'
+    +'</div>'
+  +'</div></section>';
+
+  host.innerHTML=html;
+  document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.f===view.filter)));
+}
+
+/* ============ 交互 ============ */
+function toast(msg){
+  const t=document.createElement('div'); t.className='toast'; t.textContent=msg;
+  document.body.appendChild(t); setTimeout(()=>t.remove(), 1900);
+}
+document.addEventListener('click', e=>{
+  const t=e.target.closest('[data-tog],[data-edit],[data-skip],[data-del],[data-save],[data-cat],[data-ph]');
+  if(!t) return;
+  if(t.dataset.tog){
+    const id=t.dataset.tog; S.mark[id] = mark(id)==='done' ? 'todo' : 'done'; persist(); render();
+  } else if(t.dataset.skip){
+    const id=t.dataset.skip; S.mark[id] = mark(id)==='skip' ? 'todo' : 'skip'; persist(); render();
+  } else if(t.dataset.edit){
+    editing = editing===t.dataset.edit ? null : t.dataset.edit; render();
+    const f=document.getElementById('ed-n-'+editing); if(f) f.focus();
+  } else if(t.dataset.save){
+    const id=t.dataset.save;
+    const n=document.getElementById('ed-n-'+id).value.trim();
+    const a=Number(document.getElementById('ed-c-'+id).value)||0;
+    const u=document.getElementById('ed-u-'+id).value;
+    S.note[id]=n; if(a){ S.cost[id]={a,cu:u}; } else { delete S.cost[id]; }
+    editing=null; persist(); render(); toast('已保存');
+  } else if(t.dataset.del){
+    const id=t.dataset.del;
+    S.custom=(S.custom||[]).filter(x=>x.id!==id);
+    delete S.mark[id]; delete S.note[id]; delete S.cost[id];
+    persist(); render(); toast('已删除');
+  } else if(t.dataset.cat){
+    const c=t.dataset.cat;
+    const cur = S.open[c]!==undefined ? S.open[c] : (c==='doc');
+    S.open[c]=!cur; persist(); render();
+  } else if(t.dataset.ph){
+    view.phase = view.phase===t.dataset.ph ? null : t.dataset.ph;
+    if(view.phase){ CATS.forEach(c=>S.open[c.id]=true); }
+    render();
+  }
+});
+document.querySelectorAll('.seg button').forEach(b=>{
+  b.addEventListener('click', ()=>{ view.filter=b.dataset.f; if(view.filter!=='all') CATS.forEach(c=>S.open[c.id]=true); render(); });
+});
+document.getElementById('q').addEventListener('input', e=>{
+  view.q=e.target.value.trim();
+  if(view.q) CATS.forEach(c=>S.open[c.id]=true);
+  render();
+});
+document.getElementById('expandAll').addEventListener('click', ()=>{
+  const anyClosed = CATS.some(c=> !(S.open[c.id]!==undefined ? S.open[c.id] : c.id==='doc'));
+  CATS.forEach(c=>S.open[c.id]=anyClosed);
+  document.getElementById('expandAll').textContent = anyClosed ? '收起全部' : '展开全部';
+  persist(); render();
+});
+document.getElementById('gCount').addEventListener('click', ()=>{
+  const cur=S.settings.depart;
+  const v=prompt('出发日期（YYYY-MM-DD）\n所有阶段日期会跟着重算', cur);
+  if(!v) return;
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(v.trim())){ toast('格式要像 2026-11-01'); return; }
+  S.settings.depart=v.trim(); persist(); render(); toast('已更新出发日');
+});
+document.addEventListener('change', e=>{
+  if(e.target.id==='rateIn'){
+    const v=Number(e.target.value); if(v>0){ S.settings.rate=v; persist(); render(); }
+  }
+});
+
+/* 自动归类 */
+function guessCat(text){
+  const s=text.toLowerCase();
+  let best=null, score=0;
+  for(const [cid,words] of Object.entries(KEYWORDS)){
+    let n=0; words.forEach(w=>{ if(s.includes(w)) n += w.length>3?2:1; });
+    if(n>score){ score=n; best=cid; }
+  }
+  return best;
+}
+function guessPhase(text){
+  const s=text.toLowerCase();
+  if(/落地|到了之后|第一周|抵达|机场|开学/.test(s)) return 'w1';
+  if(/出发当天|登机|随身|漫游/.test(s)) return 'go';
+  if(/收行李|打包|临走|出发前/.test(s)) return 't7';
+  return null;
+}
+const newItem=document.getElementById('newItem');
+const newCat=document.getElementById('newCat');
+const newPhase=document.getElementById('newPhase');
+newCat.innerHTML = CATS.map(c=>'<option value="'+c.id+'">'+c.n+'</option>').join('');
+newPhase.innerHTML = PHASES.map(p=>'<option value="'+p.id+'">'+p.code+' '+p.nm+'</option>').join('');
+newPhase.value='t30';
+let pickedCat=false, pickedPhase=false;
+newCat.addEventListener('change', ()=>{ pickedCat=true; });
+newPhase.addEventListener('change', ()=>{ pickedPhase=true; });
+newItem.addEventListener('input', ()=>{
+  const v=newItem.value.trim();
+  const g=document.getElementById('guess');
+  if(!v){ g.textContent=''; return; }
+  const c=guessCat(v), p=guessPhase(v);
+  if(c && !pickedCat){ newCat.value=c; }
+  if(p && !pickedPhase){ newPhase.value=p; }
+  if(pickedCat){ g.textContent='分类你已经自己选了，我不改了'; return; }
+  const cn=c?(CATS.find(x=>x.id===c)||{}).n:null;
+  g.innerHTML = cn ? ('猜它属于 <b>'+cn+'</b>'+(p&&!pickedPhase?' · <b>'+(PHASES.find(x=>x.id===p)||{}).nm+'</b>':'')+'，不对就在右边改') : '没猜出来，右边手动选一个分类';
+});
+function addNew(){
+  const v=newItem.value.trim();
+  if(!v){ newItem.focus(); return; }
+  const item={ id:'u'+Date.now().toString(36), c:newCat.value, t:v, n:'', p:newPhase.value, k:0, b:'', a:0, cu:'SGD', own:1 };
+  S.custom=(S.custom||[]); S.custom.push(item);
+  S.open[item.c]=true;
+  newItem.value=''; document.getElementById('guess').textContent=''; pickedCat=false; pickedPhase=false;
+  persist(); render(); toast('已加到「'+(CATS.find(c=>c.id===item.c)||{}).n+'」');
+}
+document.getElementById('addBtn').addEventListener('click', addNew);
+newItem.addEventListener('keydown', e=>{ if(e.key==='Enter') addNew(); });
+
+/* 导出 */
+document.getElementById('exportBtn').addEventListener('click', async ()=>{
+  const rows=[['分类','阶段','事项','状态','关键','带法','金额','币种','备注']];
+  allItems().forEach(it=>{
+    const c=costOf(it); const m=mark(it.id);
+    rows.push([
+      (CATS.find(x=>x.id===it.c)||{}).n||'',
+      (PHASES.find(p=>p.id===it.p)||{}).code||'',
+      it.t,
+      m==='done'?'已完成':(m==='skip'?'不需要':'未完成'),
+      it.k?'是':'',
+      it.b==='cn'?'国内带':(it.b==='sg'?'落地买':''),
+      c.a||'', c.a?c.cu:'', noteOf(it)
+    ]);
+  });
+  const csv='﻿'+rows.map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(',')).join('\n');
+  try{
+    const dl = await (window.claude && window.claude.use ? window.claude.use('downloads') : null);
+    if(!dl){ toast('这个环境不能下载文件'); return; }
+    await dl.save({filename:'NTU行前清单-'+new Date().toISOString().slice(0,10)+'.csv', data:csv});
+    toast('已导出');
+  }catch(e){
+    if(e && e.code==='declined') return;
+    toast('导出没成功：'+((e&&e.code)||'unknown'));
+  }
+});
+
+loadLocal(); syncLine(); render();
+</script>

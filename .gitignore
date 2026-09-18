@@ -1,0 +1,6 @@
+.DS_Store
+node_modules/
+*.zip
+
+# 需求文档和个人问答 —— 只留在本地，不公开
+_private/

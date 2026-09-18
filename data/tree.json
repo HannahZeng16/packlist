@@ -1,0 +1,365 @@
+{
+  "version": 1,
+  "note": "分类树。goods=物品（浏览主线），task=要办的事，avoid=别带。fold=默认折叠的块（如彩妆，男生可整块跳过）",
+  "tree": [
+    {
+      "id": "doc",
+      "n": "证件与钱",
+      "icon": "🪪",
+      "kind": "goods",
+      "sub": [
+        {
+          "id": "doc.id",
+          "n": "身份证件"
+        },
+        {
+          "id": "doc.edu",
+          "n": "学历材料"
+        },
+        {
+          "id": "doc.photo",
+          "n": "证件照"
+        },
+        {
+          "id": "doc.money",
+          "n": "银行卡与现金"
+        },
+        {
+          "id": "doc.ins",
+          "n": "保险"
+        },
+        {
+          "id": "doc.backup",
+          "n": "文件备份"
+        }
+      ]
+    },
+    {
+      "id": "elec",
+      "n": "电子数码",
+      "icon": "🔌",
+      "kind": "goods",
+      "sub": [
+        {
+          "id": "elec.computer",
+          "n": "电脑平板"
+        },
+        {
+          "id": "elec.phone",
+          "n": "手机"
+        },
+        {
+          "id": "elec.power",
+          "n": "充电供电"
+        },
+        {
+          "id": "elec.audio",
+          "n": "影音配件"
+        },
+        {
+          "id": "elec.storage",
+          "n": "存储"
+        },
+        {
+          "id": "elec.personal",
+          "n": "个护电器"
+        },
+        {
+          "id": "elec.desk",
+          "n": "电脑周边"
+        }
+      ]
+    },
+    {
+      "id": "wash",
+      "n": "洗漱个护",
+      "icon": "🧴",
+      "kind": "goods",
+      "sub": [
+        {
+          "id": "wash.oral",
+          "n": "口腔清洁"
+        },
+        {
+          "id": "wash.face",
+          "n": "面部清洁"
+        },
+        {
+          "id": "wash.skin",
+          "n": "护肤"
+        },
+        {
+          "id": "wash.sun",
+          "n": "防晒"
+        },
+        {
+          "id": "wash.makeup",
+          "n": "彩妆",
+          "fold": true,
+          "cond": "makeup"
+        },
+        {
+          "id": "wash.body",
+          "n": "身体清洁"
+        },
+        {
+          "id": "wash.hair",
+          "n": "头发护理"
+        },
+        {
+          "id": "wash.shave",
+          "n": "剃须脱毛",
+          "fold": true
+        },
+        {
+          "id": "wash.lens",
+          "n": "隐形眼镜",
+          "fold": true,
+          "cond": "lens"
+        },
+        {
+          "id": "wash.period",
+          "n": "生理用品",
+          "fold": true,
+          "cond": "period"
+        },
+        {
+          "id": "wash.nail",
+          "n": "指甲美容"
+        },
+        {
+          "id": "wash.pack",
+          "n": "分装收纳"
+        }
+      ]
+    },
+    {
+      "id": "wear",
+      "n": "服饰鞋包",
+      "icon": "👕",
+      "kind": "goods",
+      "sub": [
+        {
+          "id": "wear.top",
+          "n": "上衣"
+        },
+        {
+          "id": "wear.bottom",
+          "n": "下装"
+        },
+        {
+          "id": "wear.outer",
+          "n": "外套"
+        },
+        {
+          "id": "wear.under",
+          "n": "内衣袜"
+        },
+        {
+          "id": "wear.sleep",
+          "n": "睡衣家居服"
+        },
+        {
+          "id": "wear.shoes",
+          "n": "鞋"
+        },
+        {
+          "id": "wear.bag",
+          "n": "包"
+        },
+        {
+          "id": "wear.acc",
+          "n": "配饰"
+        },
+        {
+          "id": "wear.formal",
+          "n": "正装"
+        },
+        {
+          "id": "wear.sport",
+          "n": "泳装运动"
+        }
+      ]
+    },
+    {
+      "id": "med",
+      "n": "药品健康",
+      "icon": "💊",
+      "kind": "goods",
+      "sub": [
+        {
+          "id": "med.oral",
+          "n": "内服常备药"
+        },
+        {
+          "id": "med.topical",
+          "n": "外用药"
+        },
+        {
+          "id": "med.rx",
+          "n": "处方与长期用药"
+        },
+        {
+          "id": "med.device",
+          "n": "医疗器械"
+        },
+        {
+          "id": "med.bug",
+          "n": "防蚊虫"
+        },
+        {
+          "id": "med.eye",
+          "n": "视力相关"
+        }
+      ]
+    },
+    {
+      "id": "home",
+      "n": "居家生活",
+      "icon": "🛏",
+      "kind": "goods",
+      "sub": [
+        {
+          "id": "home.bed",
+          "n": "床品与睡眠"
+        },
+        {
+          "id": "home.towel",
+          "n": "毛巾浴巾"
+        },
+        {
+          "id": "home.clean",
+          "n": "清洁耗材"
+        },
+        {
+          "id": "home.laundry",
+          "n": "洗衣"
+        },
+        {
+          "id": "home.storage",
+          "n": "收纳"
+        },
+        {
+          "id": "home.luggage",
+          "n": "行李箱与打包工具"
+        },
+        {
+          "id": "home.dry",
+          "n": "除湿驱虫"
+        },
+        {
+          "id": "home.appliance",
+          "n": "小家电"
+        },
+        {
+          "id": "home.tool",
+          "n": "工具五金"
+        },
+        {
+          "id": "home.hang",
+          "n": "晾晒"
+        }
+      ]
+    },
+    {
+      "id": "food",
+      "n": "食品厨房",
+      "icon": "🍜",
+      "kind": "goods",
+      "sub": [
+        {
+          "id": "food.tableware",
+          "n": "餐具"
+        },
+        {
+          "id": "food.cookware",
+          "n": "炊具"
+        },
+        {
+          "id": "food.season",
+          "n": "调料干货"
+        },
+        {
+          "id": "food.emergency",
+          "n": "应急食品"
+        },
+        {
+          "id": "food.cup",
+          "n": "水杯保温"
+        }
+      ]
+    },
+    {
+      "id": "study",
+      "n": "学习办公",
+      "icon": "📚",
+      "kind": "goods",
+      "sub": [
+        {
+          "id": "study.stationery",
+          "n": "文具"
+        },
+        {
+          "id": "study.book",
+          "n": "书籍资料"
+        }
+      ]
+    },
+    {
+      "id": "todo",
+      "n": "要办的事",
+      "icon": "✅",
+      "kind": "task",
+      "sub": [
+        {
+          "id": "todo.visa",
+          "n": "证件办理"
+        },
+        {
+          "id": "todo.school",
+          "n": "入学注册"
+        },
+        {
+          "id": "todo.rent",
+          "n": "租房"
+        },
+        {
+          "id": "todo.bank",
+          "n": "银行"
+        },
+        {
+          "id": "todo.tel",
+          "n": "通讯与账号"
+        },
+        {
+          "id": "todo.health",
+          "n": "体检就医"
+        },
+        {
+          "id": "todo.cnwrap",
+          "n": "国内收尾"
+        },
+        {
+          "id": "todo.arrive",
+          "n": "落地事项"
+        }
+      ]
+    },
+    {
+      "id": "avoid",
+      "n": "别带",
+      "icon": "⛔",
+      "kind": "avoid",
+      "sub": [
+        {
+          "id": "avoid.red",
+          "n": "红线物品"
+        },
+        {
+          "id": "avoid.nope",
+          "n": "不建议带"
+        }
+      ]
+    }
+  ]
+}
