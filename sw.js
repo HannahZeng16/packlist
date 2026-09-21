@@ -1,5 +1,5 @@
 /* 离线缓存。改版本号即可让所有装了的手机更新。 */
-const V='travelkit-v1';
+const V='travelkit-v2';
 const CORE=['./','index.html','assets/style.css','assets/app.js',
             'data/tree.json','data/items.json','manifest.webmanifest',
             'icons/icon-180.png','icons/icon-512.png'];
