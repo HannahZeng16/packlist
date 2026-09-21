@@ -100,8 +100,11 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 /* ── 二级分组 ── */
 .grp{margin-bottom:8px; background:var(--surface); border:1px solid var(--line);
   border-radius:var(--r); overflow:hidden}
-.grp>.gh{display:flex; align-items:center; gap:9px; width:100%; padding:13px 14px; text-align:left}
+.grp>.gh{display:flex; align-items:center; gap:9px; width:100%; padding:13px 14px;
+  text-align:left; cursor:pointer; user-select:none; -webkit-user-select:none}
 .grp>.gh:active{background:var(--sunk)}
+.gall{flex:none; font-size:12px; color:var(--accent); padding:5px 9px; border-radius:7px;
+  background:var(--accent-soft); font-weight:600}
 .grp .gn{flex:1; font-size:15px; font-weight:600}
 .grp .gc{font-size:12px; color:var(--dim); font-variant-numeric:tabular-nums}
 .grp .gx{color:var(--faint); font-size:12px; transition:transform .2s}
@@ -172,3 +175,52 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
   background:var(--text); color:var(--bg); padding:10px 17px; border-radius:11px;
   font-size:14px; z-index:80; animation:fade .3s; white-space:nowrap; max-width:88vw}
 @keyframes fade{from{opacity:0; transform:translate(-50%,8px)}}
+
+
+/* ── 工具条（全部展开 / 多选）── */
+.toolbar{display:flex; align-items:center; justify-content:space-between; gap:10px;
+  margin:0 0 10px; min-height:32px}
+.tbtn{font-size:13px; color:var(--accent); padding:6px 11px; border-radius:9px;
+  background:var(--accent-soft); font-weight:600; white-space:nowrap}
+.tbtn.on{background:var(--accent); color:#fff}
+.mhint{margin-bottom:10px; line-height:1.55}
+.lnk{color:var(--accent); padding:2px 4px}
+
+/* ── 星标高亮 / 置顶 ── */
+.acts{flex:none; display:flex; flex-direction:column; gap:2px; align-self:flex-start; margin:-2px -4px 0 4px}
+.star,.pin{padding:3px 5px; font-size:15px; color:var(--faint); line-height:1.1; border-radius:6px}
+.star[data-on="1"]{color:var(--gold)}
+.pin[data-on="1"]{color:var(--accent)}
+.star:active,.pin:active{background:var(--sunk)}
+.row.key{background:linear-gradient(90deg,var(--gold-soft,#FBF3E2),transparent 60%);
+  box-shadow:inset 3px 0 0 var(--gold)}
+.row.pinned{background:var(--accent-soft)}
+.row.key.pinned{box-shadow:inset 3px 0 0 var(--gold)}
+.chip.pin{background:var(--accent); color:#fff; font-weight:600}
+.chip.ok{background:var(--accent-soft); color:var(--accent); font-weight:600}
+.warnline{color:var(--warn)!important}
+:root{--gold-soft:#FBF3E2}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--gold-soft:#2A2113}}
+:root[data-theme="dark"]{--gold-soft:#2A2113}
+
+/* ── 多选 ── */
+.ck.bulk{border-radius:50%; border-style:dashed}
+.ck.bulk[data-on="1"]{background:var(--accent); border-color:var(--accent); border-style:solid}
+.row.sel{background:var(--accent-soft)}
+.bulkbar{position:fixed; left:10px; right:10px; bottom:calc(72px + var(--safe-b)); z-index:55;
+  display:flex; align-items:center; gap:9px; padding:10px 12px; border-radius:15px;
+  background:color-mix(in srgb,var(--surface) 94%,transparent); border:1px solid var(--line);
+  -webkit-backdrop-filter:blur(20px); backdrop-filter:blur(20px);
+  box-shadow:0 6px 24px rgba(0,0,0,.14); font-size:14px}
+.bulkbar>span{flex:1; color:var(--dim)}
+.bulkbar>span b{color:var(--text)}
+.bbtn{padding:9px 14px; border-radius:10px; background:var(--accent); color:#fff;
+  font-size:14px; font-weight:600; white-space:nowrap}
+.bbtn.ghost{background:var(--sunk); color:var(--text)}
+.bbtn:disabled{opacity:.4}
+
+/* ── 搜索框 ── */
+.sicon{color:var(--faint)}
+.search input[type=search]{-webkit-appearance:none; appearance:none}
+.search input::-webkit-search-cancel-button{display:none}
+.sclr{flex:none; color:var(--faint); padding:4px 6px; font-size:14px}
